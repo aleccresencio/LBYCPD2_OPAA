@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -16,7 +17,8 @@ import java.sql.*;
 import java.util.Scanner;
 
 public class Controller {
-    public TextField usernameField, pwField;
+    public TextField usernameField;
+    public PasswordField pwField;
     public Label incorrectLabel;
     public UserObject currentUser;
     public Button loginButton;

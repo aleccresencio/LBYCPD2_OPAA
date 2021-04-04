@@ -1,7 +1,6 @@
 package com.company;
 
 public class UserObject {
-    private int userId;
     private String firstName;
     private String lastName;
     private String email;
@@ -10,15 +9,13 @@ public class UserObject {
     private String division;
 
 
-    public UserObject(int userId, String firstName, String lastName, String email, String password, String division){
-        this.userId = userId;
+    public UserObject(String firstName, String lastName, String email, String password, String division){
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.division = division;
     }
-    public int getUserId() {return userId;}
     public String getFirstName(){
         return firstName;
     }

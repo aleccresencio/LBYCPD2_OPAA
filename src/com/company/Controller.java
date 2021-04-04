@@ -10,11 +10,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.sql.*;
-import java.util.Scanner;
 
 public class Controller {
     public TextField usernameField;
@@ -39,7 +35,7 @@ public class Controller {
         if(currentUser == null){
             incorrectLabel.setVisible(true);
             System.out.println("An error has occured");
-        }else if(currentUser.getDivision().equals("Student")) {
+        } else if(currentUser.getDivision().equals("Student")) {
             Stage stage1 = (Stage) loginButton.getScene().getWindow();
             stage1.close();
             //loads new stage
@@ -50,11 +46,11 @@ public class Controller {
             scene2Controller.transferCurrentUser(currentUser);
             //Show new scene in new window
             Stage stage = new Stage();
-            stage.setScene(new Scene(root,600,400));
+            stage.setScene(new Scene(root,1000,600));
             stage.setTitle("OPAA");
             stage.show();
             System.out.println(currentUser.getDivision());
-        }else if(currentUser.getDivision().equals("Adviser")) {
+        } else if(currentUser.getDivision().equals("Adviser")) {
             Stage stage1 = (Stage) loginButton.getScene().getWindow();
             stage1.close();
             //loads new stage
@@ -65,11 +61,11 @@ public class Controller {
             scene2Controller.transferCurrentUser(currentUser);
             //Show new scene in new window
             Stage stage = new Stage();
-            stage.setScene(new Scene(root,600,400));
+            stage.setScene(new Scene(root,1000,600));
             stage.setTitle("OPAA");
             stage.show();
             System.out.println(currentUser.getDivision());
-        }else if(currentUser.getDivision().equals("Admin")) {
+        } else if(currentUser.getDivision().equals("Admin")) {
             Stage stage1 = (Stage) loginButton.getScene().getWindow();
             stage1.close();
             //loads new stage
@@ -80,7 +76,7 @@ public class Controller {
             scene2Controller.transferCurrentUser(currentUser);
             //Show new scene in new window
             Stage stage = new Stage();
-            stage.setScene(new Scene(root,600,400));
+            stage.setScene(new Scene(root,1000,600));
             stage.setTitle("OPAA");
             stage.show();
             System.out.println(currentUser.getDivision());

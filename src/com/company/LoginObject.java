@@ -25,14 +25,13 @@ public class LoginObject {
                 return null;
             } else {
                 while (result.next()) {
-                    int userId = result.getInt(1);
                     String firstName = result.getString(2);
                     String lastName = result.getString(3);
                     String email = result.getString("email");
                     String pass = result.getString("pw");
                     String division = result.getString("division");
                     System.out.println("Welcome " + firstName + " " + lastName + "! You are a " + division);
-                    return currentUser = new UserObject(userId, firstName, lastName, email, pass, division);
+                    return currentUser = new UserObject(firstName, lastName, email, pass, division);
                 }
             }
             connection.close();

@@ -24,6 +24,7 @@ public class Controller {
     public Button loginButton;
 
     public void loginButton(ActionEvent actionEvent) throws IOException {
+        //hello
         //gets username and password from the text fields
         String user = usernameField.getText();
         String pw = pwField.getText();

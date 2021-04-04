@@ -1,0 +1,94 @@
+.root{
+    -fx-background-image: url("assets/opaa_bg.png");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 1050 650;
+    -fx-background-position: center center;
+}
+
+.mainMenuRoot{
+    -fx-background-image: url("assets/main_menu_bg.png");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 1000 600;
+    -fx-background-position: center center;
+}
+
+.titleLabel{
+    -fx-font-family: "Roboto Light";
+    -fx-font-size: 28;
+    -fx-text-fill: #46694A;
+}
+
+.headerLabel{
+    -fx-font-family: "Helvetica Compressed";
+    -fx-font-size: 18;
+    -fx-text-fill: #46694A;
+}
+
+.txtFld {
+    -fx-background-color: transparent;
+    -fx-border-color: #46694A;
+    -fx-border-radius: 10;
+    -fx-font-family: "Helvetica Compressed";
+    -fx-font-size: 14;
+    -fx-text-fill: #46694A;
+    -fx-alignment: center;
+}
+
+.button{
+    -fx-background-color: #006937;
+    -fx-background-radius: 10;
+    -fx-font-family: "Helvetica Compressed Bold";
+    -fx-text-fill: White;
+    -fx-font-size: 14;
+}
+
+.adminPicButton {
+    -fx-background-color: white;
+    -fx-background-image: url("assets/dpGirl.png");
+    -fx-background-repeat: stretch;
+    -fx-background-position: center center;
+    -fx-background-size: 110 110;
+    -fx-background-radius: 115;
+}
+
+.studentPicButton {
+    -fx-background-color: white;
+    -fx-background-image: url("assets/dpBoy.png");
+    -fx-background-repeat: stretch;
+    -fx-background-position: center center;
+    -fx-background-size: 110 110;
+    -fx-background-radius: 115;
+}
+
+.homeButton {
+    -fx-background-color: white;
+    -fx-background-image: url("assets/opaa_logo.png");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 280 100;
+    -fx-background-position: center center;
+    -fx-background-radius: 115;
+}
+
+.calendarButton {
+    -fx-font-family: "Arial Black";
+    -fx-text-fill: White;
+    -fx-font-size: 24;
+}
+
+.meetingsButton {
+    -fx-font-family: "Arial Black";
+    -fx-text-fill: White;
+    -fx-font-size: 24;
+}
+
+.gradesButton {
+    -fx-font-family: "Arial Black";
+    -fx-text-fill: White;
+    -fx-font-size: 24;
+}
+
+.logoutButton {
+    -fx-font-family: "Arial Black";
+    -fx-text-fill: White;
+    -fx-font-size: 16;
+}

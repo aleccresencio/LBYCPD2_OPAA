@@ -39,7 +39,7 @@ public class StudentHomeScreenController {
         Parent root = loader.load();
         //Show new scene in new window
         Stage stage = new Stage();
-        stage.setScene(new Scene(root,374,338));
+        stage.setScene(new Scene(root,1000,600));
         stage.setTitle("OPAA");
         stage.show();
     }

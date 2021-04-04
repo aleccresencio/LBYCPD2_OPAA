@@ -13,13 +13,13 @@
 }
 
 .titleLabel{
-    -fx-font-family: "Roboto Light";
-    -fx-font-size: 28;
+    -fx-font-family: "Calibri Light";
+    -fx-font-size: 32;
     -fx-text-fill: #46694A;
 }
 
 .headerLabel{
-    -fx-font-family: "Helvetica Compressed";
+    -fx-font-family: "Calibri Light";
     -fx-font-size: 18;
     -fx-text-fill: #46694A;
 }
@@ -28,7 +28,7 @@
     -fx-background-color: transparent;
     -fx-border-color: #46694A;
     -fx-border-radius: 10;
-    -fx-font-family: "Helvetica Compressed";
+    -fx-font-family: "Calibri Light";
     -fx-font-size: 14;
     -fx-text-fill: #46694A;
     -fx-alignment: center;
@@ -37,7 +37,7 @@
 .button{
     -fx-background-color: #006937;
     -fx-background-radius: 10;
-    -fx-font-family: "Helvetica Compressed Bold";
+    -fx-font-family: "Lucida Sans";
     -fx-text-fill: White;
     -fx-font-size: 14;
 }
@@ -52,6 +52,15 @@
 }
 
 .studentPicButton {
+    -fx-background-color: white;
+    -fx-background-image: url("assets/dpBoy.png");
+    -fx-background-repeat: stretch;
+    -fx-background-position: center center;
+    -fx-background-size: 110 110;
+    -fx-background-radius: 115;
+}
+
+.adviserPicButton {
     -fx-background-color: white;
     -fx-background-image: url("assets/dpBoy.png");
     -fx-background-repeat: stretch;

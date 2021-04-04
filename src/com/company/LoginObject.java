@@ -5,9 +5,9 @@ import java.sql.*;
 public class LoginObject {
     public UserObject checkLogin(String user, String pw) {
         //database details
-        String url = "jdbc:mysql://localhost:3306/opaa_database";
-        String username = "root";
-        String password = "password";
+        String url = "jdbc:mysql://sql6.freemysqlhosting.net:3306/sql6403334";
+        String username = "sql6403334";
+        String password = "ilAP5AHseR";
         UserObject currentUser;
         try {
             //establishes a connection to the database

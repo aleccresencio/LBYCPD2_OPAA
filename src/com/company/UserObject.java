@@ -7,14 +7,16 @@ public class UserObject {
     private String password;
     private String adviser;
     private String division;
+    private int user_id;
 
 
-    public UserObject(String firstName, String lastName, String email, String password, String division){
+    public UserObject(int userId, String firstName, String lastName, String email, String password, String division){
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.division = division;
+        this.user_id = userId;
     }
     public String getFirstName(){
         return firstName;
@@ -31,4 +33,5 @@ public class UserObject {
     public String getDivision(){
         return division;
     }
+    public int getUser_id(){return user_id;}
 }

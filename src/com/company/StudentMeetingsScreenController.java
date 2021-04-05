@@ -6,17 +6,26 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
-public class StudentHomeScreenController {
+public class StudentMeetingsScreenController {
     public UserObject currentUser;
     public Button logoutButton, meetingsButton, calendarButton, profileButton, homeButton;
     public Label userNameLabel;
+    public ListView<String> meetingsListView;
+
     public void transferCurrentUser(UserObject currentUser) {
+        ArrayList<String> meetingsList = new ArrayList<String>();
         this.currentUser = currentUser;
-        userNameLabel.setText("Welcome "+ currentUser.getFirstName()+" "+currentUser.getLastName()+"!");
+        LoginObject loginObject = new LoginObject();
+        meetingsList = loginObject.checkMeetings(currentUser.getUser_id(), currentUser.getDivision());
+        for(int i = 0; i < meetingsList.size(); i++) {
+            meetingsListView.getItems().add(meetingsList.get(i));
+        }
     }
 
     public void meetingsButton(ActionEvent actionEvent) throws IOException {
@@ -55,6 +64,9 @@ public class StudentHomeScreenController {
         stage.setScene(new Scene(root,1000,600));
         stage.setTitle("OPAA");
         stage.show();
+    }
+
+    public void requestMeeting(ActionEvent actionEvent) {
     }
 
     public void logoutButton(ActionEvent actionEvent) throws IOException {

@@ -3,10 +3,11 @@ package com.company;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class LoginObject {
+public class MySQLObject {
     public String url = "jdbc:mysql://sql6.freemysqlhosting.net:3306/sql6403334";
     public String username = "sql6403334";
     public String password = "ilAP5AHseR";
+
     public UserObject checkLogin(String user, String pw) {
         //database details
 //        String url = "jdbc:mysql://sql6.freemysqlhosting.net:3306/sql6403334";
@@ -48,9 +49,8 @@ public class LoginObject {
     }
 
     public ArrayList<String> checkMeetings(int userId, String division){
-//        int count = 0;
-//        String[] meetingList = null;
         ArrayList<String> meetingList = new ArrayList<String>();
+        int stopper = 0;
         try {
             //establishes a connection to the database
             Connection connection = DriverManager.getConnection(url, username, password);
@@ -70,23 +70,22 @@ public class LoginObject {
                     String sched = result.getString("sched");
                     if (from_id == userId && division.equals("Student")){
                         meetingList.add("You set a private meeting on "+sched);
-                    }else if(from_id == userId && division.equals("Adviser")){
-                        String sql2 = "SELECT DISTINCT sched FROM meetings WHERE from_id IN (SELECT from_id FROM meetings WHERE from_id="+userId;
+                    } else if(from_id == userId && division.equals("Adviser") && stopper == 0){
+                        String sql2 = "SELECT DISTINCT sched FROM meetings WHERE from_id IN (SELECT from_id FROM meetings WHERE from_id="+userId+")";
                         //prepares the sql query statement
                         Statement statement2 = connection.createStatement();
                         //executes the statement and retrieves results
                         ResultSet result2 = statement2.executeQuery(sql2);
-                        while(result.next()){
+                        while(result2.next()){
                             String sched2 = result2.getString("sched");
                             meetingList.add("You set a meeting on "+sched2);
-//                            count++;
                         }
-                    }else if(to_id == userId && division.equals("Student")){
+                        stopper = 1;
+                    } else if(to_id == userId && division.equals("Student")){
                         meetingList.add("You have a meeting on "+sched);
                     }else if(to_id == userId && division.equals("Adviser")){
                         meetingList.add("You have a private meeting on "+sched);
                     }
-//                    count++;
                 }
             }
             connection.close();

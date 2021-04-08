@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class StudentMeetingsScreenController {
+public class AdviserMeetingScreenController {
     public UserObject currentUser;
     public Button logoutButton, meetingsButton, calendarButton, profileButton, homeButton;
     public Label userNameLabel;
@@ -32,10 +32,10 @@ public class StudentMeetingsScreenController {
         Stage stage1 = (Stage) meetingsButton.getScene().getWindow();
         stage1.close();
         //loads new stage
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("studentMeetingScreen.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("adviserMeetingScreen.fxml"));
         Parent root = loader.load();
         //transfers the current user to other controller
-        StudentMeetingsScreenController scene2Controller = loader.getController();
+        AdviserMeetingScreenController scene2Controller = loader.getController();
         scene2Controller.transferCurrentUser(currentUser);
         //Show new scene in new window
         Stage stage = new Stage();
@@ -54,10 +54,10 @@ public class StudentMeetingsScreenController {
         Stage stage1 = (Stage) homeButton.getScene().getWindow();
         stage1.close();
         //loads new stage
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("studentHomeScreen.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("adviserHomeScreen.fxml"));
         Parent root = loader.load();
         //transfers the current user to other controller
-        StudentHomeScreenController scene2Controller = loader.getController();
+        AdviserHomeScreenController scene2Controller = loader.getController();
         scene2Controller.transferCurrentUser(currentUser);
         //Show new scene in new window
         Stage stage = new Stage();

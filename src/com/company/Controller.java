@@ -25,7 +25,7 @@ public class Controller {
         String user = usernameField.getText();
         String pw = pwField.getText();
         //creates login object
-        LoginObject login = new LoginObject();
+        MySQLObject login = new MySQLObject();
         //function checks the database if the user is in it
         currentUser = login.checkLogin(user, pw);
         //clears the text fields

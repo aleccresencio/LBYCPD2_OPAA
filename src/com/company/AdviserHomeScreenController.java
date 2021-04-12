@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public class AdviserHomeScreenController {
     public UserObject currentUser;
-    public Button logoutButton, meetingsButton, calendarButton, profileButton, homeButton;
+    public Button logoutButton, meetingsButton, calendarButton, profileButton, homeButton, gradesButton;
     public Label userNameLabel;
     public void transferCurrentUser(UserObject currentUser) {
         this.currentUser = currentUser;
@@ -41,7 +41,20 @@ public class AdviserHomeScreenController {
     public void profileButton(ActionEvent actionEvent) {
     }
 
-    public void homeButton(ActionEvent actionEvent) {
+    public void homeButton(ActionEvent actionEvent) throws IOException {
+        Stage stage1 = (Stage) homeButton.getScene().getWindow();
+        stage1.close();
+        //loads new stage
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("adviserHomeScreen.fxml"));
+        Parent root = loader.load();
+        //transfers the current user to other controller
+        AdviserHomeScreenController scene2Controller = loader.getController();
+        scene2Controller.transferCurrentUser(currentUser);
+        //Show new scene in new window
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root,1000,600));
+        stage.setTitle("OPAA");
+        stage.show();
     }
 
     public void logoutButton(ActionEvent actionEvent) throws IOException {
@@ -55,5 +68,8 @@ public class AdviserHomeScreenController {
         stage.setScene(new Scene(root,1000,600));
         stage.setTitle("OPAA");
         stage.show();
+    }
+
+    public void gradesButton(ActionEvent actionEvent) {
     }
 }

@@ -7,25 +7,20 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
-public class AdviserMeetingScreenController {
+public class AdviserSetMeetingScreenController {
     public UserObject currentUser;
-    public Button logoutButton, meetingsButton, calendarButton, profileButton, homeButton, gradesButton, setMeetingButton;
+    public Button logoutButton, meetingsButton, calendarButton, profileButton, homeButton, confirmButton, gradesButton;
     public Label userNameLabel;
+    public TextField monthField, dayField, yearField, hourField, minuteField;
     public ListView<String> meetingsListView;
 
     public void transferCurrentUser(UserObject currentUser) {
-        ArrayList<String> meetingsList = new ArrayList<String>();
         this.currentUser = currentUser;
-        MySQLObject loginObject = new MySQLObject();
-        meetingsList = loginObject.checkMeetings(currentUser.getUser_id(), currentUser.getDivision());
-        for(int i = 0; i < meetingsList.size(); i++) {
-            meetingsListView.getItems().add(meetingsList.get(i));
-        }
     }
 
     public void meetingsButton(ActionEvent actionEvent) throws IOException {
@@ -66,20 +61,15 @@ public class AdviserMeetingScreenController {
         stage.show();
     }
 
-    public void setMeeting(ActionEvent actionEvent) throws IOException {
-        Stage stage1 = (Stage) meetingsButton.getScene().getWindow();
-        stage1.close();
-        //loads new stage
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("adviserSetMeetingScreen.fxml"));
-        Parent root = loader.load();
-        //transfers the current user to other controller
-        AdviserSetMeetingScreenController scene2Controller = loader.getController();
-        scene2Controller.transferCurrentUser(currentUser);
-        //Show new scene in new window
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root,1000,600));
-        stage.setTitle("OPAA");
-        stage.show();
+    public void confirmButton(ActionEvent actionEvent) {
+        String meetingSched = monthField.getText()+"/"+dayField.getText()+"/"+yearField.getText()+" "+hourField.getText()+":"+minuteField.getText();
+        MySQLObject sql = new MySQLObject();
+        sql.setMeeting(currentUser.getUser_id(), meetingSched);
+        monthField.clear();
+        dayField.clear();
+        yearField.clear();
+        hourField.clear();
+        minuteField.clear();
     }
 
     public void logoutButton(ActionEvent actionEvent) throws IOException {

@@ -18,6 +18,12 @@
     -fx-text-fill: #46694A;
 }
 
+.textLabel{
+    -fx-font-family: "Calibri Light";
+    -fx-font-size: 24;
+    -fx-text-fill: #46694A;
+}
+
 .headerLabel{
     -fx-font-family: "Calibri Light";
     -fx-font-size: 18;

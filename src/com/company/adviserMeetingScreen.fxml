@@ -18,9 +18,9 @@
          <font>
             <Font name="Monospaced Regular" size="12.0" />
          </font></Label>
-      <Button fx:id="calendarButton1" layoutX="776.0" layoutY="39.0" mnemonicParsing="false" onAction="#calendarButton" prefHeight="100.0" prefWidth="190.0" styleClass="gradesButton" text="GRADES" />
+      <Button fx:id="gradesButton" layoutX="776.0" layoutY="39.0" mnemonicParsing="false" onAction="#gradesButton" prefHeight="100.0" prefWidth="190.0" styleClass="gradesButton" text="GRADES" />
       <ListView fx:id="meetingsListView" layoutX="106.0" layoutY="251.0" prefHeight="267.0" prefWidth="626.0" />
-      <Button fx:id="requestMeetingButton" layoutX="702.0" layoutY="539.0" mnemonicParsing="false" onAction="#requestMeeting" text="+" />
+      <Button fx:id="setMeetingButton" layoutX="702.0" layoutY="539.0" mnemonicParsing="false" onAction="#setMeeting" text="+" />
    </children>
    <stylesheets>
       <URL value="@opaa_stylesheet.css" />

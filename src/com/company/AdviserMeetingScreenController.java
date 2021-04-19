@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class AdviserMeetingScreenController {
     public buttonFunctions loadScreen;
     public UserObject currentUser;
-    public Button logoutButton, meetingsButton, calendarButton, profileButton, homeButton, gradesButton, setMeetingButton;
+    public Button logoutButton, meetingsButton, calendarButton, profileButton, homeButton, gradesButton, setMeetingButton, removeButton;
     public Label userNameLabel;
     public ListView<String> meetingsListView;
 
@@ -67,5 +67,8 @@ public class AdviserMeetingScreenController {
     }
 
     public void gradesButton(ActionEvent actionEvent) {
+    }
+
+    public void removeButton(ActionEvent actionEvent) {
     }
 }

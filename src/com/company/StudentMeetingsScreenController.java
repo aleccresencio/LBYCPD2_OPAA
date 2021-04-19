@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class StudentMeetingsScreenController {
     public buttonFunctions loadScreen;
     public UserObject currentUser;
-    public Button logoutButton, meetingsButton, calendarButton, profileButton, homeButton;
+    public Button logoutButton, meetingsButton, calendarButton, profileButton, homeButton, removeButton;
     public Label userNameLabel;
     public ListView<String> meetingsListView;
 
@@ -64,5 +64,8 @@ public class StudentMeetingsScreenController {
     public void logoutButton(ActionEvent actionEvent) throws IOException {
         buttonFunctions loadScreen = new buttonFunctions();
         loadScreen.logoutButton(logoutButton);
+    }
+
+    public void removeButton(ActionEvent actionEvent) {
     }
 }

@@ -113,7 +113,6 @@ public class MySQLObject {
             statement.setInt(1, fromId);
             statement.setInt(2, toId);
             statement.setString(3, requestSched);
-
             //executes the statement
             statement.execute();
             //closes connection
@@ -142,12 +141,30 @@ public class MySQLObject {
                 //executes the statement
                 statement.execute();
             }
-
-
-
             //closes connection
             connection.close();
         } catch(SQLException throwables){
+            System.out.println("an error has been encountered");
+            throwables.printStackTrace();
+        }
+    }
+
+    public void removeMeetingRequest(int fromId, int toId, String meetingSched) {
+        try {
+            //establishes a connection to the database
+            Connection connection = DriverManager.getConnection(url, username, password);
+            //sql query that checks if the entered username and password is in the database
+            String sql = "DELETE FROM meetings WHERE from_id = ? and to_id = ? and sched = ?";
+            //prepares the sql query statement
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, fromId);
+            statement.setInt(2, toId);
+            statement.setString(3, meetingSched);
+            //executes the statement
+            statement.execute();
+            //closes connection
+            connection.close();
+        } catch (SQLException throwables) {
             System.out.println("an error has been encountered");
             throwables.printStackTrace();
         }

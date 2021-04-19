@@ -21,7 +21,6 @@
       <Button fx:id="gradesButton" layoutX="776.0" layoutY="39.0" mnemonicParsing="false" onAction="#gradesButton" prefHeight="100.0" prefWidth="190.0" styleClass="gradesButton" text="GRADES" />
       <ListView fx:id="meetingsListView" layoutX="106.0" layoutY="251.0" prefHeight="267.0" prefWidth="626.0" />
       <Button fx:id="setMeetingButton" layoutX="702.0" layoutY="539.0" mnemonicParsing="false" onAction="#setMeeting" text="+" />
-      <Button fx:id="removeButton" layoutX="543.0" layoutY="539.0" mnemonicParsing="false" onAction="#removeButton" text="CANCEL/REMOVE" />
    </children>
    <stylesheets>
       <URL value="@opaa_stylesheet.css" />

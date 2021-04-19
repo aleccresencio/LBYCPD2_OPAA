@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class StudentRequestMeetingScreenController {
+    public buttonFunctions loadScreen;
     public UserObject currentUser;
     public Button logoutButton, meetingsButton, calendarButton, profileButton, homeButton, confirmButton;
     public Label userNameLabel;
@@ -25,19 +26,8 @@ public class StudentRequestMeetingScreenController {
     }
 
     public void meetingsButton(ActionEvent actionEvent) throws IOException {
-        Stage stage1 = (Stage) meetingsButton.getScene().getWindow();
-        stage1.close();
-        //loads new stage
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("studentMeetingScreen.fxml"));
-        Parent root = loader.load();
-        //transfers the current user to other controller
-        StudentRequestMeetingScreenController scene2Controller = loader.getController();
-        scene2Controller.transferCurrentUser(currentUser);
-        //Show new scene in new window
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root,1000,600));
-        stage.setTitle("OPAA");
-        stage.show();
+        buttonFunctions loadScreen = new buttonFunctions();
+        loadScreen.studentMeetingButton(meetingsButton, currentUser);
     }
 
     public void calendarButton(ActionEvent actionEvent) {
@@ -47,19 +37,8 @@ public class StudentRequestMeetingScreenController {
     }
 
     public void homeButton(ActionEvent actionEvent) throws IOException {
-        Stage stage1 = (Stage) homeButton.getScene().getWindow();
-        stage1.close();
-        //loads new stage
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("studentHomeScreen.fxml"));
-        Parent root = loader.load();
-        //transfers the current user to other controller
-        StudentHomeScreenController scene2Controller = loader.getController();
-        scene2Controller.transferCurrentUser(currentUser);
-        //Show new scene in new window
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root,1000,600));
-        stage.setTitle("OPAA");
-        stage.show();
+        buttonFunctions loadScreen = new buttonFunctions();
+        loadScreen.studentHomeButton(homeButton, currentUser);
     }
 
     public void confirmButton(ActionEvent actionEvent) {
@@ -74,15 +53,7 @@ public class StudentRequestMeetingScreenController {
     }
 
     public void logoutButton(ActionEvent actionEvent) throws IOException {
-        Stage stage1 = (Stage) logoutButton.getScene().getWindow();
-        stage1.close();
-        //loads new stage
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("loginScreen.fxml"));
-        Parent root = loader.load();
-        //Show new scene in new window
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root,1000,600));
-        stage.setTitle("OPAA");
-        stage.show();
+        buttonFunctions loadScreen = new buttonFunctions();
+        loadScreen.logoutButton(logoutButton);
     }
 }

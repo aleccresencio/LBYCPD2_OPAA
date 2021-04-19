@@ -17,11 +17,11 @@ their respective academic advisers to effectively interact with one another.
 4. Run the program
 
 # Revision Logs:
-04/03/21 - First push of the code in the repository, with working login system
-04/04/21 - Coded the home and logout button of the program
-04/05/21 - Added css to the user interface. Started working on the meetings feature. 
-04/08/21 - Continued working on the meetings screen where the user can see the list of meetings.
-04/12/21 - Started working on request meeting and set meeting feature.
+04/03/21 - First push of the code in the repository, with working login system\n
+04/04/21 - Coded the home and logout button of the program\n
+04/05/21 - Added css to the user interface. Started working on the meetings feature. \n
+04/08/21 - Continued working on the meetings screen where the user can see the list of meetings.\n
+04/12/21 - Started working on request meeting and set meeting feature.\n
 
 # Information about contributors:
 Amgad Isaiah Cadelina

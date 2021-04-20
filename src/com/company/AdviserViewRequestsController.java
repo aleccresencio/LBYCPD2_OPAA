@@ -20,12 +20,12 @@ public class AdviserViewRequestsController {
     public ListView<String> requestsListView;
 
     public void transferCurrentUser(UserObject currentUser) {
-        ArrayList<String> meetingsList = new ArrayList<String>();
+        ArrayList<String> requestsList = new ArrayList<String>();
         this.currentUser = currentUser;
         MySQLObject loginObject = new MySQLObject();
-        meetingsList = loginObject.checkMeetings(currentUser.getUser_id(), currentUser.getDivision());
-        for(int i = 0; i < meetingsList.size(); i++) {
-            requestsListView.getItems().add(meetingsList.get(i));
+        requestsList = loginObject.checkMeetings(currentUser.getUser_id(), currentUser.getDivision());
+        for(int i = 0; i < requestsList.size(); i++) {
+            requestsListView.getItems().add(requestsList.get(i));
         }
     }
 

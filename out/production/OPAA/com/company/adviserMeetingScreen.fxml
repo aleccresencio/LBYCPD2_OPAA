@@ -22,8 +22,8 @@
       <ListView fx:id="meetingsListView" layoutX="106.0" layoutY="251.0" prefHeight="267.0" prefWidth="626.0" />
       <Button fx:id="setMeetingButton" layoutX="702.0" layoutY="539.0" mnemonicParsing="false" onAction="#setMeeting" text="+" />
       <Button fx:id="removeButton" layoutX="543.0" layoutY="539.0" mnemonicParsing="false" onAction="#removeButton" text="CANCEL/REMOVE" />
-      <Label fx:id="notifLabel" layoutX="106.0" layoutY="539.0" prefHeight="28.0" prefWidth="429.0" styleClass="textLabel" text="Label" visible="false" />
-      <Button fx:id="viewRequestsButton" layoutX="401.0" layoutY="539.0" mnemonicParsing="false" onAction="#viewRequestsButton" text="VIEW REQUESTS" />
+      <Label fx:id="notifLabel" layoutX="106.0" layoutY="539.0" prefHeight="28.0" prefWidth="280.0" styleClass="textLabel" text="Label" visible="false" />
+      <Button fx:id="viewRequestsButton" layoutX="398.0" layoutY="539.0" mnemonicParsing="false" onAction="#viewRequestsButton" text="VIEW REQUESTS" />
    </children>
    <stylesheets>
       <URL value="@opaa_stylesheet.css" />

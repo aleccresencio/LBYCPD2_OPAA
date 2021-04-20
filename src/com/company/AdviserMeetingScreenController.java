@@ -89,10 +89,10 @@ public class AdviserMeetingScreenController {
         Stage stage1 = (Stage) viewRequestsButton.getScene().getWindow();
         stage1.close();
         //loads new stage
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("adviserSetMeetingScreen.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("adviserViewRequestsScreen.fxml"));
         Parent root = loader.load();
         //transfers the current user to other controller
-        AdviserSetMeetingScreenController scene2Controller = loader.getController();
+        AdviserViewRequestsController scene2Controller = loader.getController();
         scene2Controller.transferCurrentUser(currentUser);
         //Show new scene in new window
         Stage stage = new Stage();

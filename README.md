@@ -8,13 +8,17 @@ OPAA stands for Online Platform for Academic Advising which is a program that wo
 their respective academic advisers to effectively interact with one another.
 
 # Requirements:
-Programming Language: Java
+### Programming Language 
+- Java
 
-JAR File: JDBC Driver
+### JAR File 
+- JDBC Driver
 
-GUI Implementation: JavaFx
+### GUI Implementation
+- JavaFx
 
-Online Database: MySQL
+### Online Database 
+- MySQL
 
 # Environment Setup:
 1. Install Java on device
@@ -42,12 +46,12 @@ Online Database: MySQL
 
 ### Amgad Isaiah Cadelina
 
--BS CPE student at DLSU University
+- BS CPE student at DLSU University
 
 ### Alec Franz Cresencio
 
--BS CPE student at DLSU University
+- BS CPE student at DLSU University
 
 ### Issey Dee
 
--BS CPE student at DLSU University
+- BS CPE student at DLSU University

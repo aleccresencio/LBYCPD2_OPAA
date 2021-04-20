@@ -21,7 +21,7 @@ their respective academic advisers to effectively interact with one another.
 - JDBC Driver
 
 ### GUI Implementation
-- JavaFx
+- JavaFX
 
 ### Online Database 
 - MySQL

@@ -1,11 +1,15 @@
-# LBYCPD2_OPAA
+# OPAA - Online Platform for Academic Advising
 LBYCPD Project - 2nd Year Term 2 DLSU
 
 This repository contains the code of OPAA which will be the final project for LBYCPD2. 
 
-OPAA stands for Online Platform for Academic Advising which is a program that would assist students and 
+Currently, academic advisers reach out to their students using their emails. There may be cases where 
+a student may not read the email that has been sent to him/her or the email might have been flooded with other emails. 
+This program may solve that problem.
 
-their respective academic advisers to effectively interact with one another.
+The Online Platform for Academic Advising is a management system portal made specifically for a more 
+optimized interaction between the students of De La Salle University and their respective academic advisers.
+
 
 # Requirements:
 ### Programming Languages 
@@ -34,19 +38,27 @@ their respective academic advisers to effectively interact with one another.
 
 # Revision Logs:
 ### 04/03/21 
-- First push of the code in the repository, with working login system
+- First push of the code in the repository, with working login system.
 
 ### 04/04/21 
-- Coded the home and logout button of the program
+- Developed the home and logout button of the program.
 
 ### 04/05/21 
-- Added css to the user interface. Started working on the meetings feature. 
+- Added CSS stylesheet to the user interface. 
+- Started working on the meetings feature. 
 
 ### 04/08/21 
 - Continued working on the meetings screen where the user can see the list of meetings.
 
 ### 04/12/21 
-- Started working on request meeting and set meeting feature.
+- Started developing the request meeting and set meeting feature of the program.
+
+### 04/14/21
+- Further developed the online database through mySQL. 
+
+### 04/19/21
+- Started branching out the online repository for each of the members.
+- Familiarized with the git plugins of the IntelliJ IDE
 
 # Information about contributors:
 

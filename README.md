@@ -31,10 +31,10 @@ optimized interaction between the students of De La Salle University and their r
 - MySQL
 
 # Environment Setup
-1. Install Java on device
-2. Install MySQL, JavaFX, and JDBC library and add it to project dependencies.
-3. Clone the repository
-4. Run the program
+1.  Install Java on device
+2.  Install MySQL, JavaFX, and JDBC library and add it to project dependencies.
+3.  Clone the repository
+4.  Run the program
 
 # Revision Logs
 ### 04/03/21 

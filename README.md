@@ -50,14 +50,14 @@ their respective academic advisers to effectively interact with one another.
 
 # Information about contributors:
 
-### Amgad Isaiah Cadelina
+### Amgad Isaiah L. Cadelina
 
 - BS CPE student at DLSU University
 
-### Alec Franz Cresencio
+### Alec Franz G. Cresencio
 
 - BS CPE student at DLSU University
 
-### Issey Dee
+### Issey Gabriel L. Dee
 
 - BS CPE student at DLSU University

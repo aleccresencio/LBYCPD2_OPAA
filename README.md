@@ -11,7 +11,7 @@ The Online Platform for Academic Advising is a management system portal made spe
 optimized interaction between the students of De La Salle University and their respective academic advisers.
 
 
-# Requirements:
+# Requirements
 ### Programming Languages 
 - Java
 - CSS
@@ -30,13 +30,13 @@ optimized interaction between the students of De La Salle University and their r
 ### Online Database 
 - MySQL
 
-# Environment Setup:
+# Environment Setup
 1. Install Java on device
 2. Install MySQL, JavaFX, and JDBC library and add it to project dependencies.
 3. Clone the repository
 4. Run the program
 
-# Revision Logs:
+# Revision Logs
 ### 04/03/21 
 - First push of the code in the repository, with working login system.
 
@@ -60,7 +60,7 @@ optimized interaction between the students of De La Salle University and their r
 - Started branching out the online repository for each of the members.
 - Familiarized with the git plugins of the IntelliJ IDE
 
-# Information about contributors:
+# Information about contributors
 
 ### Amgad Isaiah L. Cadelina
 

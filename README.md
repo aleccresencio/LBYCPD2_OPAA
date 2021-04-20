@@ -8,13 +8,13 @@ OPAA stands for Online Platform for Academic Advising which is a program that wo
 their respective academic advisers to effectively interact with one another.
 
 # Requirements:
--Java
+Programming Language: Java
 
--JDBC Driver
+JAR File: JDBC Driver
 
--JavaFx
+GUI Implementation: JavaFx
 
--MySQL
+Online Database: MySQL
 
 # Environment Setup:
 1. Install Java on device
@@ -23,26 +23,31 @@ their respective academic advisers to effectively interact with one another.
 4. Run the program
 
 # Revision Logs:
-04/03/21 - First push of the code in the repository, with working login system
+### 04/03/21 
+- First push of the code in the repository, with working login system
 
-04/04/21 - Coded the home and logout button of the program
+### 04/04/21 
+- Coded the home and logout button of the program
 
-04/05/21 - Added css to the user interface. Started working on the meetings feature. 
+### 04/05/21 
+- Added css to the user interface. Started working on the meetings feature. 
 
-04/08/21 - Continued working on the meetings screen where the user can see the list of meetings.
+### 04/08/21 
+- Continued working on the meetings screen where the user can see the list of meetings.
 
-04/12/21 - Started working on request meeting and set meeting feature.
+### 04/12/21 
+- Started working on request meeting and set meeting feature.
 
 # Information about contributors:
 
-Amgad Isaiah Cadelina
+### Amgad Isaiah Cadelina
 
 -BS CPE student at DLSU University
 
-Alec Franz Cresencio
+### Alec Franz Cresencio
 
 -BS CPE student at DLSU University
 
-Issey Dee
+### Issey Dee
 
 -BS CPE student at DLSU University

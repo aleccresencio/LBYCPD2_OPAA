@@ -8,8 +8,14 @@ OPAA stands for Online Platform for Academic Advising which is a program that wo
 their respective academic advisers to effectively interact with one another.
 
 # Requirements:
-### Programming Language 
+### Programming Languages 
 - Java
+- CSS
+
+### IDEs
+- IntelliJ
+- SceneBuilder
+- PopSQL
 
 ### JAR File 
 - JDBC Driver

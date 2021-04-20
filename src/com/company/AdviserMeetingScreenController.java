@@ -15,8 +15,8 @@ import java.util.ArrayList;
 public class AdviserMeetingScreenController {
     public buttonFunctions loadScreen;
     public UserObject currentUser;
-    public Button logoutButton, meetingsButton, calendarButton, profileButton, homeButton, gradesButton, setMeetingButton, removeButton;
-    public Label userNameLabel;
+    public Button viewRequestsButton, logoutButton, meetingsButton, calendarButton, profileButton, homeButton, gradesButton, setMeetingButton, removeButton;
+    public Label userNameLabel, notifLabel;
     public ListView<String> meetingsListView;
 
     public void transferCurrentUser(UserObject currentUser) {
@@ -46,7 +46,7 @@ public class AdviserMeetingScreenController {
     }
 
     public void setMeeting(ActionEvent actionEvent) throws IOException {
-        Stage stage1 = (Stage) meetingsButton.getScene().getWindow();
+        Stage stage1 = (Stage) setMeetingButton.getScene().getWindow();
         stage1.close();
         //loads new stage
         FXMLLoader loader = new FXMLLoader(getClass().getResource("adviserSetMeetingScreen.fxml"));
@@ -70,5 +70,34 @@ public class AdviserMeetingScreenController {
     }
 
     public void removeButton(ActionEvent actionEvent) {
+        String selected = meetingsListView.getSelectionModel().getSelectedItem();
+        int selectedIndex = meetingsListView.getSelectionModel().getSelectedIndex();
+        if(selected.startsWith("You set a")){
+            String meetingSched = selected.substring(selected.length() - 14);
+            MySQLObject sql = new MySQLObject();
+            sql.removeMeeting(currentUser.getUser_id(), meetingSched);
+            meetingsListView.getItems().remove(selectedIndex);
+            notifLabel.setVisible(true);
+            notifLabel.setText("Successfully removed meeting!");
+        }else{
+            notifLabel.setVisible(true);
+            notifLabel.setText("Cannot delete meeting set by a student");
+        }
+    }
+
+    public void viewRequestsButton(ActionEvent actionEvent) throws IOException {
+        Stage stage1 = (Stage) viewRequestsButton.getScene().getWindow();
+        stage1.close();
+        //loads new stage
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("adviserSetMeetingScreen.fxml"));
+        Parent root = loader.load();
+        //transfers the current user to other controller
+        AdviserSetMeetingScreenController scene2Controller = loader.getController();
+        scene2Controller.transferCurrentUser(currentUser);
+        //Show new scene in new window
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root,1000,600));
+        stage.setTitle("OPAA");
+        stage.show();
     }
 }

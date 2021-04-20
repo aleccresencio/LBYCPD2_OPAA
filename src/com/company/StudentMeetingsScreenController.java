@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class StudentMeetingsScreenController {
     public buttonFunctions loadScreen;
     public UserObject currentUser;
-    public Button logoutButton, meetingsButton, calendarButton, profileButton, homeButton, removeButton;
+    public Button requestMeetingButton, logoutButton, meetingsButton, calendarButton, profileButton, homeButton, removeButton;
     public Label userNameLabel, notifLabel;
     public ListView<String> meetingsListView;
 
@@ -46,7 +46,7 @@ public class StudentMeetingsScreenController {
     }
 
     public void requestMeeting(ActionEvent actionEvent) throws IOException {
-        Stage stage1 = (Stage) meetingsButton.getScene().getWindow();
+        Stage stage1 = (Stage) requestMeetingButton.getScene().getWindow();
         stage1.close();
         //loads new stage
         FXMLLoader loader = new FXMLLoader(getClass().getResource("studentRequestMeetingScreen.fxml"));

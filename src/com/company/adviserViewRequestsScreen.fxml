@@ -14,16 +14,15 @@
       <Button fx:id="profileButton" layoutX="36.0" layoutY="34.0" mnemonicParsing="false" onAction="#profileButton" prefHeight="109.0" prefWidth="114.0" styleClass="studentPicButton" text="Profile" />
       <Button fx:id="homeButton" layoutX="152.0" layoutY="47.0" mnemonicParsing="false" onAction="#homeButton" prefHeight="84.0" prefWidth="226.0" styleClass="homeButton" />
       <Button fx:id="logoutButton" layoutX="855.0" layoutY="150.0" mnemonicParsing="false" onAction="#logoutButton" prefHeight="45.0" prefWidth="110.0" styleClass="logoutButton" text="LOGOUT" />
-      <Label layoutX="93.0" layoutY="186.0" prefHeight="40.0" prefWidth="202.0" styleClass="titleLabel" text="MEETINGS">
+      <Label layoutX="106.0" layoutY="186.0" prefHeight="40.0" prefWidth="288.0" styleClass="titleLabel" text="MEETING REQUESTS">
          <font>
             <Font name="Monospaced Regular" size="12.0" />
          </font></Label>
       <Button fx:id="gradesButton" layoutX="776.0" layoutY="39.0" mnemonicParsing="false" onAction="#gradesButton" prefHeight="100.0" prefWidth="190.0" styleClass="gradesButton" text="GRADES" />
-      <ListView fx:id="meetingsListView" layoutX="106.0" layoutY="251.0" prefHeight="267.0" prefWidth="626.0" />
-      <Button fx:id="setMeetingButton" layoutX="702.0" layoutY="539.0" mnemonicParsing="false" onAction="#setMeeting" text="+" />
-      <Button fx:id="removeButton" layoutX="543.0" layoutY="539.0" mnemonicParsing="false" onAction="#removeButton" text="CANCEL/REMOVE" />
+      <ListView fx:id="requestsListView" layoutX="106.0" layoutY="251.0" prefHeight="267.0" prefWidth="626.0" />
+      <Button fx:id="declineButton" layoutX="650.0" layoutY="539.0" mnemonicParsing="false" onAction="#declineButton" text="DECLINE" />
       <Label fx:id="notifLabel" layoutX="106.0" layoutY="539.0" prefHeight="28.0" prefWidth="288.0" styleClass="textLabel" text="Label" visible="false" />
-      <Button fx:id="viewRequestsButton" layoutX="401.0" layoutY="539.0" mnemonicParsing="false" onAction="#viewRequestsButton" text="VIEW REQUESTS" />
+      <Button fx:id="acceptButton" layoutX="562.0" layoutY="539.0" mnemonicParsing="false" onAction="#acceptButton" text="ACCEPT" />
    </children>
    <stylesheets>
       <URL value="@opaa_stylesheet.css" />

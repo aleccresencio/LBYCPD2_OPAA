@@ -1,7 +1,7 @@
 # OPAA - Online Platform for Academic Advising
 LBYCPD Project - 2nd Year Term 2 DLSU
 
-This online repository contains the project folder containing the program codes of OPAA, which will be the final project for LBYCPD2. 
+This online repository contains the project folder including the program codes of OPAA, which will be the final project for LBYCPD2. 
 
 Currently, academic advisers reach out to their students using their emails. There may be cases where 
 a student may not read the email that has been sent to him/her or the email might have been flooded with other emails. 

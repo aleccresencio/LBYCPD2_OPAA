@@ -60,6 +60,13 @@ optimized interaction between the students of De La Salle University and their r
 - Started branching out the online repository for each of the members.
 - Familiarized with the git plugins of the IntelliJ IDE
 
+### 04/20/21
+- Implemented the remove meetings feature.
+- Started working on the view requests feature.
+
+### 04/21/21
+- Finished the view requests feature
+
 # Information about contributors
 
 ### Amgad Isaiah L. Cadelina

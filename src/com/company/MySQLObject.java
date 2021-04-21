@@ -1,5 +1,8 @@
 package com.company;
 
+import javafx.beans.Observable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.concurrent.Worker;
 
 import java.sql.*;
@@ -190,7 +193,87 @@ public class MySQLObject {
         }
     }
 
-    public void checkRequests(int adviserId, String meetingSched) {
+    public ObservableList<RequestObject> checkRequests(int adviserId) {
+        ObservableList<RequestObject> requestList = FXCollections.observableArrayList();
+        try {
+            //establishes a connection to the database
+            Connection connection = DriverManager.getConnection(url, username, password);
+            //sql query that selects the meetings where the user is involved
+            String sql = "SELECT * FROM requests WHERE to_id ="+adviserId+" and accept_denied IS NULL ORDER BY sched";
+            //prepares the sql query statement
+            Statement statement = connection.createStatement();
+            //executes the statement and retrieves results
+            ResultSet result = statement.executeQuery(sql);
+            //reads the results
+            if (result == null) {
+                return null;
+            } else {
+                while (result.next()) {
+                    int request_id = result.getInt("request_id");
+                    int from_id = result.getInt("from_id");
+                    int to_id = result.getInt("to_id");
+                    String sched = result.getString("sched");
+                    //if statements check whether the user is a student or an adviser and if he/she was the one who set the meeting
+                    String sql2 = "SELECT first_name, last_name FROM users WHERE user_id ="+from_id;
+                    //prepares the sql query statement
+                    Statement statement2 = connection.createStatement();
+                    //executes the statement and retrieves results
+                    ResultSet result2 = statement2.executeQuery(sql2);
+                    while(result2.next()){
+                        String firstName = result2.getString("first_name");
+                        String lastName = result2.getString("last_name");
+                        requestList.add(new RequestObject(request_id, from_id, to_id, firstName, lastName, sched.substring(0,9), sched.substring(sched.length()-5)));
+                    }
+                }
+            }
+            connection.close();
+        } catch(SQLException throwables){
+            System.out.println("an error has been encountered");
+            throwables.printStackTrace();
+        }
+        return requestList;
+    }
 
+    public void acceptRequest(int requestId, int from_id, int to_id, String date, String time) {
+        try {
+            //establishes a connection to the database
+            Connection connection = DriverManager.getConnection(url, username, password);
+            //sql query that checks if the entered username and password is in the database
+            String sql = "UPDATE requests SET accept_denied = 'accept' WHERE request_id ="+requestId;
+            //prepares the sql query statement
+            Statement statement = connection.createStatement();
+            //executes the statement
+            statement.execute(sql);
+            String sched = date +" "+time;
+            String sql2 = "INSERT INTO meetings(from_id, to_id, sched) VALUES(?,?,?)";
+            PreparedStatement statement2 = connection.prepareStatement(sql2);
+            statement2.setInt(1, from_id);
+            statement2.setInt(2, to_id);
+            statement2.setString(3, sched);
+            statement2.execute();
+            //closes connection
+            connection.close();
+        } catch (SQLException throwables) {
+            System.out.println("an error has been encountered");
+            throwables.printStackTrace();
+        }
+    }
+
+    public void declineRequest(int requestId) {
+        try {
+            //establishes a connection to the database
+            Connection connection = DriverManager.getConnection(url, username, password);
+            //sql query that checks if the entered username and password is in the database
+            String sql = "UPDATE requests SET accept_denied = 'denied' WHERE request_id ="+requestId;
+            //prepares the sql query statement
+            Statement statement = connection.createStatement();
+            //executes the statement
+            statement.execute(sql);
+            //closes connection
+            connection.close();
+        } catch (SQLException throwables) {
+            System.out.println("an error has been encountered");
+            throwables.printStackTrace();
+        }
     }
 }

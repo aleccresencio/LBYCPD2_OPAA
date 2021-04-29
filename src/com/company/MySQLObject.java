@@ -244,7 +244,7 @@ public class MySQLObject {
             Statement statement = connection.createStatement();
             //executes the statement
             statement.execute(sql);
-            String sched = date +" "+time;
+            String sched = date + time;
             String sql2 = "INSERT INTO meetings(from_id, to_id, sched) VALUES(?,?,?)";
             PreparedStatement statement2 = connection.prepareStatement(sql2);
             statement2.setInt(1, from_id);

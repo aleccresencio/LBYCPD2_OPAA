@@ -1,5 +1,5 @@
 # OPAA - Online Platform for Academic Advising
-LBYCPD Project - 2nd Year Term 2 DLSU
+### LBYCPD Project - 2nd Year Term 2 DLSU
 
 This online repository contains the project folder including the program codes of OPAA, which will be the final project for LBYCPD2. 
 
@@ -59,6 +59,13 @@ optimized interaction between the students of De La Salle University and their r
 ### 04/19/21
 - Started branching out the online repository for each of the members.
 - Familiarized with the git plugins of the IntelliJ IDE
+
+### 04/20/21
+- Implemented the remove meetings feature.
+- Started working on the view requests feature.
+
+### 04/21/21
+- Finished the view requests feature
 
 # Information about contributors
 

@@ -73,7 +73,8 @@ public class AdviserMeetingScreenController {
         String selected = meetingsListView.getSelectionModel().getSelectedItem();
         int selectedIndex = meetingsListView.getSelectionModel().getSelectedIndex();
         if(selected.startsWith("You set a")){
-            String meetingSched = selected.substring(selected.length() - 14);
+            String meetingSched = selected.substring(selected.length() - 17);
+            meetingSched = meetingSched.substring(0,8)+" "+meetingSched.substring(12);
             MySQLObject sql = new MySQLObject();
             sql.removeMeeting(currentUser.getUser_id(), meetingSched);
             meetingsListView.getItems().remove(selectedIndex);

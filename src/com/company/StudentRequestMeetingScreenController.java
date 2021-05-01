@@ -17,7 +17,7 @@ public class StudentRequestMeetingScreenController {
     public buttonFunctions loadScreen;
     public UserObject currentUser;
     public Button logoutButton, meetingsButton, calendarButton, profileButton, homeButton, confirmButton;
-    public Label userNameLabel;
+    public Label userNameLabel, notifLabel;
     public TextField monthField, dayField, yearField, hourField, minuteField;
     public ListView<String> meetingsListView;
 
@@ -50,6 +50,8 @@ public class StudentRequestMeetingScreenController {
         yearField.clear();
         hourField.clear();
         minuteField.clear();
+        notifLabel.setText("Succesfully sent a request!");
+        notifLabel.setVisible(true);
     }
 
     public void logoutButton(ActionEvent actionEvent) throws IOException {

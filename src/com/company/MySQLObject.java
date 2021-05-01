@@ -77,7 +77,7 @@ public class MySQLObject {
                     String sched = result.getString("sched");
                     //if statements check whether the user is a student or an adviser and if he/she was the one who set the meeting
                     if (from_id == userId && division.equals("Student")){
-                        meetingList.add("You set a private meeting on "+sched);
+                        meetingList.add("You set a private meeting on "+sched.substring(0,8)+" at "+sched.substring(9));
                     } else if(from_id == userId && division.equals("Adviser") && stopper == 0){
                         //selects only the unique dates of the meetings that the adviser has set
                         String sql2 = "SELECT DISTINCT sched FROM meetings WHERE from_id IN (SELECT from_id FROM meetings WHERE from_id="+userId+")";
@@ -87,13 +87,22 @@ public class MySQLObject {
                         ResultSet result2 = statement2.executeQuery(sql2);
                         while(result2.next()){
                             String sched2 = result2.getString("sched");
-                            meetingList.add("You set a meeting on "+sched2);
+                            meetingList.add("You set a meeting on "+sched2.substring(0,8)+" at "+sched2.substring(9));
                         }
                         stopper = 1;
                     } else if(to_id == userId && division.equals("Student")){
-                        meetingList.add("You have a meeting on "+sched);
+                        meetingList.add("You have a meeting on "+sched.substring(0,8)+" at "+sched.substring(9));
                     }else if(to_id == userId && division.equals("Adviser")){
-                        meetingList.add("You have a private meeting on "+sched);
+                        String sql3 = "SELECT first_name, last_name FROM users WHERE user_id="+from_id;
+                        //prepares the sql query statement
+                        Statement statement3 = connection.createStatement();
+                        //executes the statement and retrieves results
+                        ResultSet result3 = statement3.executeQuery(sql3);
+                        while(result3.next()){
+                            String firstName = result3.getString("first_name");
+                            String lastName = result3.getString("last_name");
+                            meetingList.add("You have a private meeting with "+firstName+" "+lastName+" on "+sched.substring(0,8)+" at "+sched.substring(9));
+                        }
                     }
                 }
             }
@@ -109,7 +118,7 @@ public class MySQLObject {
         try {
             //establishes a connection to the database
             Connection connection = DriverManager.getConnection(url, username, password);
-            //sql query that checks if the entered username and password is in the database
+            //sql query that inserts data into the request table
             String sql = "INSERT INTO requests(from_id, to_id, sched) VALUES(?,?,?)";
             //prepares the sql query statement
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -118,6 +127,15 @@ public class MySQLObject {
             statement.setString(3, requestSched);
             //executes the statement
             statement.execute();
+            String sql1 = "INSERT INTO notifications(from_id, to_id, sched, identifier) VALUES(?,?,?,?)";
+            //prepares the sql query statement
+            PreparedStatement statement1 = connection.prepareStatement(sql1);
+            statement1.setInt(1, fromId);
+            statement1.setInt(2, toId);
+            statement1.setString(3, requestSched);
+            statement1.setString(4, "request");
+            //executes the statement
+            statement1.execute();
             //closes connection
             connection.close();
         } catch(SQLException throwables){
@@ -143,6 +161,15 @@ public class MySQLObject {
                 statement.setString(3, meetingSched);
                 //executes the statement
                 statement.execute();
+                String sql1 = "INSERT INTO notifications(from_id, to_id, sched, identifier) VALUES(?,?,?,?)";
+                //prepares the sql query statement
+                PreparedStatement statement1 = connection.prepareStatement(sql1);
+                statement1.setInt(1, fromId);
+                statement1.setInt(2, toId);
+                statement1.setString(3, meetingSched);
+                statement1.setString(4, "meeting");
+                //executes the statement
+                statement1.execute();
             }
             //closes connection
             connection.close();
@@ -165,6 +192,15 @@ public class MySQLObject {
             statement.setString(3, meetingSched);
             //executes the statement
             statement.execute();
+            String sql1 = "INSERT INTO notifications(from_id, to_id, sched, identifier) VALUES(?,?,?,?)";
+            //prepares the sql query statement
+            PreparedStatement statement1 = connection.prepareStatement(sql1);
+            statement1.setInt(1, fromId);
+            statement1.setInt(2, toId);
+            statement1.setString(3, meetingSched);
+            statement1.setString(4, "removed");
+            //executes the statement
+            statement1.execute();
             //closes connection
             connection.close();
         } catch (SQLException throwables) {
@@ -185,6 +221,21 @@ public class MySQLObject {
             statement.setString(2, meetingSched);
             //executes the statement
             statement.execute();
+            String getAdviseesQuery = "SELECT user_id FROM users WHERE adviser_id ="+fromId;
+            Statement firstStatement = connection.createStatement();
+            ResultSet results = firstStatement.executeQuery(getAdviseesQuery);
+            while(results.next()) {
+                int toId = results.getInt("user_id");
+                String sql1 = "INSERT INTO notifications(from_id, to_id, sched, identifier) VALUES(?,?,?,?)";
+                //prepares the sql query statement
+                PreparedStatement statement1 = connection.prepareStatement(sql1);
+                statement1.setInt(1, fromId);
+                statement1.setInt(2, toId);
+                statement1.setString(3, meetingSched);
+                statement1.setString(4, "removed");
+                //executes the statement
+                statement1.execute();
+            }
             //closes connection
             connection.close();
         } catch (SQLException throwables) {
@@ -251,6 +302,15 @@ public class MySQLObject {
             statement2.setInt(2, to_id);
             statement2.setString(3, sched);
             statement2.execute();
+            String sql1 = "INSERT INTO notifications(from_id, to_id, sched, identifier) VALUES(?,?,?,?)";
+            //prepares the sql query statement
+            PreparedStatement statement1 = connection.prepareStatement(sql1);
+            statement1.setInt(1, from_id);
+            statement1.setInt(2, to_id);
+            statement1.setString(3, sched);
+            statement1.setString(4, "accepted");
+            //executes the statement
+            statement1.execute();
             //closes connection
             connection.close();
         } catch (SQLException throwables) {
@@ -259,7 +319,7 @@ public class MySQLObject {
         }
     }
 
-    public void declineRequest(int requestId) {
+    public void declineRequest(int requestId, int from_id, int to_id, String date, String time) {
         try {
             //establishes a connection to the database
             Connection connection = DriverManager.getConnection(url, username, password);
@@ -269,11 +329,87 @@ public class MySQLObject {
             Statement statement = connection.createStatement();
             //executes the statement
             statement.execute(sql);
+            String sched = date + time;
+            String sql1 = "INSERT INTO notifications(from_id, to_id, sched, identifier) VALUES(?,?,?,?)";
+            //prepares the sql query statement
+            PreparedStatement statement1 = connection.prepareStatement(sql1);
+            statement1.setInt(1, from_id);
+            statement1.setInt(2, to_id);
+            statement1.setString(3, sched);
+            statement1.setString(4, "declined");
+            //executes the statement
+            statement1.execute();
             //closes connection
             connection.close();
         } catch (SQLException throwables) {
             System.out.println("an error has been encountered");
             throwables.printStackTrace();
         }
+    }
+
+    public ArrayList<String> studentNotifs(int userId) {
+        ArrayList<String> notifList = new ArrayList<String>();
+        int stopper = 0;
+        try {
+            //establishes a connection to the database
+            Connection connection = DriverManager.getConnection(url, username, password);
+            //sql query that selects the meetings where the user is involved
+            String sql = "SELECT * FROM notifications WHERE from_id ="+userId+" or to_id ="+userId+" ORDER BY sched";
+            //prepares the sql query statement
+            Statement statement = connection.createStatement();
+            //executes the statement and retrieves results
+            ResultSet result = statement.executeQuery(sql);
+            //reads the results
+            if (result == null) {
+                return null;
+            } else {
+                while (result.next()) {
+                    int from_id = result.getInt("from_id");
+                    int to_id = result.getInt("to_id");
+                    String identifier = result.getString("identifier");
+                    String sched = result.getString("sched");
+                    //if statements check whether the user is a student or an adviser and if he/she was the one who set the meeting
+                    if (to_id == userId && identifier.equals("removed")){
+                        String sql1 = "SELECT division, first_name, last_name FROM users WHERE user_id = "+userId;
+                        //prepares the sql query statement
+                        Statement statement1 = connection.createStatement();
+                        //executes the statement and retrieves results
+                        ResultSet result1 = statement1.executeQuery(sql1);
+                        while (result1.next()) {
+                            String division = result1.getString("division");
+                            String firstName = result1.getString("first_name");
+                            String lastName = result1.getString("last_name");
+                            if(division.equals("Student")) {
+                                notifList.add("Your academic adviser cancelled the meeting scheduled on " + sched.substring(0, 8) + " at " + sched.substring(9));
+                            }else if(division.equals("Adviser")){
+                                notifList.add(firstName+" "+lastName+" cancelled the meeting scheduled on " + sched.substring(0, 8) + " at " + sched.substring(9));
+                            }
+                        }
+                    } else if (from_id == userId && identifier.equals("accepted")){
+                        notifList.add("Your meeting request for "+sched.substring(0,8)+" at "+sched.substring(9)+" was accepted.");
+                    } else if (from_id == userId && identifier.equals("declined")){
+                        notifList.add("Your meeting request for "+sched.substring(0,8)+" at "+sched.substring(9)+" was declined.");
+                    } else if (to_id == userId && identifier.equals("meeting")){
+                        notifList.add("Your academic adviser has set a meeting for "+sched.substring(0,8)+" at "+sched.substring(9));
+                    } else if(to_id == userId && identifier.equals("request")){
+                        String sql1 = "SELECT first_name, last_name FROM users WHERE user_id = "+from_id;
+                        //prepares the sql query statement
+                        Statement statement1 = connection.createStatement();
+                        //executes the statement and retrieves results
+                        ResultSet result1 = statement1.executeQuery(sql1);
+                        while (result1.next()) {
+                            String firstName = result1.getString("first_name");
+                            String lastName = result1.getString("last_name");
+                            notifList.add(firstName+" "+lastName+" has requested a meeting for " + sched.substring(0, 8) + " at " + sched.substring(9));
+                        }
+                    }
+                }
+            }
+            connection.close();
+        } catch(SQLException throwables){
+            System.out.println("an error has been encountered");
+            throwables.printStackTrace();
+        }
+        return notifList;
     }
 }

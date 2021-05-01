@@ -16,7 +16,7 @@ public class AdviserSetMeetingScreenController {
     public UserObject currentUser;
     public buttonFunctions loadScreen;
     public Button logoutButton, meetingsButton, calendarButton, profileButton, homeButton, confirmButton, gradesButton;
-    public Label userNameLabel;
+    public Label userNameLabel, notifLabel;
     public TextField monthField, dayField, yearField, hourField, minuteField;
     public ListView<String> meetingsListView;
 
@@ -50,6 +50,8 @@ public class AdviserSetMeetingScreenController {
         yearField.clear();
         hourField.clear();
         minuteField.clear();
+        notifLabel.setText("Succesfully set a meeting!");
+        notifLabel.setVisible(true);
     }
 
     public void logoutButton(ActionEvent actionEvent) throws IOException {

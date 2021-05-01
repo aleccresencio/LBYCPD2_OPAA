@@ -32,11 +32,11 @@ public class AdviserViewRequestsController {
         this.currentUser = currentUser;
         MySQLObject sql = new MySQLObject();
         requestsList = sql.checkRequests(currentUser.getUser_id());
-        requestId.setCellValueFactory(new PropertyValueFactory<RequestObject, Integer>("requestId"));
-        firstName.setCellValueFactory(new PropertyValueFactory<RequestObject, String>("firstName"));
-        lastName.setCellValueFactory(new PropertyValueFactory<RequestObject, String>("lastName"));
-        date.setCellValueFactory(new PropertyValueFactory<RequestObject, String>("date"));
-        time.setCellValueFactory(new PropertyValueFactory<RequestObject, String>("time"));
+        requestId.setCellValueFactory(new PropertyValueFactory<>("requestId"));
+        firstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        lastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        date.setCellValueFactory(new PropertyValueFactory<>("date"));
+        time.setCellValueFactory(new PropertyValueFactory<>("time"));
         requestTable.setItems(requestsList);
     }
 
@@ -70,7 +70,7 @@ public class AdviserViewRequestsController {
         RequestObject selected = requestTable.getSelectionModel().getSelectedItem();
         int selectedIndex = requestTable.getSelectionModel().getSelectedIndex();
         MySQLObject sql = new MySQLObject();
-        sql.declineRequest(selected.getRequestId());
+        sql.declineRequest(selected.getRequestId(), selected.getFromId(), selected.getToId(), selected.getDate(), selected.getTime());
         requestTable.getItems().remove(selectedIndex);
         notifLabel.setVisible(true);
         notifLabel.setText("Meeting declined!");

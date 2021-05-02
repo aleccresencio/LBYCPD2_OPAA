@@ -73,6 +73,38 @@ public class buttonFunctions {
         stage.show();
     }
 
+    public void profileButton(Button button, UserObject currentUser) throws  IOException {
+        Stage stage1 = (Stage) button.getScene().getWindow();
+        stage1.close();
+        //loads new stage
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("editProfile.fxml"));
+        Parent root = loader.load();
+        //transfers the current user to other controller
+        EditProfileController scene2Controller = loader.getController();
+        scene2Controller.transferCurrentUser(currentUser);
+        //Show new scene in new window
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root,1000,600));
+        stage.setTitle("OPAA");
+        stage.show();
+    }
+
+    public void changePasswordButton(Button button, UserObject currentUser) throws IOException {
+        Stage stage1 = (Stage) button.getScene().getWindow();
+        stage1.close();
+        //loads new stage
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("changePassword.fxml"));
+        Parent root = loader.load();
+        //transfers the current user to other controller
+        ChangePasswordController scene2Controller = loader.getController();
+        scene2Controller.transferCurrentUser(currentUser);
+        //Show new scene in new window
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root,1000,600));
+        stage.setTitle("OPAA");
+        stage.show();
+    }
+
     public void logoutButton(Button button) throws IOException {
         Stage stage1 = (Stage) button.getScene().getWindow();
         stage1.close();

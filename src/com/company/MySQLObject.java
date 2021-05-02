@@ -1,9 +1,7 @@
 package com.company;
 
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.concurrent.Worker;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -53,6 +51,24 @@ public class MySQLObject {
                 throwables.printStackTrace();
             }
         return null;
+    }
+
+    public void updatePassword (String newPw, int id) {
+        try {
+            //establishes a connection to the database
+            Connection connection = DriverManager.getConnection(url, username, password);
+            //sql query that checks if the entered password is in the database
+            String sql = "UPDATE users SET pw = ? WHERE user_id = ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, newPw);
+            statement.setInt(2, id);
+            //executes the statement and retrieves results
+            statement.execute();
+
+        } catch(SQLException throwable){
+            System.out.println("an error has been encountered");
+            throwable.printStackTrace();
+        }
     }
 
     public ArrayList<String> checkMeetings(int userId, String division){
@@ -412,4 +428,6 @@ public class MySQLObject {
         }
         return notifList;
     }
+
+
 }

@@ -31,9 +31,7 @@ public class UserObject {
     public String getPassword(){
         return password;
     }
-    public String getDivision(){
-        return division;
-    }
+    public String getDivision(){ return division; }
     public int getUser_id(){return user_id;}
     public int getAdviser(){return adviser;}
 }

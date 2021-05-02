@@ -7,11 +7,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="mainMenuRoot" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.StudentRequestMeetingScreenController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="mainMenuRoot" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.StudentRequestMeetingScreenController">
    <children>
       <Button fx:id="meetingsButton" layoutX="398.0" layoutY="36.0" mnemonicParsing="false" onAction="#meetingsButton" prefHeight="100.0" prefWidth="270.0" styleClass="meetingsButton" text="MEETINGS" />
       <Button fx:id="calendarButton" layoutX="681.0" layoutY="36.0" mnemonicParsing="false" onAction="#calendarButton" prefHeight="100.0" prefWidth="270.0" styleClass="calendarButton" text="CALENDAR" />
-      <Button fx:id="profileButton" layoutX="40.0" layoutY="39.0" mnemonicParsing="false" onAction="#profileButton" prefHeight="110.0" prefWidth="112.0" styleClass="adviserPicButton" />
+      <Button fx:id="profileButton" layoutX="40.0" layoutY="39.0" mnemonicParsing="false" onAction="#profileButton" prefHeight="110.0" prefWidth="112.0" styleClass="profileButton" />
       <Button fx:id="homeButton" layoutX="160.0" layoutY="52.0" mnemonicParsing="false" onAction="#homeButton" prefHeight="84.0" prefWidth="226.0" styleClass="homeButton" />
       <Button fx:id="logoutButton" layoutX="840.0" layoutY="149.0" mnemonicParsing="false" onAction="#logoutButton" prefHeight="45.0" prefWidth="110.0" styleClass="logoutButton" text="LOGOUT" />
       <Label layoutX="96.0" layoutY="188.0" styleClass="titleLabel" text="REQUEST A MEETING" />
@@ -51,6 +51,7 @@
       </Label>
       <TextField fx:id="minuteField" layoutX="163.0" layoutY="394.0" prefHeight="26.0" prefWidth="42.0" />
       <Button fx:id="confirmButton" layoutX="97.0" layoutY="458.0" mnemonicParsing="false" onAction="#confirmButton" text="Confirm" />
+      <Label fx:id="notifLabel" layoutX="96.0" layoutY="519.0" styleClass="textLabel" text="Label" visible="false" />
    </children>
    <stylesheets>
       <URL value="@opaa_stylesheet.css" />

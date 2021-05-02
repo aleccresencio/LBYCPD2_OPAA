@@ -17,6 +17,7 @@ public class AdviserHomeScreenController {
     public Button logoutButton, meetingsButton, calendarButton, profileButton, homeButton, gradesButton;
     public Label userNameLabel;
     public ListView<String> notifView;
+
     public void transferCurrentUser(UserObject currentUser) {
         this.currentUser = currentUser;
         userNameLabel.setText("Welcome "+ currentUser.getFirstName()+" "+currentUser.getLastName()+"!");
@@ -36,7 +37,9 @@ public class AdviserHomeScreenController {
     public void calendarButton(ActionEvent actionEvent) {
     }
 
-    public void profileButton(ActionEvent actionEvent) {
+    public void profileButton(ActionEvent actionEvent) throws IOException {
+        buttonFunctions loadScreen = new buttonFunctions();
+        loadScreen.profileButton(profileButton, currentUser);
     }
 
     public void homeButton(ActionEvent actionEvent) throws IOException {

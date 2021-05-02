@@ -7,11 +7,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="mainMenuRoot" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.AdviserSetMeetingScreenController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="mainMenuRoot" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.AdviserSetMeetingScreenController">
    <children>
       <Button fx:id="meetingsButton" layoutX="581.0" layoutY="39.0" mnemonicParsing="false" onAction="#meetingsButton" prefHeight="100.0" prefWidth="190.0" styleClass="meetingsButton" text="MEETINGS" />
       <Button fx:id="calendarButton" layoutX="386.0" layoutY="39.0" mnemonicParsing="false" onAction="#calendarButton" prefHeight="100.0" prefWidth="190.0" styleClass="calendarButton" text="CALENDAR" />
-      <Button fx:id="profileButton" layoutX="36.0" layoutY="34.0" mnemonicParsing="false" onAction="#profileButton" prefHeight="109.0" prefWidth="114.0" styleClass="studentPicButton" text="Profile" />
+      <Button fx:id="profileButton" layoutX="36.0" layoutY="34.0" mnemonicParsing="false" onAction="#profileButton" prefHeight="109.0" prefWidth="114.0" styleClass="profileButton" text="Profile" />
       <Button fx:id="homeButton" layoutX="152.0" layoutY="47.0" mnemonicParsing="false" onAction="#homeButton" prefHeight="84.0" prefWidth="226.0" styleClass="homeButton" />
       <Button fx:id="logoutButton" layoutX="855.0" layoutY="150.0" mnemonicParsing="false" onAction="#logoutButton" prefHeight="45.0" prefWidth="110.0" styleClass="logoutButton" text="LOGOUT" />
       <Button fx:id="gradesButton" layoutX="776.0" layoutY="39.0" mnemonicParsing="false" onAction="#gradesButton" prefHeight="100.0" prefWidth="190.0" styleClass="gradesButton" text="GRADES" />

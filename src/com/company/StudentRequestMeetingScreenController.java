@@ -33,7 +33,9 @@ public class StudentRequestMeetingScreenController {
     public void calendarButton(ActionEvent actionEvent) {
     }
 
-    public void profileButton(ActionEvent actionEvent) {
+    public void profileButton(ActionEvent actionEvent) throws IOException {
+        buttonFunctions loadScreen = new buttonFunctions();
+        loadScreen.profileButton(profileButton, currentUser);
     }
 
     public void homeButton(ActionEvent actionEvent) throws IOException {

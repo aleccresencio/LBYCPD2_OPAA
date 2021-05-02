@@ -30,6 +30,19 @@
     -fx-text-fill: #46694A;
 }
 
+.usernameLabel{
+    -fx-font-family: "Calibri Light";
+    -fx-font-size: 48;
+    -fx-text-fill: #46694A;
+}
+
+.changePasswordLabel{
+    -fx-text-alignment: center;
+    -fx-font-family: "Calibri Light";
+    -fx-font-size: 18;
+    -fx-text-fill: #46694A;
+}
+
 .txtFld {
     -fx-background-color: transparent;
     -fx-border-color: #46694A;
@@ -57,21 +70,17 @@
     -fx-background-radius: 115;
 }
 
-.studentPicButton {
-    -fx-background-color: white;
-    -fx-background-image: url("assets/dpBoy.png");
-    -fx-background-repeat: stretch;
-    -fx-background-position: center center;
+.profileButton {
     -fx-background-size: 110 110;
-    -fx-background-radius: 115;
+    -fx-opacity: 0;
 }
 
-.adviserPicButton {
+.backButton {
     -fx-background-color: white;
-    -fx-background-image: url("assets/dpBoy.png");
+    -fx-background-image: url("assets/backButton.png");
     -fx-background-repeat: stretch;
     -fx-background-position: center center;
-    -fx-background-size: 110 110;
+    -fx-background-size: 40 40;
     -fx-background-radius: 115;
 }
 

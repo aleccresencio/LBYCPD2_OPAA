@@ -72,7 +72,7 @@ public class Controller {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("adminHomeScreen.fxml"));
             Parent root = loader.load();
             //transfers the current user to other controller
-            AdminHomeScreenController scene2Controller = loader.getController();
+            AdminHomeController scene2Controller = loader.getController();
             scene2Controller.transferCurrentUser(currentUser);
             //Show new scene in new window
             Stage stage = new Stage();

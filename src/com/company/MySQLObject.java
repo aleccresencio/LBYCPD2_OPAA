@@ -114,10 +114,16 @@ public class MySQLObject {
         return meetingList;
     }
 
-    public void sendRequest(int fromId, int toId, String requestSched){
+    public String sendRequest(int fromId, int toId, String requestSched){
         try {
             //establishes a connection to the database
             Connection connection = DriverManager.getConnection(url, username, password);
+            String checkSched = "SELECT sched FROM requests WHERE sched ='"+requestSched+"' AND from_id ="+fromId;
+            Statement checkStatement = connection.createStatement();
+            ResultSet results1 = checkStatement.executeQuery(checkSched);
+            if(results1.next()){
+                return "You already sent a meeting request scheduled on the same date and time";
+            }
             //sql query that inserts data into the request table
             String sql = "INSERT INTO requests(from_id, to_id, sched) VALUES(?,?,?)";
             //prepares the sql query statement
@@ -142,12 +148,19 @@ public class MySQLObject {
             System.out.println("an error has been encountered");
             throwables.printStackTrace();
         }
+        return "Succesfully sent a meeting request!";
     }
 
-    public void setMeeting(int fromId, String meetingSched){
+    public String setMeeting(int fromId, String meetingSched){
         try {
             //establishes a connection to the database
             Connection connection = DriverManager.getConnection(url, username, password);
+            String checkSched = "SELECT sched FROM meetings WHERE sched ='"+meetingSched+"' AND from_id ="+fromId;
+            Statement checkStatement = connection.createStatement();
+            ResultSet results1 = checkStatement.executeQuery(checkSched);
+            if(results1.next()){
+                return "You already have a meeting scheduled on the same date and time";
+            }
             String getAdviseesQuery = "SELECT user_id FROM users WHERE adviser_id ="+fromId;
             Statement firstStatement = connection.createStatement();
             ResultSet results = firstStatement.executeQuery(getAdviseesQuery);
@@ -177,6 +190,7 @@ public class MySQLObject {
             System.out.println("an error has been encountered");
             throwables.printStackTrace();
         }
+        return "Succesfully set a meeting";
     }
 
     public void removeMeetingRequest(int fromId, int toId, String meetingSched) {

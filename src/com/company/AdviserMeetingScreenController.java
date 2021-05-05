@@ -82,7 +82,7 @@ public class AdviserMeetingScreenController {
             notifLabel.setText("Successfully removed meeting!");
         }else{
             notifLabel.setVisible(true);
-            notifLabel.setText("Cannot delete meeting set by a student");
+            notifLabel.setText("Cannot cancel a meeting set by a student");
         }
     }
 

@@ -37,7 +37,7 @@
 }
 
 .changePasswordLabel{
-    -fx-text-alignment: center center;
+    -fx-text-alignment: center;
     -fx-font-family: "Calibri Light";
     -fx-font-size: 18;
     -fx-text-fill: #46694A;

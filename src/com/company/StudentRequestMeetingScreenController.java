@@ -46,13 +46,13 @@ public class StudentRequestMeetingScreenController {
     public void confirmButton(ActionEvent actionEvent) {
         String requestSched = monthField.getText()+"/"+dayField.getText()+"/"+yearField.getText()+" "+hourField.getText()+":"+minuteField.getText();
         MySQLObject sql = new MySQLObject();
-        sql.sendRequest(currentUser.getUser_id(), currentUser.getAdviser(), requestSched);
+        String notif = sql.sendRequest(currentUser.getUser_id(), currentUser.getAdviser(), requestSched);
         monthField.clear();
         dayField.clear();
         yearField.clear();
         hourField.clear();
         minuteField.clear();
-        notifLabel.setText("Succesfully sent a request!");
+        notifLabel.setText(notif);
         notifLabel.setVisible(true);
     }
 

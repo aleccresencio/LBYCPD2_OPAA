@@ -45,14 +45,14 @@ public class AdviserSetMeetingScreenController {
     public void confirmButton(ActionEvent actionEvent) {
         String meetingSched = monthField.getText()+"/"+dayField.getText()+"/"+yearField.getText()+" "+hourField.getText()+":"+minuteField.getText();
         MySQLObject sql = new MySQLObject();
-        sql.setMeeting(currentUser.getUser_id(), meetingSched);
+        String notif = sql.setMeeting(currentUser.getUser_id(), meetingSched);
         //clears textfields
         monthField.clear();
         dayField.clear();
         yearField.clear();
         hourField.clear();
         minuteField.clear();
-        notifLabel.setText("Succesfully set a meeting!");
+        notifLabel.setText(notif);
         notifLabel.setVisible(true);
     }
 

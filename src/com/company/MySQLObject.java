@@ -1,7 +1,9 @@
 package com.company;
 
+import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Worker;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -51,24 +53,6 @@ public class MySQLObject {
                 throwables.printStackTrace();
             }
         return null;
-    }
-
-    public void updatePassword (String newPw, int id) {
-        try {
-            //establishes a connection to the database
-            Connection connection = DriverManager.getConnection(url, username, password);
-            //sql query that checks if the entered password is in the database
-            String sql = "UPDATE users SET pw = ? WHERE user_id = ?";
-            PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setString(1, newPw);
-            statement.setInt(2, id);
-            //executes the statement and retrieves results
-            statement.execute();
-
-        } catch(SQLException throwable){
-            System.out.println("an error has been encountered");
-            throwable.printStackTrace();
-        }
     }
 
     public ArrayList<String> checkMeetings(int userId, String division){
@@ -130,10 +114,16 @@ public class MySQLObject {
         return meetingList;
     }
 
-    public void sendRequest(int fromId, int toId, String requestSched){
+    public String sendRequest(int fromId, int toId, String requestSched){
         try {
             //establishes a connection to the database
             Connection connection = DriverManager.getConnection(url, username, password);
+            String checkSched = "SELECT sched FROM requests WHERE sched ='"+requestSched+"' AND from_id ="+fromId;
+            Statement checkStatement = connection.createStatement();
+            ResultSet results1 = checkStatement.executeQuery(checkSched);
+            if(results1.next()){
+                return "You already sent a meeting request scheduled on the same date and time";
+            }
             //sql query that inserts data into the request table
             String sql = "INSERT INTO requests(from_id, to_id, sched) VALUES(?,?,?)";
             //prepares the sql query statement
@@ -158,12 +148,19 @@ public class MySQLObject {
             System.out.println("an error has been encountered");
             throwables.printStackTrace();
         }
+        return "Succesfully sent a meeting request!";
     }
 
-    public void setMeeting(int fromId, String meetingSched){
+    public String setMeeting(int fromId, String meetingSched){
         try {
             //establishes a connection to the database
             Connection connection = DriverManager.getConnection(url, username, password);
+            String checkSched = "SELECT sched FROM meetings WHERE sched ='"+meetingSched+"' AND from_id ="+fromId;
+            Statement checkStatement = connection.createStatement();
+            ResultSet results1 = checkStatement.executeQuery(checkSched);
+            if(results1.next()){
+                return "You already have a meeting scheduled on the same date and time";
+            }
             String getAdviseesQuery = "SELECT user_id FROM users WHERE adviser_id ="+fromId;
             Statement firstStatement = connection.createStatement();
             ResultSet results = firstStatement.executeQuery(getAdviseesQuery);
@@ -193,6 +190,7 @@ public class MySQLObject {
             System.out.println("an error has been encountered");
             throwables.printStackTrace();
         }
+        return "Succesfully set a meeting";
     }
 
     public void removeMeetingRequest(int fromId, int toId, String meetingSched) {
@@ -429,5 +427,92 @@ public class MySQLObject {
         return notifList;
     }
 
-
+    public ObservableList<UserObject> getAdvisers() {
+        ObservableList<UserObject> adviserList = FXCollections.observableArrayList();
+        try {
+            //establishes a connection to the database
+            Connection connection = DriverManager.getConnection(url, username, password);
+            //sql query that selects the meetings where the user is involved
+            String sql = "SELECT * FROM users WHERE division = 'Adviser'";
+            //prepares the sql query statement
+            Statement statement = connection.createStatement();
+            //executes the statement and retrieves results
+            ResultSet result = statement.executeQuery(sql);
+            //reads the results
+            if (result == null) {
+                return null;
+            } else {
+                while (result.next()) {
+                    int user_id = result.getInt("user_id");
+                    String first_name = result.getString("first_name");
+                    String last_name = result.getString("last_name");
+                    String email = result.getString("email");
+                    int adviser = result.getInt("adviser_id");
+                    String password = result.getString("pw");
+                    adviserList.add(new UserObject(user_id, first_name, last_name, email, password, "Adviser", adviser));
+                }
+            }
+            connection.close();
+        } catch(SQLException throwables){
+            System.out.println("an error has been encountered");
+            throwables.printStackTrace();
+        }
+        return adviserList;
+    }
+    int newUserId;
+    public void addStudent(String firstName, String lastName, String email, int adviser){
+        try {
+            //establishes a connection to the database
+            Connection connection = DriverManager.getConnection(url, username, password);
+            //sql query that inserts data into the request table
+            String sql = "INSERT INTO users(first_name, last_name, email, division, adviser_id) VALUES(?,?,?,?,?)";
+            //prepares the sql query statement
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, firstName);
+            statement.setString(2, lastName);
+            statement.setString(3, email);
+            statement.setString(4, "Student");
+            statement.setInt(5, adviser);
+            //executes the statement
+            statement.execute();
+            String sql1 = "SELECT LAST_INSERT_ID()";
+            //prepares the sql query statement
+            Statement statement1 = connection.createStatement();
+            //executes the statement
+            ResultSet result1 = statement1.executeQuery(sql1);
+            while (result1.next()){
+                newUserId = result1.getInt(1);
+            }
+            String sql2 = "SELECT DISTINCT sched FROM meetings WHERE from_id IN (SELECT from_id FROM meetings WHERE from_id="+adviser+")";
+            //prepares the sql query statement
+            Statement statement2 = connection.createStatement();
+            //executes the statement and retrieves results
+            ResultSet result2 = statement2.executeQuery(sql2);
+            while(result2.next()){
+                String sched2 = result2.getString("sched");
+                String sql3 = "INSERT INTO meetings(from_id, to_id, sched) VALUES(?,?,?)";
+                //prepares the sql query statement
+                PreparedStatement statement3 = connection.prepareStatement(sql3);
+                statement3.setInt(1, adviser);
+                statement3.setInt(2, newUserId);
+                statement3.setString(3, sched2);
+                //executes the statement
+                statement3.execute();
+                String sql4 = "INSERT INTO notifications(from_id, to_id, sched, identifier) VALUES(?,?,?,?)";
+                //prepares the sql query statement
+                PreparedStatement statement4 = connection.prepareStatement(sql4);
+                statement4.setInt(1, adviser);
+                statement4.setInt(2, newUserId);
+                statement4.setString(3, sched2);
+                statement4.setString(4, "meeting");
+                //executes the statement
+                statement4.execute();
+            }
+            //closes connection
+            connection.close();
+        } catch(SQLException throwables){
+            System.out.println("an error has been encountered");
+            throwables.printStackTrace();
+        }
+    }
 }

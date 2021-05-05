@@ -6,7 +6,7 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="mainMenuRoot" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.StudentHomeScreenController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="mainMenuRoot" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.StudentHomeScreenController">
    <children>
       <Label fx:id="userNameLabel" layoutX="104.0" layoutY="236.0" styleClass="headerLabel" text="Label" />
       <Button fx:id="meetingsButton" layoutX="398.0" layoutY="36.0" mnemonicParsing="false" onAction="#meetingsButton" prefHeight="100.0" prefWidth="270.0" styleClass="meetingsButton" text="MEETINGS" />

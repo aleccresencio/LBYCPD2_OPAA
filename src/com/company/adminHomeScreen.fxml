@@ -7,14 +7,14 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="root" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.AdminHomeScreenController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="root" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.AdminHomeController">
    <children>
       <Label fx:id="userNameLabel" layoutX="426.0" layoutY="225.0" prefHeight="40.0" prefWidth="224.0" styleClass="titleLabel" text="ADMINISTRATOR" />
-      <Button layoutX="322.0" layoutY="310.0" mnemonicParsing="false" text="ADD STUDENT" />
-      <Button layoutX="618.0" layoutY="310.0" mnemonicParsing="false" text="ADD ADVISER" />
+      <Button fx:id="addStudentButton" layoutX="322.0" layoutY="310.0" mnemonicParsing="false" onAction="#addStudentButton" text="ADD STUDENT" />
+      <Button fx:id="addAdviserButton" layoutX="618.0" layoutY="310.0" mnemonicParsing="false" onAction="#addAdviserButton" text="ADD ADVISER" />
       <Button fx:id="logoutButton" layoutX="497.0" layoutY="432.0" mnemonicParsing="false" onAction="#logoutButton" text="LOGOUT" />
-      <Button layoutX="293.0" layoutY="364.0" mnemonicParsing="false" text="EDIT / DELETE STUDENT" />
-      <Button layoutX="590.0" layoutY="364.0" mnemonicParsing="false" text="EDIT / DELETE ADVISER" />
+      <Button fx:id="editStudentButton" layoutX="293.0" layoutY="364.0" mnemonicParsing="false" onAction="#editStudentButton" text="EDIT / DELETE STUDENT" />
+      <Button fx:id="deleteAdviserButton" layoutX="607.0" layoutY="364.0" mnemonicParsing="false" onAction="#deleteAdviserButton" text="DELETE ADVISER" />
       <Button layoutX="482.0" layoutY="99.0" mnemonicParsing="false" prefHeight="116.0" prefWidth="112.0" styleClass="adminPicButton" />
       <ImageView fitHeight="104.0" fitWidth="241.0" layoutX="745.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>

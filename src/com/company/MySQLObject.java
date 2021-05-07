@@ -492,6 +492,7 @@ public class MySQLObject {
             Statement checkStatement1 = connection.createStatement();
             ResultSet results2 = checkStatement1.executeQuery(checkEmails);
             if(results2.next()){
+                System.out.println("ERROR");
                 return false;
             }
             //sql query that inserts new student into the users table

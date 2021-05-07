@@ -44,25 +44,24 @@ public class AdminAddStudentController {
             notifLabel.setText("There is already a student with the inputted email in the database");
         }else {
             notifLabel.setText("You have succesfully added " + firstNameField.getText() + " " + lastNameField.getText());
+            firstNameField.clear();
+            lastNameField.clear();
+            emailField.clear();
+            //load screen where admin can add grades of the new student
+            Stage stage1 = (Stage) addButton.getScene().getWindow();
+            stage1.close();
+            //loads new stage
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("adminAddGrades.fxml"));
+            Parent root = loader.load();
+            //transfers the current user to other controller
+            AdminAddGradesController scene2Controller = loader.getController();
+            scene2Controller.transferCurrentUser(currentUser, newUserId);
+            //Show new scene in new window
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root,1000,600));
+            stage.setTitle("OPAA");
+            stage.show();
         }
-        firstNameField.clear();
-        lastNameField.clear();
-        emailField.clear();
-
-        //load screen where admin can add grades of the new student
-        Stage stage1 = (Stage) addButton.getScene().getWindow();
-        stage1.close();
-        //loads new stage
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("adminAddGrades.fxml"));
-        Parent root = loader.load();
-        //transfers the current user to other controller
-        AdminAddGradesController scene2Controller = loader.getController();
-        scene2Controller.transferCurrentUser(currentUser, newUserId);
-        //Show new scene in new window
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root,1000,600));
-        stage.setTitle("OPAA");
-        stage.show();
     }
 
     public void backButton(ActionEvent actionEvent) throws IOException {

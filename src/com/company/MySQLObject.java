@@ -173,6 +173,12 @@ public class MySQLObject {
         try {
             //establishes a connection to the database
             Connection connection = DriverManager.getConnection(url, username, password);
+            String checkStudents = "SELECT user_id FROM users WHERE adviser_id ="+fromId;
+            Statement checkStatement1 = connection.createStatement();
+            ResultSet results2 = checkStatement1.executeQuery(checkStudents);
+            if(results2.next() == false){
+                return "You do not have any assigned students yet.";
+            }
             String checkSched = "SELECT sched FROM meetings WHERE sched ='"+meetingSched+"' AND from_id ="+fromId;
             Statement checkStatement = connection.createStatement();
             ResultSet results1 = checkStatement.executeQuery(checkSched);
@@ -478,11 +484,17 @@ public class MySQLObject {
         return adviserList;
     }
     int newUserId;
-    public void addStudent(String firstName, String lastName, String email, int adviser){
+    public boolean addStudent(String firstName, String lastName, String email, int adviser){
         try {
             //establishes a connection to the database
             Connection connection = DriverManager.getConnection(url, username, password);
-            //sql query that inserts data into the request table
+            String checkEmails = "SELECT email FROM users WHERE email ='"+email+"'";
+            Statement checkStatement1 = connection.createStatement();
+            ResultSet results2 = checkStatement1.executeQuery(checkEmails);
+            if(results2.next()){
+                return false;
+            }
+            //sql query that inserts new student into the users table
             String sql = "INSERT INTO users(first_name, last_name, email, division, adviser_id) VALUES(?,?,?,?,?)";
             //prepares the sql query statement
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -529,6 +541,65 @@ public class MySQLObject {
             //closes connection
             connection.close();
         } catch(SQLException throwables){
+            System.out.println("an error has been encountered");
+            throwables.printStackTrace();
+        }
+        return true;
+    }
+
+    public int returnLastId(){
+        return newUserId;
+    }
+
+    public void addGrades(int userId, String course, String grade){
+        try {
+            //establishes a connection to the database
+            Connection connection = DriverManager.getConnection(url, username, password);
+            //sql query that checks if the entered username and password is in the database
+            String sql = "SELECT user_id FROM grades WHERE user_id ="+userId;
+            //prepares the sql query statement
+            Statement statement = connection.createStatement();
+            //executes the statement
+            ResultSet result = statement.executeQuery(sql);
+            if(result.next() == false){
+                String sql1 = "INSERT INTO grades(user_id, course_names, grade_values) VALUES("+userId+",'"+course+"','"+grade+"')";
+                //prepares the sql query statement
+                Statement statement1 = connection.createStatement();
+                statement1.execute(sql1);
+            }else{
+                String sql2 = "SELECT course_names, grade_values FROM grades WHERE user_id ="+userId;
+                //prepares the sql query statement
+                Statement statement2 = connection.createStatement();
+                //executes the statement
+                ResultSet result2 = statement2.executeQuery(sql2);
+                while(result2.next()){
+                    String courses = result2.getString("course_names");
+                    String grades = result2.getString("grade_values");
+                    String sql3 = "UPDATE grades SET course_names = '"+courses+", "+course+"', grade_values = '"+grades+", "+grade+"' WHERE user_id = "+userId;
+                    //prepares the sql query statement
+                    Statement statement3 = connection.createStatement();
+                    statement3.execute(sql3);
+                }
+            }
+            connection.close();
+        } catch (SQLException throwables) {
+            System.out.println("an error has been encountered");
+            throwables.printStackTrace();
+        }
+    }
+
+    public void removeGrades(int userId, String courseNames, String courseGrades){
+        try {
+            //establishes a connection to the database
+            Connection connection = DriverManager.getConnection(url, username, password);
+            //sql query that checks if the entered username and password is in the database
+            String sql = "UPDATE grades SET course_names = '"+courseNames+"', grade_values = '"+courseGrades+"' WHERE user_id = "+userId;
+            //prepares the sql query statement
+            Statement statement = connection.createStatement();
+            //executes the statement
+            statement.execute(sql);
+            connection.close();
+        } catch (SQLException throwables) {
             System.out.println("an error has been encountered");
             throwables.printStackTrace();
         }

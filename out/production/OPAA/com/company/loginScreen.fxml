@@ -25,7 +25,7 @@
       <AnchorPane prefHeight="510.0" prefWidth="878.0">
          <children>
             <PasswordField fx:id="pwField" alignment="CENTER" layoutX="164.0" layoutY="336.0" prefHeight="39.0" prefWidth="582.0" promptText="Password" styleClass="txtFld" />
-            <TextField fx:id="usernameField" alignment="CENTER" layoutX="164.0" layoutY="282.0" prefHeight="39.0" prefWidth="581.0" promptText="Username / E-mail" styleClass="txtFld" />
+            <TextField fx:id="usernameField" alignment="CENTER" layoutX="164.0" layoutY="282.0" prefHeight="39.0" prefWidth="581.0" promptText="DLSU e-mail" styleClass="txtFld" />
             <Button fx:id="loginButton" layoutX="406.0" layoutY="442.0" mnemonicParsing="false" onAction="#loginButton" prefHeight="30.0" prefWidth="99.0" text="LOGIN">
                <font>
                   <Font name="System Bold" size="12.0" />

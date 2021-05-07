@@ -15,32 +15,32 @@
       <Button fx:id="profileButton" layoutX="36.0" layoutY="34.0" mnemonicParsing="false" onAction="#profileButton" prefHeight="109.0" prefWidth="114.0" styleClass="profileButton" text="Profile" />
       <Button fx:id="homeButton" layoutX="152.0" layoutY="47.0" mnemonicParsing="false" onAction="#homeButton" prefHeight="84.0" prefWidth="226.0" styleClass="homeButton" />
       <Button fx:id="logoutButton" layoutX="855.0" layoutY="150.0" mnemonicParsing="false" onAction="#logoutButton" prefHeight="45.0" prefWidth="110.0" styleClass="logoutButton" text="LOGOUT" />
-      <Label layoutX="106.0" layoutY="186.0" prefHeight="40.0" prefWidth="288.0" styleClass="titleLabel" text="MEETING REQUESTS">
+      <Label layoutX="100.0" layoutY="168.0" prefHeight="55.0" prefWidth="409.0" styleClass="welcomeTitleLabel" text="MEETING REQUESTS">
          <font>
             <Font name="Monospaced Regular" size="12.0" />
          </font></Label>
       <Button fx:id="gradesButton" layoutX="776.0" layoutY="39.0" mnemonicParsing="false" onAction="#gradesButton" prefHeight="100.0" prefWidth="190.0" styleClass="gradesButton" text="GRADES" />
-      <Button fx:id="declineButton" layoutX="650.0" layoutY="539.0" mnemonicParsing="false" onAction="#declineButton" text="DECLINE" />
+      <Button fx:id="declineButton" layoutX="209.0" layoutY="511.0" mnemonicParsing="false" onAction="#declineButton" prefHeight="35.0" prefWidth="96.0" text="DECLINE" />
       <Label fx:id="notifLabel" layoutX="106.0" layoutY="539.0" prefHeight="28.0" prefWidth="398.0" styleClass="textLabel" text="Label" visible="false" />
-      <Button fx:id="acceptButton" layoutX="562.0" layoutY="539.0" mnemonicParsing="false" onAction="#acceptButton" text="ACCEPT" />
-      <TableView fx:id="requestTable" layoutX="106.0" layoutY="235.0" prefHeight="297.0" prefWidth="398.0">
+      <Button fx:id="acceptButton" layoutX="106.0" layoutY="511.0" mnemonicParsing="false" onAction="#acceptButton" prefHeight="35.0" prefWidth="80.0" text="ACCEPT" />
+      <TableView fx:id="requestTable" layoutX="106.0" layoutY="245.0" prefHeight="239.0" prefWidth="762.0">
         <columns>
-          <TableColumn fx:id="requestId" prefWidth="96.0" text="Request ID" />
+          <TableColumn fx:id="requestId" prefWidth="150.0" text="REQUEST ID" />
           <TableColumn minWidth="103.2000732421875" prefWidth="268.79998779296875" text="Name">
                <columns>
                   <TableColumn minWidth="0.0" prefWidth="0.0" text="Last Name" />
                </columns>
             </TableColumn>
-            <TableColumn minWidth="20.0" prefWidth="174.40000915527344" text="Name">
+            <TableColumn minWidth="20.0" prefWidth="500.0" text="NAME">
                <columns>
-                  <TableColumn fx:id="firstName" prefWidth="75.0" text="First Name" />
-                  <TableColumn fx:id="lastName" prefWidth="75.0" text="Last Name" />
+                  <TableColumn fx:id="firstName" prefWidth="150.0" text="FIRST NAME" />
+                  <TableColumn fx:id="lastName" prefWidth="150.0" text="LAST NAME" />
                </columns>
             </TableColumn>
-            <TableColumn prefWidth="367.1999877929687" text="Schedule">
+            <TableColumn prefWidth="500.0" text="SCHEDULE">
                <columns>
-                  <TableColumn fx:id="date" prefWidth="75.0" text="Date" />
-                  <TableColumn fx:id="time" prefWidth="75.0" text="Time" />
+                  <TableColumn fx:id="date" prefWidth="150.0" text="DATE" />
+                  <TableColumn fx:id="time" prefWidth="150.0" text="TIME" />
                </columns>
             </TableColumn>
         </columns>

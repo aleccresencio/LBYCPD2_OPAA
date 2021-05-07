@@ -57,7 +57,7 @@
          </font>
       </Label>
       <TextField fx:id="minuteField" layoutX="754.0" layoutY="342.0" prefHeight="40.0" prefWidth="55.0" styleClass="datesTxtFld" />
-      <Button fx:id="confirmButton" layoutX="75.0" layoutY="502.0" mnemonicParsing="false" onAction="#confirmButton" prefHeight="46.0" prefWidth="116.0" styleClass="logoutButton" text="CONFIRM" />
+      <Button fx:id="confirmButton" layoutX="75.0" layoutY="502.0" mnemonicParsing="false" onAction="#confirmButton" prefHeight="40.0" prefWidth="116.0" styleClass="loginButton" text="CONFIRM" />
       <Label fx:id="notifLabel" layoutX="233.0" layoutY="507.0" prefHeight="42.0" prefWidth="581.0" styleClass="textLabel" text="Label" visible="false" />
       <Label layoutX="683.0" layoutY="389.0" prefHeight="55.0" prefWidth="46.0" styleClass="dateLabel" text="HH" textAlignment="CENTER">
          <font>

@@ -29,17 +29,17 @@
             </HBox>
             <HBox alignment="BOTTOM_CENTER" prefHeight="74.0" prefWidth="558.0">
                <children>
-                  <Button fx:id="dpButton" mnemonicParsing="false" prefHeight="39.0" prefWidth="200.0" text="Change Display Picture " />
+                  <Button fx:id="dpButton" mnemonicParsing="false" prefHeight="39.0" prefWidth="200.0" styleClass="loginButton" text="Change Display Picture " />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="82.0" prefWidth="558.0">
                <children>
-                  <Button fx:id="changePasswordButton" mnemonicParsing="false" onAction="#passwordButton" prefHeight="39.0" prefWidth="200.0" text="Change Password" />
+                  <Button fx:id="changePasswordButton" mnemonicParsing="false" onAction="#passwordButton" prefHeight="39.0" prefWidth="200.0" styleClass="loginButton" text="Change Password" />
                </children>
             </HBox>
             <HBox alignment="TOP_CENTER" prefHeight="60.0" prefWidth="558.0">
                <children>
-                  <Button fx:id="backButton" mnemonicParsing="false" onAction="#goBackButton" prefHeight="39.0" prefWidth="200.0" text="Go Back to Main Menu" />
+                  <Button fx:id="backButton" mnemonicParsing="false" onAction="#goBackButton" prefHeight="39.0" prefWidth="200.0" styleClass="loginButton" text="Go Back to Main Menu" />
                </children>
             </HBox>
          </children>

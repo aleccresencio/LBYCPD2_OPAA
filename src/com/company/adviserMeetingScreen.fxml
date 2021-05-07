@@ -21,9 +21,9 @@
       <Button fx:id="gradesButton" layoutX="776.0" layoutY="39.0" mnemonicParsing="false" onAction="#gradesButton" prefHeight="100.0" prefWidth="190.0" styleClass="gradesButton" text="GRADES" />
       <ListView fx:id="meetingsListView" layoutX="103.0" layoutY="253.0" prefHeight="234.0" prefWidth="794.0" styleClass="listViewNotifs" />
       <Button fx:id="setMeetingButton" layoutX="106.0" layoutY="502.0" mnemonicParsing="false" onAction="#setMeeting" prefHeight="55.0" prefWidth="53.0" styleClass="addButton" />
-      <Button fx:id="removeButton" layoutX="326.0" layoutY="510.0" mnemonicParsing="false" onAction="#removeButton" prefHeight="40.0" prefWidth="110.0" text="REMOVE" />
+      <Button fx:id="removeButton" layoutX="326.0" layoutY="510.0" mnemonicParsing="false" onAction="#removeButton" prefHeight="40.0" prefWidth="110.0" styleClass="loginButton" text="REMOVE" />
       <Label fx:id="notifLabel" layoutX="106.0" layoutY="539.0" prefHeight="28.0" prefWidth="280.0" styleClass="textLabel" text="Label" visible="false" />
-      <Button fx:id="viewRequestsButton" layoutX="177.0" layoutY="510.0" mnemonicParsing="false" onAction="#viewRequestsButton" prefHeight="40.0" prefWidth="135.0" text="VIEW REQUESTS" />
+      <Button fx:id="viewRequestsButton" layoutX="177.0" layoutY="510.0" mnemonicParsing="false" onAction="#viewRequestsButton" prefHeight="40.0" prefWidth="135.0" styleClass="loginButton" text="VIEW REQUESTS" />
    </children>
    <stylesheets>
       <URL value="@opaa_stylesheet.css" />

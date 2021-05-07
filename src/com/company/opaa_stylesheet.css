@@ -84,6 +84,15 @@
     -fx-background-radius: 115;
 }
 
+.addButton {
+    -fx-background-color: white;
+    -fx-background-image: url("assets/addButton.png");
+    -fx-background-repeat: stretch;
+    -fx-background-position: center center;
+    -fx-background-size: 50 50;
+    -fx-background-radius: 115;
+}
+
 .homeButton {
     -fx-background-color: white;
     -fx-background-image: url("assets/opaa_logo.png");
@@ -115,4 +124,93 @@
     -fx-font-family: "Arial Black";
     -fx-text-fill: White;
     -fx-font-size: 16;
+}
+
+.welcomeTitleLabel {
+    -fx-font-family: "Calibri Light";
+    -fx-font-size: 48;
+    -fx-text-fill: #46694A;
+}
+
+.notificationsTitleLabel {
+    -fx-font-family: "Calibri Light";
+    -fx-font-size: 32;
+    -fx-text-fill: #46694A;
+}
+
+.listViewNotifs {
+    -fx-background-color: white;
+    -fx-font-family: "Calibri Light";
+    -fx-font-size: 18;
+    -fx-text-background-color: #46694A;
+    -fx-border-color: White;
+    -fx-selection-bar: #99e29d;
+    -fx-selection-bar-non-focused: #bbe2bd;
+}
+
+.requestMeetingTitleLabel {
+    -fx-font-family: "Calibri Light";
+    -fx-font-size: 48;
+    -fx-text-fill: white;
+}
+
+.datesTxtFld {
+    -fx-background-color: transparent;
+    -fx-border-color: #46694A;
+    -fx-border-radius: 10;
+    -fx-font-family: "Calibri Light";
+    -fx-font-size: 20;
+    -fx-text-fill: #46694A;
+    -fx-alignment: center;
+}
+
+.dateLabel{
+    -fx-font-family: "Calibri Light";
+    -fx-font-size: 36;
+    -fx-text-fill: #46694A;
+}
+
+.table-view {
+    -fx-background-color: rgba(74, 110, 78, 0.15);
+    -fx-background-radius: 7px 7px 7px 7px;
+    -fx-background-insets: 0 11px 0 0;
+    -fx-padding: 0 0 5px 0;
+    -fx-font-family: "Calibri Light";
+    -fx-text-background-color: #46694A;
+    -fx-font-size: 18;
+}
+
+.table-view .column-header-background .filler {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #46694A;
+    -fx-background-radius: 7px 7px 0px 0px;
+    -fx-background-insets: 0 11px 0 0;
+    -fx-padding: 5px 0 5px 0;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-font-family: "Lucida Sans";
+    -fx-text-background-color: white;
+    -fx-font-size: 14;
+}
+
+.table-view .table-cell {
+    -fx-border-color: transparent;
+    -fx-padding: 2 0 2 10px;
+    -fx-selection-bar: #99e29d;
+    -fx-selection-bar-non-focused: #bbe2bd;
+}
+
+.requestMeetingContent{
+    -fx-background-color: rgba(74, 110, 78, 0.1);
+    -fx-background-radius: 20px 20px 20px 20px;
+}
+
+.requestMeetingHeader{
+    -fx-background-color: #46694A;
+    -fx-background-radius: 20px 20px 0px 0px;
 }

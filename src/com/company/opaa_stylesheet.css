@@ -176,8 +176,26 @@
     -fx-selection-bar-non-focused: #bbe2bd;
 }
 
-.list-view .table-cell > .label {
-    -fx-text-fill: white;
+.list-view .virtual-flow .scroll-bar:vertical,
+.list-view .virtual-flow .scroll-bar:vertical .track,
+.list-view .virtual-flow .scroll-bar:vertical .track-background,
+.list-view .virtual-flow .scroll-bar:horizontal,
+.list-view .virtual-flow .scroll-bar:horizontal .track,
+.list-view .virtual-flow .scroll-bar:horizontal .track-background {
+    -fx-background-color: transparent;
+}
+
+.list-view .virtual-flow .scroll-bar .increment-button,
+.list-view .virtual-flow .scroll-bar .decrement-button {
+    -fx-opacity: 0;
+    -fx-padding: 2;
+}
+
+.list-view .virtual-flow .scroll-bar:vertical .thumb{
+    -fx-background-color:  #46694A;
+}
+.list-view .virtual-flow .scroll-bar:horizontal .thumb {
+    -fx-background-color:  #46694A;
 }
 
 .requestMeetingTitleLabel {
@@ -210,8 +228,6 @@
     -fx-font-family: "Calibri Light";
     -fx-text-background-color: #46694A;
     -fx-font-size: 18;
-    -fx-selection-bar: #6a986d;
-    -fx-selection-bar-non-focused: #bbe2bd;
 }
 
 .table-view .column-header-background .filler {
@@ -235,12 +251,6 @@
 .table-view .table-cell {
     -fx-border-color: transparent;
     -fx-padding: 2 0 2 10px;
-    -fx-selection-bar: #6a986d;
-    -fx-selection-bar-non-focused: #bbe2bd;
-}
-
-.table-view .table-cell > .label {
-    -fx-text-fill: white;
 }
 
 .table-row-cell:odd{
@@ -255,6 +265,10 @@
 }
 
 .table-view .table-column {
+    -fx-alignment: BASELINE_CENTER;
+}
+
+.table-view .table-column:selected {
     -fx-alignment: BASELINE_CENTER;
 }
 
@@ -280,6 +294,13 @@
     -fx-background-color:  #46694A;
 }
 
+.table-row-cell:selected {
+    -fx-background-color: #6a986d;
+    -fx-background-radius: 7px;
+    -fx-text-background-color: white;
+    -fx-background-insets: 0 11px 0 0;
+}
+
 .requestMeetingContent{
     -fx-background-color: rgba(74, 110, 78, 0.1);
     -fx-background-radius: 20px 20px 20px 20px;
@@ -295,11 +316,8 @@
 }
 
 .choice-box .context-menu {
-    -fx-background-color: rgba(74, 110, 78, 0.1);
     -fx-font-family: "Calibri Light";
     -fx-font-size: 14;
-    -fx-text-fill: #46694A;
-    -fx-alignment: center;
 }
 
 .choice-box .menu-item:focused { -fx-background-color: #6a986d; }

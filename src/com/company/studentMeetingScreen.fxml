@@ -17,7 +17,7 @@
       <ListView fx:id="meetingsListView" layoutX="96.0" layoutY="231.0" prefHeight="256.0" prefWidth="804.0" styleClass="listViewNotifs" />
       <Button fx:id="requestMeetingButton" layoutX="96.0" layoutY="506.0" mnemonicParsing="false" onAction="#requestMeeting" prefHeight="55.0" prefWidth="55.0" styleClass="addButton" />
       <Button fx:id="removeButton" layoutX="168.0" layoutY="516.0" mnemonicParsing="false" onAction="#removeButton" prefHeight="34.0" prefWidth="82.0" styleClass="loginButton" text="REMOVE" />
-      <Label fx:id="notifLabel" layoutX="96.0" layoutY="529.0" prefHeight="28.0" prefWidth="418.0" styleClass="textLabel" text="Label" visible="false" />
+      <Label fx:id="notifLabel" layoutX="300.0" layoutY="520.0" prefHeight="28.0" prefWidth="418.0" styleClass="headerLabel" text="Label" visible="false" />
    </children>
    <stylesheets>
       <URL value="@opaa_stylesheet.css" />

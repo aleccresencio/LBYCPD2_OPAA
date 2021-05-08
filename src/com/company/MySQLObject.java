@@ -654,4 +654,34 @@ public class MySQLObject {
         }
         return returnString;
     }
+
+    public boolean addAdviser(String firstName, String lastName, String email){
+        try {
+            //establishes a connection to the database
+            Connection connection = DriverManager.getConnection(url, username, password);
+            String checkEmails = "SELECT email FROM users WHERE email ='"+email+"'";
+            Statement checkStatement1 = connection.createStatement();
+            ResultSet results2 = checkStatement1.executeQuery(checkEmails);
+            if(results2.next()){
+                System.out.println("ERROR");
+                return false;
+            }
+            //sql query that inserts new student into the users table
+            String sql = "INSERT INTO users(first_name, last_name, email, division) VALUES(?,?,?,?)";
+            //prepares the sql query statement
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, firstName);
+            statement.setString(2, lastName);
+            statement.setString(3, email);
+            statement.setString(4, "Adviser");
+            //executes the statement
+            statement.execute();
+            //closes connection
+            connection.close();
+        } catch(SQLException throwables){
+            System.out.println("an error has been encountered");
+            throwables.printStackTrace();
+        }
+        return true;
+    }
 }

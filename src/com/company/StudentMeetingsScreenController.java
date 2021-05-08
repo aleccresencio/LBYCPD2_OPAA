@@ -23,6 +23,7 @@ public class StudentMeetingsScreenController {
         ArrayList<String> meetingsList = new ArrayList<String>();
         this.currentUser = currentUser;
         MySQLObject loginObject = new MySQLObject();
+        meetingsListView.setPlaceholder(new Label("You have no meetings."));
         meetingsList = loginObject.checkMeetings(currentUser.getUser_id(), currentUser.getDivision());
         for(int i = 0; i < meetingsList.size(); i++) {
             meetingsListView.getItems().add(meetingsList.get(i));

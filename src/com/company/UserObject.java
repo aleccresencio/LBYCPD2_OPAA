@@ -19,6 +19,13 @@ public class UserObject {
         this.user_id = userId;
         this.adviser = adviser;
     }
+
+    public UserObject(int userId, String firstName, String lastName){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.user_id = userId;
+    }
+
     public String getFirstName(){
         return firstName;
     }

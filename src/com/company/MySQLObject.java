@@ -605,4 +605,53 @@ public class MySQLObject {
             throwables.printStackTrace();
         }
     }
+
+    public ObservableList<UserObject> getStudents(int userId){
+        ObservableList<UserObject> studentList = FXCollections.observableArrayList();
+        try {
+            //establishes a connection to the database
+            Connection connection = DriverManager.getConnection(url, username, password);
+            //sql query that checks if the entered username and password is in the database
+            String getAdviseesQuery = "SELECT user_id, first_name, last_name FROM users WHERE adviser_id ="+userId;
+            Statement firstStatement = connection.createStatement();
+            ResultSet results = firstStatement.executeQuery(getAdviseesQuery);
+            while(results.next()) {
+                int studentId = results.getInt("user_id");
+                String firstName = results.getString("first_name");
+                String lastName = results.getString("last_name");
+                studentList.add(new UserObject(studentId, firstName, lastName));
+            }
+            connection.close();
+        } catch (SQLException throwables) {
+            System.out.println("an error has been encountered");
+            throwables.printStackTrace();
+        }
+        return studentList;
+    }
+
+    public String getCourseNamesOrGrades(int user_id, String choice){
+        String returnString = null;
+        try {
+            //establishes a connection to the database
+            Connection connection = DriverManager.getConnection(url, username, password);
+            //sql query that checks if the entered username and password is in the database
+            String getGrades = "SELECT * FROM grades WHERE user_id ="+user_id;
+            Statement firstStatement = connection.createStatement();
+            ResultSet results = firstStatement.executeQuery(getGrades);
+            while(results.next()) {
+                if(choice.equals("names")){
+                    String courseNames = results.getString("course_names");
+                    returnString = courseNames;
+                } else if(choice.equals("grades")){
+                    String courseGrades = results.getString("grade_values");
+                    returnString = courseGrades;
+                }
+            }
+            connection.close();
+        } catch (SQLException throwables) {
+            System.out.println("an error has been encountered");
+            throwables.printStackTrace();
+        }
+        return returnString;
+    }
 }

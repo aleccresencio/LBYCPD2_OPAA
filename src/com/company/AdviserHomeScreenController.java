@@ -24,6 +24,7 @@ public class AdviserHomeScreenController {
         ArrayList<String> notifList = new ArrayList<>();
         MySQLObject sql = new MySQLObject();
         notifList = sql.studentNotifs(currentUser.getUser_id());
+        notifView.setPlaceholder(new Label("You have no notifications."));
         for(int i = 0; i < notifList.size(); i++) {
             notifView.getItems().add(notifList.get(i));
         }
@@ -52,6 +53,8 @@ public class AdviserHomeScreenController {
         loadScreen.logoutButton(logoutButton);
     }
 
-    public void gradesButton(ActionEvent actionEvent) {
+    public void gradesButton(ActionEvent actionEvent) throws IOException {
+        buttonFunctions loadScreen = new buttonFunctions();
+        loadScreen.gradesButton(gradesButton, currentUser);
     }
 }

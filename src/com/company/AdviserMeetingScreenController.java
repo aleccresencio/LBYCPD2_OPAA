@@ -22,6 +22,7 @@ public class AdviserMeetingScreenController {
     public void transferCurrentUser(UserObject currentUser) {
         ArrayList<String> meetingsList = new ArrayList<String>();
         this.currentUser = currentUser;
+        meetingsListView.setPlaceholder(new Label("You have no meetings."));
         MySQLObject loginObject = new MySQLObject();
         meetingsList = loginObject.checkMeetings(currentUser.getUser_id(), currentUser.getDivision());
         for(int i = 0; i < meetingsList.size(); i++) {
@@ -70,7 +71,9 @@ public class AdviserMeetingScreenController {
         loadScreen.logoutButton(logoutButton);
     }
 
-    public void gradesButton(ActionEvent actionEvent) {
+    public void gradesButton(ActionEvent actionEvent) throws IOException {
+        buttonFunctions loadScreen = new buttonFunctions();
+        loadScreen.gradesButton(gradesButton, currentUser);
     }
 
     public void removeButton(ActionEvent actionEvent) {

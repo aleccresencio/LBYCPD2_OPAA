@@ -63,6 +63,8 @@ public class AdviserSetMeetingScreenController {
         loadScreen.logoutButton(logoutButton);
     }
 
-    public void gradesButton(ActionEvent actionEvent) {
+    public void gradesButton(ActionEvent actionEvent) throws IOException {
+        buttonFunctions loadScreen = new buttonFunctions();
+        loadScreen.gradesButton(gradesButton, currentUser);
     }
 }

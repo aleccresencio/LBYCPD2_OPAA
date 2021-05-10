@@ -10,20 +10,14 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="mainMenuRoot" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.AdviserViewRequestsController">
    <children>
-      <Button fx:id="meetingsButton" layoutX="581.0" layoutY="39.0" mnemonicParsing="false" onAction="#meetingsButton" prefHeight="100.0" prefWidth="190.0" styleClass="meetingsButton" text="MEETINGS" />
-      <Button fx:id="calendarButton" layoutX="386.0" layoutY="39.0" mnemonicParsing="false" onAction="#calendarButton" prefHeight="100.0" prefWidth="190.0" styleClass="calendarButton" text="CALENDAR" />
-      <Button fx:id="profileButton" layoutX="36.0" layoutY="34.0" mnemonicParsing="false" onAction="#profileButton" prefHeight="109.0" prefWidth="114.0" styleClass="profileButton" text="Profile" />
-      <Button fx:id="homeButton" layoutX="152.0" layoutY="47.0" mnemonicParsing="false" onAction="#homeButton" prefHeight="84.0" prefWidth="226.0" styleClass="homeButton" />
-      <Button fx:id="logoutButton" layoutX="855.0" layoutY="150.0" mnemonicParsing="false" onAction="#logoutButton" prefHeight="45.0" prefWidth="110.0" styleClass="logoutButton" text="LOGOUT" />
       <Label layoutX="100.0" layoutY="168.0" prefHeight="55.0" prefWidth="409.0" styleClass="welcomeTitleLabel" text="MEETING REQUESTS">
          <font>
             <Font name="Monospaced Regular" size="12.0" />
          </font></Label>
-      <Button fx:id="gradesButton" layoutX="776.0" layoutY="39.0" mnemonicParsing="false" onAction="#gradesButton" prefHeight="100.0" prefWidth="190.0" styleClass="gradesButton" text="GRADES" />
       <Button fx:id="declineButton" layoutX="209.0" layoutY="511.0" mnemonicParsing="false" onAction="#declineButton" prefHeight="35.0" prefWidth="96.0" styleClass="loginButton" text="DECLINE" />
-      <Label fx:id="notifLabel" layoutX="106.0" layoutY="539.0" prefHeight="28.0" prefWidth="398.0" styleClass="textLabel" text="Label" visible="false" />
+      <Label fx:id="notifLabel" layoutX="340.0" layoutY="515.0" prefHeight="28.0" prefWidth="398.0" styleClass="headerLabel" text="Label" visible="false" />
       <Button fx:id="acceptButton" layoutX="106.0" layoutY="511.0" mnemonicParsing="false" onAction="#acceptButton" prefHeight="35.0" prefWidth="80.0" styleClass="loginButton" text="ACCEPT" />
-      <TableView fx:id="requestTable" layoutX="106.0" layoutY="245.0" prefHeight="239.0" prefWidth="762.0">
+      <TableView fx:id="requestTable" layoutX="106.0" layoutY="245.0" prefHeight="239.0" prefWidth="778.0">
         <columns>
           <TableColumn fx:id="requestId" prefWidth="150.0" text="REQUEST ID" />
           <TableColumn minWidth="103.2000732421875" prefWidth="268.79998779296875" text="Name">
@@ -45,6 +39,12 @@
             </TableColumn>
         </columns>
       </TableView>
+      <Button fx:id="meetingsButton" layoutX="633.0" layoutY="42.0" mnemonicParsing="false" onAction="#meetingsButton" prefHeight="90.0" prefWidth="180.0" styleClass="meetingsButton" text="MEETINGS" />
+      <Button fx:id="calendarButton" layoutX="449.0" layoutY="42.0" mnemonicParsing="false" onAction="#calendarButton" prefHeight="90.0" prefWidth="180.0" styleClass="calendarButton" text="CALENDAR" />
+      <Button fx:id="profileButton" layoutX="265.0" layoutY="42.0" mnemonicParsing="false" onAction="#profileButton" prefHeight="90.0" prefWidth="180.0" styleClass="profileButton" text="PROFILE" />
+      <Button fx:id="homeButton" layoutX="34.0" layoutY="48.0" mnemonicParsing="false" onAction="#homeButton" prefHeight="84.0" prefWidth="226.0" styleClass="homeButton" />
+      <Button fx:id="logoutButton" layoutX="885.0" layoutY="150.0" mnemonicParsing="false" onAction="#logoutButton" prefHeight="45.0" prefWidth="110.0" styleClass="logoutButton" text="LOGOUT" />
+      <Button fx:id="gradesButton" layoutX="817.0" layoutY="42.0" mnemonicParsing="false" onAction="#gradesButton" prefHeight="90.0" prefWidth="180.0" styleClass="gradesButton" text="GRADES" />
    </children>
    <stylesheets>
       <URL value="@opaa_stylesheet.css" />

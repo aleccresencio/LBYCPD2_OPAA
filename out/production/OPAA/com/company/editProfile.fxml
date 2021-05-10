@@ -3,7 +3,6 @@
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -12,34 +11,24 @@
    <children>
       <VBox layoutX="221.0" layoutY="44.0" prefHeight="501.0" prefWidth="558.0">
          <children>
-            <HBox alignment="CENTER" prefHeight="203.0" prefWidth="558.0">
+            <HBox alignment="BOTTOM_CENTER" prefHeight="162.0" prefWidth="558.0">
                <children>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label fx:id="usernameLabel" styleClass="welcomeTitleLabel" text="Label" />
                </children>
             </HBox>
-            <HBox alignment="TOP_CENTER" prefHeight="56.0" prefWidth="558.0">
+            <HBox alignment="TOP_CENTER" prefHeight="74.0" prefWidth="558.0">
                <children>
-                  <Label fx:id="usernameLabel" styleClass="usernameLabel" text="Label" />
+                  <Label fx:id="userRole" styleClass="titleLabel" text="Label" />
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="34.0" prefWidth="558.0">
+            <HBox alignment="CENTER" prefHeight="131.0" prefWidth="558.0">
                <children>
-                  <Label fx:id="userRole" styleClass="textLabel" text="Label" />
+                  <Button fx:id="changePasswordButton" mnemonicParsing="false" onAction="#passwordButton" prefHeight="60.0" prefWidth="240.0" styleClass="loginButton" text="CHANGE PASSWORD" />
                </children>
             </HBox>
-            <HBox alignment="BOTTOM_CENTER" prefHeight="74.0" prefWidth="558.0">
+            <HBox alignment="TOP_CENTER" prefHeight="58.0" prefWidth="558.0">
                <children>
-                  <Button fx:id="dpButton" mnemonicParsing="false" prefHeight="39.0" prefWidth="200.0" styleClass="loginButton" text="Change Display Picture " />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="82.0" prefWidth="558.0">
-               <children>
-                  <Button fx:id="changePasswordButton" mnemonicParsing="false" onAction="#passwordButton" prefHeight="39.0" prefWidth="200.0" styleClass="loginButton" text="Change Password" />
-               </children>
-            </HBox>
-            <HBox alignment="TOP_CENTER" prefHeight="60.0" prefWidth="558.0">
-               <children>
-                  <Button fx:id="backButton" mnemonicParsing="false" onAction="#goBackButton" prefHeight="39.0" prefWidth="200.0" styleClass="loginButton" text="Go Back to Main Menu" />
+                  <Button fx:id="backButton" mnemonicParsing="false" onAction="#goBackButton" prefHeight="58.0" prefWidth="240.0" styleClass="loginButton" text="BACK TO MAIN MENU" />
                </children>
             </HBox>
          </children>

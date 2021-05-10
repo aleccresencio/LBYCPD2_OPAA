@@ -8,16 +8,16 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="mainMenuRoot" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.StudentMeetingsScreenController">
    <children>
-      <Button fx:id="meetingsButton" layoutX="398.0" layoutY="36.0" mnemonicParsing="false" onAction="#meetingsButton" prefHeight="100.0" prefWidth="270.0" styleClass="meetingsButton" text="MEETINGS" />
-      <Button fx:id="calendarButton" layoutX="681.0" layoutY="36.0" mnemonicParsing="false" onAction="#calendarButton" prefHeight="100.0" prefWidth="270.0" styleClass="calendarButton" text="CALENDAR" />
-      <Button fx:id="profileButton" layoutX="40.0" layoutY="39.0" mnemonicParsing="false" onAction="#profileButton" prefHeight="110.0" prefWidth="112.0" styleClass="profileButton" />
-      <Button fx:id="homeButton" layoutX="160.0" layoutY="52.0" mnemonicParsing="false" onAction="#homeButton" prefHeight="84.0" prefWidth="226.0" styleClass="homeButton" />
-      <Button fx:id="logoutButton" layoutX="840.0" layoutY="149.0" mnemonicParsing="false" onAction="#logoutButton" prefHeight="45.0" prefWidth="110.0" styleClass="logoutButton" text="LOGOUT" />
       <Label layoutX="96.0" layoutY="158.0" styleClass="welcomeTitleLabel" text="MEETINGS" />
       <ListView fx:id="meetingsListView" layoutX="96.0" layoutY="231.0" prefHeight="256.0" prefWidth="804.0" styleClass="listViewNotifs" />
       <Button fx:id="requestMeetingButton" layoutX="96.0" layoutY="506.0" mnemonicParsing="false" onAction="#requestMeeting" prefHeight="55.0" prefWidth="55.0" styleClass="addButton" />
       <Button fx:id="removeButton" layoutX="168.0" layoutY="516.0" mnemonicParsing="false" onAction="#removeButton" prefHeight="34.0" prefWidth="82.0" styleClass="loginButton" text="REMOVE" />
-      <Label fx:id="notifLabel" layoutX="96.0" layoutY="529.0" prefHeight="28.0" prefWidth="418.0" styleClass="textLabel" text="Label" visible="false" />
+      <Label fx:id="notifLabel" layoutX="300.0" layoutY="520.0" prefHeight="28.0" prefWidth="418.0" styleClass="headerLabel" text="Label" visible="false" />
+      <Button fx:id="meetingsButton" layoutX="519.0" layoutY="41.0" mnemonicParsing="false" onAction="#meetingsButton" prefHeight="90.0" prefWidth="220.0" styleClass="meetingsButton" text="MEETINGS" />
+      <Button fx:id="calendarButton" layoutX="745.0" layoutY="41.0" mnemonicParsing="false" onAction="#calendarButton" prefHeight="90.0" prefWidth="220.0" styleClass="calendarButton" text="CALENDAR" />
+      <Button fx:id="profileButton" layoutX="292.0" layoutY="41.0" mnemonicParsing="false" onAction="#profileButton" prefHeight="90.0" prefWidth="220.0" styleClass="profileButton" text="PROFILE" />
+      <Button fx:id="homeButton" layoutX="55.0" layoutY="50.0" mnemonicParsing="false" onAction="#homeButton" prefHeight="84.0" prefWidth="226.0" styleClass="homeButton" />
+      <Button fx:id="logoutButton" layoutX="855.0" layoutY="147.0" mnemonicParsing="false" onAction="#logoutButton" prefHeight="45.0" prefWidth="110.0" styleClass="logoutButton" text="LOGOUT" />
    </children>
    <stylesheets>
       <URL value="@opaa_stylesheet.css" />

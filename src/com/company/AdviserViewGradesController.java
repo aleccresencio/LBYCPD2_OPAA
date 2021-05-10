@@ -44,16 +44,21 @@ public class AdviserViewGradesController {
                 int user_id = studentList.get(chosenIndex).getUser_id();
                 String courseNames = sql.getCourseNamesOrGrades(user_id, "names");
                 String courseGrades = sql.getCourseNamesOrGrades(user_id, "grades");
-                String[] arrayNames = courseNames.split(", ", -2);
-                String[] arrayGrades = courseGrades.split(", ", -2);
-                List<String> listNames = Arrays.asList(arrayNames);
-                List<String> listGrades = Arrays.asList(arrayGrades);
-                for(int i = 0; i<listNames.size(); i++){
-                    gradesList.add(new GradesObject(listNames.get(i), listGrades.get(i)));
+                if(courseGrades != null && courseNames != null) {
+                    String[] arrayNames = courseNames.split(", ", -2);
+                    String[] arrayGrades = courseGrades.split(", ", -2);
+                    List<String> listNames = Arrays.asList(arrayNames);
+                    List<String> listGrades = Arrays.asList(arrayGrades);
+                    for (int i = 0; i < listNames.size(); i++) {
+                        gradesList.add(new GradesObject(listNames.get(i), listGrades.get(i)));
+                    }
+                    courseColumn.setCellValueFactory(new PropertyValueFactory<>("course_names"));
+                    gradeColumn.setCellValueFactory(new PropertyValueFactory<>("course_grades"));
+                    gradeTable.setItems(gradesList);
+                }else{
+                    gradeTable.getItems().clear();
+                    gradeTable.setPlaceholder(new Label("Grades of this student cannot be found"));
                 }
-                courseColumn.setCellValueFactory(new PropertyValueFactory<>("course_names"));
-                gradeColumn.setCellValueFactory(new PropertyValueFactory<>("course_grades"));
-                gradeTable.setItems(gradesList);
             }
         });
     }

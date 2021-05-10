@@ -45,7 +45,9 @@ public class AdviserViewRequestsController {
         loadScreen.adviserMeetingsButton(meetingsButton, currentUser);
     }
 
-    public void calendarButton(ActionEvent actionEvent) {
+    public void calendarButton(ActionEvent actionEvent) throws IOException {
+        buttonFunctions loadScreen = new buttonFunctions();
+        loadScreen.calendarButton(calendarButton, currentUser);
     }
 
     public void profileButton(ActionEvent actionEvent) throws IOException {

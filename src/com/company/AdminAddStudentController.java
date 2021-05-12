@@ -6,10 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -19,7 +16,7 @@ public class AdminAddStudentController {
     public Button logoutButton, addButton, backButton;
     public Label userNameLabel, notifLabel;
     public TextField firstNameField, lastNameField, emailField;
-    public ChoiceBox<String> adviserDropDown;
+    public ComboBox<String> adviserDropDown;
     ObservableList<UserObject> adviserList;
 
     public void transferCurrentUser(UserObject currentUser) {
@@ -29,6 +26,7 @@ public class AdminAddStudentController {
         for(int i = 0; i<adviserList.size();i++) {
             adviserDropDown.getItems().add(adviserList.get(i).getFirstName()+" "+adviserList.get(i).getLastName());
         }
+        adviserDropDown.setVisibleRowCount(5);
     }
 
     public void addButton(ActionEvent actionEvent) throws IOException {

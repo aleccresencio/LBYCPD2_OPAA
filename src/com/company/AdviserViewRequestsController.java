@@ -47,7 +47,7 @@ public class AdviserViewRequestsController {
 
     public void calendarButton(ActionEvent actionEvent) throws IOException {
         buttonFunctions loadScreen = new buttonFunctions();
-        loadScreen.calendarButton(calendarButton, currentUser);
+        loadScreen.adviserCalendarButton(calendarButton, currentUser);
     }
 
     public void profileButton(ActionEvent actionEvent) throws IOException {
@@ -61,23 +61,33 @@ public class AdviserViewRequestsController {
     }
 
     public void acceptButton(ActionEvent actionEvent) throws IOException {
-        RequestObject selected = requestTable.getSelectionModel().getSelectedItem();
-        int selectedIndex = requestTable.getSelectionModel().getSelectedIndex();
-        MySQLObject sql = new MySQLObject();
-        sql.acceptRequest(selected.getRequestId(), selected.getFromId(), selected.getToId(), selected.getDate(), selected.getTime());
-        requestTable.getItems().remove(selectedIndex);
-        notifLabel.setVisible(true);
-        notifLabel.setText("Meeting accepted!");
+        if(requestTable.getSelectionModel().getSelectedItem() == null){
+            notifLabel.setVisible(true);
+            notifLabel.setText("No request selected.");
+        }else {
+            RequestObject selected = requestTable.getSelectionModel().getSelectedItem();
+            int selectedIndex = requestTable.getSelectionModel().getSelectedIndex();
+            MySQLObject sql = new MySQLObject();
+            sql.acceptRequest(selected.getRequestId(), selected.getFromId(), selected.getToId(), selected.getDate(), selected.getTime());
+            requestTable.getItems().remove(selectedIndex);
+            notifLabel.setVisible(true);
+            notifLabel.setText("Meeting accepted!");
+        }
     }
 
     public void declineButton(ActionEvent actionEvent) throws IOException {
-        RequestObject selected = requestTable.getSelectionModel().getSelectedItem();
-        int selectedIndex = requestTable.getSelectionModel().getSelectedIndex();
-        MySQLObject sql = new MySQLObject();
-        sql.declineRequest(selected.getRequestId(), selected.getFromId(), selected.getToId(), selected.getDate(), selected.getTime());
-        requestTable.getItems().remove(selectedIndex);
-        notifLabel.setVisible(true);
-        notifLabel.setText("Meeting declined!");
+        if(requestTable.getSelectionModel().getSelectedItem() == null){
+            notifLabel.setVisible(true);
+            notifLabel.setText("No request selected.");
+        }else {
+            RequestObject selected = requestTable.getSelectionModel().getSelectedItem();
+            int selectedIndex = requestTable.getSelectionModel().getSelectedIndex();
+            MySQLObject sql = new MySQLObject();
+            sql.declineRequest(selected.getRequestId(), selected.getFromId(), selected.getToId(), selected.getDate(), selected.getTime());
+            requestTable.getItems().remove(selectedIndex);
+            notifLabel.setVisible(true);
+            notifLabel.setText("Meeting declined!");
+        }
     }
 
     public void logoutButton(ActionEvent actionEvent) throws IOException {

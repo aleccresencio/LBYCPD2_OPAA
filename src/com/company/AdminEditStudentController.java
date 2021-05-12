@@ -31,45 +31,69 @@ public class AdminEditStudentController {
     }
 
     public void editAdviserButton(ActionEvent actionEvent) throws IOException {
-        int chosenIndex = studentsListView.getSelectionModel().getSelectedIndex();
-        int user_id = studentList.get(chosenIndex).getUser_id();
-        int adviserId = studentList.get(chosenIndex).getAdviser();
-        String firstName = studentList.get(chosenIndex).getFirstName();
-        String lastName = studentList.get(chosenIndex).getLastName();
-        Stage stage1 = (Stage) editAdviserButton.getScene().getWindow();
-        stage1.close();
-        //loads new stage
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("adminEditAdviserScreen.fxml"));
-        Parent root = loader.load();
-        //transfers the current user to other controller
-        AdminEditAdviserController scene2Controller = loader.getController();
-        scene2Controller.transferCurrentUser(currentUser, user_id, firstName, lastName, adviserId);
-        //Show new scene in new window
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root,1000,600));
-        stage.setTitle("OPAA");
-        stage.show();
+        if(studentsListView.getSelectionModel().getSelectedItem() == null){
+            notifLabel.setVisible(true);
+            notifLabel.setText("No student selected.");
+        }else {
+            int chosenIndex = studentsListView.getSelectionModel().getSelectedIndex();
+            int user_id = studentList.get(chosenIndex).getUser_id();
+            int adviserId = studentList.get(chosenIndex).getAdviser();
+            String firstName = studentList.get(chosenIndex).getFirstName();
+            String lastName = studentList.get(chosenIndex).getLastName();
+            Stage stage1 = (Stage) editAdviserButton.getScene().getWindow();
+            stage1.close();
+            //loads new stage
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("adminEditAdviserScreen.fxml"));
+            Parent root = loader.load();
+            //transfers the current user to other controller
+            AdminEditAdviserController scene2Controller = loader.getController();
+            scene2Controller.transferCurrentUser(currentUser, user_id, firstName, lastName, adviserId);
+            //Show new scene in new window
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root, 1000, 600));
+            stage.setTitle("OPAA");
+            stage.show();
+        }
     }
 
     public void editGradesButton(ActionEvent actionEvent) throws IOException {
-        int chosenIndex = studentsListView.getSelectionModel().getSelectedIndex();
-        int user_id = studentList.get(chosenIndex).getUser_id();
-        int adviserId = studentList.get(chosenIndex).getAdviser();
-        String firstName = studentList.get(chosenIndex).getFirstName();
-        String lastName = studentList.get(chosenIndex).getLastName();
-        Stage stage1 = (Stage) editGradesButton.getScene().getWindow();
-        stage1.close();
-        //loads new stage
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("adminEditGrades.fxml"));
-        Parent root = loader.load();
-        //transfers the current user to other controller
-        AdminEditGradesController scene2Controller = loader.getController();
-        scene2Controller.transferCurrentUser(currentUser, user_id, firstName, lastName);
-        //Show new scene in new window
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root,1000,600));
-        stage.setTitle("OPAA");
-        stage.show();
+        if(studentsListView.getSelectionModel().getSelectedItem() == null){
+            notifLabel.setVisible(true);
+            notifLabel.setText("No student selected.");
+        }else {
+            int chosenIndex = studentsListView.getSelectionModel().getSelectedIndex();
+            int user_id = studentList.get(chosenIndex).getUser_id();
+            int adviserId = studentList.get(chosenIndex).getAdviser();
+            String firstName = studentList.get(chosenIndex).getFirstName();
+            String lastName = studentList.get(chosenIndex).getLastName();
+            Stage stage1 = (Stage) editGradesButton.getScene().getWindow();
+            stage1.close();
+            //loads new stage
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("adminEditGrades.fxml"));
+            Parent root = loader.load();
+            //transfers the current user to other controller
+            AdminEditGradesController scene2Controller = loader.getController();
+            scene2Controller.transferCurrentUser(currentUser, user_id, firstName, lastName);
+            //Show new scene in new window
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root, 1000, 600));
+            stage.setTitle("OPAA");
+            stage.show();
+        }
+    }
+
+    public void deleteStudentButton(ActionEvent actionEvent){
+        if(studentsListView.getSelectionModel().getSelectedItem() == null){
+            notifLabel.setVisible(true);
+            notifLabel.setText("No student selected.");
+        }else {
+            int chosenIndex = studentsListView.getSelectionModel().getSelectedIndex();
+            int user_id = studentList.get(chosenIndex).getUser_id();
+            MySQLObject sql = new MySQLObject();
+            sql.deleteStudent(user_id);
+            studentList.remove(chosenIndex);
+            studentsListView.getItems().remove(chosenIndex);
+        }
     }
 
     public void backButton(ActionEvent actionEvent) throws IOException {
@@ -88,6 +112,5 @@ public class AdminEditStudentController {
         stage.show();
     }
 
-    public void deleteStudentButton(ActionEvent actionEvent){
-    }
+
 }

@@ -2,22 +2,38 @@
 
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="mainMenuRoot" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.ViewCalendarController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="mainMenuRoot" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.AdviserViewCalendarController">
    <children>
-      <DatePicker fx:id="calendarInterface" layoutX="77.0" layoutY="182.0" prefHeight="46.0" prefWidth="407.0" />
       <Label layoutX="87.0" layoutY="154.0" styleClass="welcomeTitleLabel" text="VIEW CALENDAR" />
-      <ListView layoutX="580.0" layoutY="208.0" prefHeight="330.0" prefWidth="384.0" styleClass="listViewNotifs" />
       <Button fx:id="meetingsButton" layoutX="633.0" layoutY="42.0" mnemonicParsing="false" onAction="#meetingsButton" prefHeight="90.0" prefWidth="180.0" styleClass="meetingsButton" text="MEETINGS" />
       <Button fx:id="calendarButton" layoutX="449.0" layoutY="42.0" mnemonicParsing="false" onAction="#calendarButton" prefHeight="90.0" prefWidth="180.0" styleClass="calendarButton" text="CALENDAR" />
       <Button fx:id="profileButton" layoutX="265.0" layoutY="42.0" mnemonicParsing="false" onAction="#profileButton" prefHeight="90.0" prefWidth="180.0" styleClass="profileButton" text="PROFILE" />
       <Button fx:id="homeButton" layoutX="34.0" layoutY="48.0" mnemonicParsing="false" onAction="#homeButton" prefHeight="84.0" prefWidth="226.0" styleClass="homeButton" />
       <Button fx:id="logoutButton" layoutX="885.0" layoutY="150.0" mnemonicParsing="false" onAction="#logoutButton" prefHeight="45.0" prefWidth="110.0" styleClass="logoutButton" text="LOGOUT" />
       <Button fx:id="gradesButton" layoutX="817.0" layoutY="42.0" mnemonicParsing="false" onAction="#gradesButton" prefHeight="90.0" prefWidth="180.0" styleClass="gradesButton" text="GRADES" />
+      <DatePicker fx:id="calendarInterface" layoutX="165.0" layoutY="253.0" onAction="#getDate" prefHeight="28.0" prefWidth="176.0" />
+      <Button fx:id="addEventButton" layoutX="153.0" layoutY="418.0" mnemonicParsing="false" onAction="#addEventButton" text="ADD EVENT" />
+      <Button fx:id="removeButton" layoutX="355.0" layoutY="536.0" mnemonicParsing="false" onAction="#removeButton" text="REMOVE EVENT" />
+      <ComboBox fx:id="hourDropDown" layoutX="169.0" layoutY="370.0" prefHeight="28.0" prefWidth="72.0" styleClass="txtFld" />
+      <ComboBox fx:id="minDropDown" layoutX="264.0" layoutY="370.0" prefHeight="28.0" prefWidth="72.0" styleClass="txtFld" />
+      <TextField fx:id="titleField" layoutX="163.0" layoutY="321.0" prefHeight="30.0" prefWidth="306.0" styleClass="txtFld" />
+      <Label layoutX="32.0" layoutY="322.0" styleClass="textLabel" text="EVENT TITLE:" />
+      <Label layoutX="250.0" layoutY="371.0" styleClass="textLabel" text=":" />
+      <Label layoutX="102.0" layoutY="370.0" styleClass="textLabel" text="TIME:" />
+      <TableView fx:id="eventTable" layoutX="500.0" layoutY="234.0" prefHeight="330.0" prefWidth="454.0">
+        <columns>
+          <TableColumn fx:id="timeColumn" prefWidth="103.199951171875" text="TIME" />
+          <TableColumn fx:id="titleColumn" prefWidth="339.20001220703125" text="TITLE" />
+        </columns>
+      </TableView>
    </children>
    <stylesheets>
       <URL value="@opaa_stylesheet.css" />

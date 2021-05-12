@@ -38,7 +38,7 @@ public class StudentHomeScreenController {
 
     public void calendarButton(ActionEvent actionEvent) throws IOException {
         buttonFunctions loadScreen = new buttonFunctions();
-        loadScreen.calendarButton(calendarButton, currentUser);
+        loadScreen.studentCalendarButton(calendarButton, currentUser);
     }
 
     public void profileButton(ActionEvent actionEvent) throws IOException {

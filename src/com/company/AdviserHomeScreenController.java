@@ -37,7 +37,7 @@ public class AdviserHomeScreenController {
 
     public void calendarButton(ActionEvent actionEvent) throws IOException {
         buttonFunctions loadScreen = new buttonFunctions();
-        loadScreen.calendarButton(calendarButton, currentUser);
+        loadScreen.adviserCalendarButton(calendarButton, currentUser);
     }
 
     public void profileButton(ActionEvent actionEvent) throws IOException {

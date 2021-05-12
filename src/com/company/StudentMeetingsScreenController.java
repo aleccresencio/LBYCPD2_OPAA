@@ -37,7 +37,7 @@ public class StudentMeetingsScreenController {
 
     public void calendarButton(ActionEvent actionEvent) throws IOException {
         buttonFunctions loadScreen = new buttonFunctions();
-        loadScreen.calendarButton(calendarButton, currentUser);
+        loadScreen.studentCalendarButton(calendarButton, currentUser);
     }
 
     public void profileButton(ActionEvent actionEvent) throws IOException {
@@ -72,18 +72,23 @@ public class StudentMeetingsScreenController {
     }
 
     public void removeButton(ActionEvent actionEvent) {
-        String selected = meetingsListView.getSelectionModel().getSelectedItem();
-        int selectedIndex = meetingsListView.getSelectionModel().getSelectedIndex();
-        if(selected.startsWith("You set a")){
-            String meetingSched = selected.substring(selected.length() - 14);
-            MySQLObject sql = new MySQLObject();
-            sql.removeMeetingRequest(currentUser.getUser_id(), currentUser.getAdviser(), meetingSched);
-            meetingsListView.getItems().remove(selectedIndex);
+        if(meetingsListView.getSelectionModel().getSelectedItem() == null) {
             notifLabel.setVisible(true);
-            notifLabel.setText("Successfully removed meeting!");
-        }else{
-            notifLabel.setVisible(true);
-            notifLabel.setText("Cannot cancel a meeting set by an adviser");
+            notifLabel.setText("Select a meeting set by you to remove");
+        }else {
+            String selected = meetingsListView.getSelectionModel().getSelectedItem();
+            int selectedIndex = meetingsListView.getSelectionModel().getSelectedIndex();
+            if (selected.startsWith("You set a")) {
+                String meetingSched = selected.substring(selected.length() - 14);
+                MySQLObject sql = new MySQLObject();
+                sql.removeMeetingRequest(currentUser.getUser_id(), currentUser.getAdviser(), meetingSched);
+                meetingsListView.getItems().remove(selectedIndex);
+                notifLabel.setVisible(true);
+                notifLabel.setText("Successfully removed meeting!");
+            } else {
+                notifLabel.setVisible(true);
+                notifLabel.setText("Cannot cancel a meeting set by an adviser");
+            }
         }
     }
 }

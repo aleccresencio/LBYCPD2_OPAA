@@ -79,7 +79,10 @@ public class StudentViewCalendarController {
         }else if(titleField.getText() == null){
             notifLabel.setText("Please input a title for the event.");
             notifLabel.setVisible(true);
-        }else{
+        }else if(titleField.getText().length()>100){
+            notifLabel.setText("Event title is too long.");
+            notifLabel.setVisible(true);
+        } else{
             String title = titleField.getText();
             String eventSched = formattedDate+" "+hourDropDown.getSelectionModel().getSelectedItem()+":"+minDropDown.getSelectionModel().getSelectedItem();
             MySQLObject sql = new MySQLObject();

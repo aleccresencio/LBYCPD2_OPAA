@@ -54,6 +54,9 @@ public class AdminAddGradesController {
             if (courseCodeField.getText().isEmpty()) {
                 notifLabel.setVisible(true);
                 notifLabel.setText("Please specify the course name");
+            } else if(!courseCodeField.getText().matches("[A-Za-z0-9]+") || courseCodeField.getText().length()>99){
+                notifLabel.setVisible(true);
+                notifLabel.setText("Invalid course code.");
             } else {
                 boolean checker = true;
                 for (int i = 0; i < gradesList.size(); i++) {

@@ -59,10 +59,11 @@ public class AdminDeleteAdviserController {
             int replaceIndex = replaceDropDown.getSelectionModel().getSelectedIndex();
             MySQLObject sql = new MySQLObject();
             sql.deleteAdviser(user_id, replacementAdvisers.get(replaceIndex).getUser_id());
+            notifLabel.setVisible(true);
+            notifLabel.setText("Succesfully deleted "+adviserList.get(chosenIndex).getFirstName()+" "+adviserList.get(chosenIndex).getLastName());
             adviserList.remove(chosenIndex);
             adviserListView.getItems().remove(chosenIndex);
-            adviserListView.getSelectionModel().clearSelection();
-            replaceDropDown.getSelectionModel().clearSelection();
+
         }
     }
 

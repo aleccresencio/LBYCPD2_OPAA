@@ -27,16 +27,33 @@ public class AdminAddAdviserController {
         String firstName = firstNameField.getText();
         String lastName = lastNameField.getText();
         String email = emailField.getText();
-        MySQLObject sql = new MySQLObject();
-        boolean checkEmailDuplicate = sql.addAdviser(firstName, lastName, email);
-        notifLabel.setVisible(true);
-        if(checkEmailDuplicate == false){
-            notifLabel.setText("There is already an adviser with the inputted email in the database");
-        }else {
-            notifLabel.setText("You have succesfully added " + firstNameField.getText() + " " + lastNameField.getText());
-            firstNameField.clear();
-            lastNameField.clear();
-            emailField.clear();
+        if(firstNameField.getText().isEmpty() || lastNameField.getText().isEmpty() || emailField.getText().isEmpty()){
+            notifLabel.setVisible(true);
+            notifLabel.setText("Please do not leave any blank items.");
+        }else if(!firstNameField.getText().matches("^[ A-Za-z]+$") || !lastNameField.getText().matches("^[ A-Za-z]+$")){
+            notifLabel.setVisible(true);
+            notifLabel.setText("Name should only contain letters and spaces.");
+        }else if(firstNameField.getText().length() > 19 || lastNameField.getText().length() > 19){
+            notifLabel.setVisible(true);
+            notifLabel.setText("First name and last name should only contain 20 characters.");
+        } else if(!emailField.getText().endsWith("@dlsu.edu.ph")){
+            notifLabel.setVisible(true);
+            notifLabel.setText("Email must end with '@dlsu.edu.ph'");
+        }else if(emailField.getText().length()>40){
+            notifLabel.setVisible(true);
+            notifLabel.setText("Email is too long.");
+        }else{
+            MySQLObject sql = new MySQLObject();
+            boolean checkEmailDuplicate = sql.addAdviser(firstName, lastName, email);
+            notifLabel.setVisible(true);
+            if(checkEmailDuplicate == false){
+                notifLabel.setText("There is already an adviser with the inputted email in the database");
+            }else {
+                notifLabel.setText("You have succesfully added " + firstNameField.getText() + " " + lastNameField.getText());
+                firstNameField.clear();
+                lastNameField.clear();
+                emailField.clear();
+            }
         }
     }
 

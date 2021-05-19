@@ -9,36 +9,36 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="mainMenuRoot" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.AdviserSetMeetingScreenController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="mainMenuRoot" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.AdviserSetMeetingScreenController">
    <children>
-      <Pane layoutX="87.0" layoutY="196.0" prefHeight="267.0" prefWidth="766.0" styleClass="requestMeetingContent">
+      <Pane layoutX="66.0" layoutY="173.0" prefHeight="190.0" prefWidth="766.0" styleClass="requestMeetingContent">
          <children>
-            <ComboBox fx:id="hourDropDown" layoutX="561.0" layoutY="156.0" prefHeight="40.0" prefWidth="69.0" styleClass="txtFld" />
-            <ComboBox fx:id="minDropDown" layoutX="657.0" layoutY="156.0" prefHeight="40.0" prefWidth="69.0" styleClass="txtFld" />
-            <DatePicker fx:id="datePicker" editable="false" layoutX="155.0" layoutY="156.0" onAction="#getDate" prefHeight="40.0" prefWidth="240.0" />
-            <Label layoutX="59.0" layoutY="155.0" styleClass="dateLabel" text="DATE:">
+            <ComboBox fx:id="hourDropDown" layoutX="530.0" layoutY="124.0" prefHeight="40.0" prefWidth="69.0" styleClass="txtFld" />
+            <ComboBox fx:id="minDropDown" layoutX="626.0" layoutY="124.0" prefHeight="40.0" prefWidth="69.0" styleClass="txtFld" />
+            <DatePicker fx:id="datePicker" editable="false" layoutX="124.0" layoutY="124.0" onAction="#getDate" prefHeight="40.0" prefWidth="240.0" styleClass="date-picker" />
+            <Label layoutX="28.0" layoutY="123.0" styleClass="dateLabel" text="DATE:">
                <font>
                   <Font size="10.0" />
                </font>
             </Label>
-            <Label layoutX="470.0" layoutY="153.0" styleClass="dateLabel" text="TIME:">
+            <Label layoutX="439.0" layoutY="121.0" styleClass="dateLabel" text="TIME:">
                <font>
                   <Font size="10.0" />
                </font>
             </Label>
-            <Label layoutX="639.0" layoutY="153.0" prefHeight="22.0" prefWidth="5.0" styleClass="dateLabel" text=":">
+            <Label layoutX="608.0" layoutY="121.0" prefHeight="22.0" prefWidth="5.0" styleClass="dateLabel" text=":">
                <font>
                   <Font size="10.0" />
                </font>
             </Label>
          </children></Pane>
-      <Pane layoutX="87.0" layoutY="196.0" prefHeight="100.0" prefWidth="766.0" styleClass="requestMeetingHeader">
+      <Pane layoutX="66.0" layoutY="173.0" prefHeight="100.0" prefWidth="766.0" styleClass="requestMeetingHeader">
          <children>
             <Label layoutX="27.0" layoutY="18.0" prefHeight="64.0" prefWidth="491.0" styleClass="requestMeetingTitleLabel" text="SET A MEETING" />
          </children>
       </Pane>
-      <Button fx:id="confirmButton" layoutX="92.0" layoutY="490.0" mnemonicParsing="false" onAction="#confirmButton" prefHeight="40.0" prefWidth="116.0" styleClass="loginButton" text="CONFIRM" />
-      <Label fx:id="notifLabel" layoutX="250.0" layoutY="495.0" prefHeight="42.0" prefWidth="581.0" styleClass="textLabel" text="Label" visible="false" />
+      <Button fx:id="confirmButton" layoutX="66.0" layoutY="401.0" mnemonicParsing="false" onAction="#confirmButton" prefHeight="40.0" prefWidth="116.0" styleClass="loginButton" text="CONFIRM" />
+      <Label fx:id="notifLabel" layoutX="250.0" layoutY="400.0" prefHeight="42.0" prefWidth="581.0" styleClass="textLabel" text="Label" visible="false" />
       <Button fx:id="meetingsButton" layoutX="633.0" layoutY="42.0" mnemonicParsing="false" onAction="#meetingsButton" prefHeight="90.0" prefWidth="180.0" styleClass="meetingsButton" text="MEETINGS" />
       <Button fx:id="calendarButton" layoutX="449.0" layoutY="42.0" mnemonicParsing="false" onAction="#calendarButton" prefHeight="90.0" prefWidth="180.0" styleClass="calendarButton" text="CALENDAR" />
       <Button fx:id="profileButton" layoutX="265.0" layoutY="42.0" mnemonicParsing="false" onAction="#profileButton" prefHeight="90.0" prefWidth="180.0" styleClass="profileButton" text="PROFILE" />

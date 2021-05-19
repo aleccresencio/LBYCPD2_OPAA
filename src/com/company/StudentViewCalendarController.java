@@ -25,7 +25,6 @@ public class StudentViewCalendarController {
 
     public void transferCurrentUser(UserObject currentUser) {
         this.currentUser = currentUser;
-        calendarInterface.show();
         hourDropDown.getItems().add("00");
         hourDropDown.getItems().add("01");
         hourDropDown.getItems().add("02");

@@ -10,16 +10,16 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="mainMenuRoot" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.AdviserHomeScreenController">
    <children>
       <Label fx:id="userNameLabel" layoutX="93.0" layoutY="146.0" styleClass="welcomeTitleLabel" text="Label" />
-      <Button fx:id="meetingsButton" layoutX="623.0" layoutY="32.0" mnemonicParsing="false" onAction="#meetingsButton" prefHeight="90.0" prefWidth="180.0" styleClass="meetingsButton" text="MEETINGS" />
-      <Button fx:id="calendarButton" layoutX="439.0" layoutY="32.0" mnemonicParsing="false" onAction="#calendarButton" prefHeight="90.0" prefWidth="180.0" styleClass="calendarButton" text="CALENDAR" />
-      <Button fx:id="profileButton" layoutX="255.0" layoutY="32.0" mnemonicParsing="false" onAction="#profileButton" prefHeight="90.0" prefWidth="180.0" styleClass="profileButton" text="PROFILE" />
-      <Button fx:id="homeButton" layoutX="24.0" layoutY="38.0" mnemonicParsing="false" onAction="#homeButton" prefHeight="84.0" prefWidth="226.0" styleClass="homeButton" />
-      <Button fx:id="logoutButton" layoutX="875.0" layoutY="140.0" mnemonicParsing="false" onAction="#logoutButton" prefHeight="45.0" prefWidth="110.0" styleClass="logoutButton" text="LOGOUT" />
+      <Button fx:id="meetingsButton" layoutX="618.0" layoutY="32.0" mnemonicParsing="false" onAction="#meetingsButton" prefHeight="90.0" prefWidth="180.0" styleClass="meetingsButton" text="MEETINGS" />
+      <Button fx:id="calendarButton" layoutX="434.0" layoutY="32.0" mnemonicParsing="false" onAction="#calendarButton" prefHeight="90.0" prefWidth="180.0" styleClass="calendarButton" text="CALENDAR" />
+      <Button fx:id="profileButton" layoutX="250.0" layoutY="32.0" mnemonicParsing="false" onAction="#profileButton" prefHeight="90.0" prefWidth="180.0" styleClass="profileButton" text="PROFILE" />
+      <Button fx:id="homeButton" layoutX="19.0" layoutY="38.0" mnemonicParsing="false" onAction="#homeButton" prefHeight="84.0" prefWidth="226.0" styleClass="homeButton" />
+      <Button fx:id="logoutButton" layoutX="870.0" layoutY="140.0" mnemonicParsing="false" onAction="#logoutButton" prefHeight="45.0" prefWidth="110.0" styleClass="logoutButton" text="LOGOUT" />
       <Label layoutX="99.0" layoutY="233.0" prefHeight="40.0" prefWidth="202.0" styleClass="notificationsTitleLabel" text="NOTIFICATIONS">
          <font>
             <Font name="Monospaced Regular" size="12.0" />
          </font></Label>
-      <Button fx:id="gradesButton" layoutX="807.0" layoutY="32.0" mnemonicParsing="false" onAction="#gradesButton" prefHeight="90.0" prefWidth="180.0" styleClass="gradesButton" text="GRADES" />
+      <Button fx:id="gradesButton" layoutX="802.0" layoutY="32.0" mnemonicParsing="false" onAction="#gradesButton" prefHeight="90.0" prefWidth="180.0" styleClass="gradesButton" text="GRADES" />
       <ListView fx:id="notifView" layoutX="94.0" layoutY="284.0" prefHeight="236.0" prefWidth="754.0" styleClass="listViewNotifs" />
    </children>
    <stylesheets>

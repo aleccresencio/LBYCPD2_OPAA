@@ -24,7 +24,6 @@ public class AdviserViewCalendarController {
 
     public void transferCurrentUser(UserObject currentUser) {
         this.currentUser = currentUser;
-        calendarInterface.show();
         hourDropDown.getItems().add("00");
         hourDropDown.getItems().add("01");
         hourDropDown.getItems().add("02");
@@ -113,7 +112,7 @@ public class AdviserViewCalendarController {
 
     public void meetingsButton(ActionEvent actionEvent) throws IOException {
         buttonFunctions loadScreen = new buttonFunctions();
-        loadScreen.studentMeetingButton(meetingsButton, currentUser);
+        loadScreen.adviserMeetingsButton(meetingsButton, currentUser);
     }
 
     public void calendarButton(ActionEvent actionEvent) throws IOException {
@@ -128,7 +127,7 @@ public class AdviserViewCalendarController {
 
     public void homeButton(ActionEvent actionEvent) throws IOException {
         buttonFunctions loadScreen = new buttonFunctions();
-        loadScreen.studentHomeButton(homeButton, currentUser);
+        loadScreen.adviserHomeButton(homeButton, currentUser);
     }
 
     public void gradesButton(ActionEvent actionEvent) throws IOException {

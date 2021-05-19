@@ -8,20 +8,20 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="root" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.AdminEditStudentController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="root" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.AdminEditStudentController">
    <children>
-      <Button fx:id="editAdviserButton" layoutX="265.0" layoutY="432.0" mnemonicParsing="false" onAction="#editAdviserButton" text="EDIT ADVISER" />
-      <Button fx:id="editGradesButton" layoutX="439.0" layoutY="432.0" mnemonicParsing="false" onAction="#editGradesButton" text="EDIT GRADES" />
-      <Button fx:id="backButton" layoutX="149.0" layoutY="505.0" mnemonicParsing="false" onAction="#backButton" text="BACK" />
-      <Button fx:id="deleteStudentButton" layoutX="590.0" layoutY="432.0" mnemonicParsing="false" onAction="#deleteStudentButton" text="DELETE STUDENT" />
+      <Button fx:id="editAdviserButton" layoutX="265.0" layoutY="451.0" mnemonicParsing="false" onAction="#editAdviserButton" prefHeight="35.0" prefWidth="121.0" styleClass="loginButton" text="EDIT ADVISER" />
+      <Button fx:id="editGradesButton" layoutX="431.0" layoutY="451.0" mnemonicParsing="false" onAction="#editGradesButton" prefHeight="35.0" prefWidth="117.0" styleClass="loginButton" text="EDIT GRADES" />
+      <Button fx:id="backButton" layoutX="262.0" layoutY="134.0" mnemonicParsing="false" onAction="#backButton" prefHeight="47.0" prefWidth="44.0" styleClass="backButton" />
+      <Button fx:id="deleteStudentButton" layoutX="590.0" layoutY="451.0" mnemonicParsing="false" onAction="#deleteStudentButton" prefHeight="35.0" prefWidth="147.0" styleClass="loginButton" text="DELETE STUDENT" />
       <ImageView fitHeight="104.0" fitWidth="241.0" layoutX="745.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@assets/opaa_logo.png" />
          </image>
       </ImageView>
-      <ListView fx:id="studentsListView" layoutX="262.0" layoutY="190.0" prefHeight="215.0" prefWidth="472.0" />
-      <Label layoutX="360.0" layoutY="111.0" styleClass="welcomeTitleLabel" text="EDIT STUDENT" />
-      <Label fx:id="notifLabel" layoutX="264.0" layoutY="505.0" prefHeight="28.0" prefWidth="472.0" styleClass="textLabel" text="Label" visible="false" />
+      <ListView fx:id="studentsListView" layoutX="262.0" layoutY="209.0" prefHeight="213.0" prefWidth="472.0" />
+      <Label layoutX="360.0" layoutY="130.0" styleClass="welcomeTitleLabel" text="EDIT STUDENT" />
+      <Label fx:id="notifLabel" layoutX="264.0" layoutY="524.0" prefHeight="28.0" prefWidth="472.0" styleClass="textLabel" text="Label" visible="false" />
    </children>
    <stylesheets>
       <URL value="@opaa_stylesheet.css" />

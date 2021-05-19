@@ -605,4 +605,441 @@ public class MySQLObject {
             throwables.printStackTrace();
         }
     }
+
+    public ObservableList<UserObject> getStudents(int userId){
+        ObservableList<UserObject> studentList = FXCollections.observableArrayList();
+        try {
+            //establishes a connection to the database
+            Connection connection = DriverManager.getConnection(url, username, password);
+            //sql query that checks if the entered username and password is in the database
+            String getAdviseesQuery = "SELECT user_id, first_name, last_name FROM users WHERE adviser_id ="+userId;
+            Statement firstStatement = connection.createStatement();
+            ResultSet results = firstStatement.executeQuery(getAdviseesQuery);
+            while(results.next()) {
+                int studentId = results.getInt("user_id");
+                String firstName = results.getString("first_name");
+                String lastName = results.getString("last_name");
+                studentList.add(new UserObject(studentId, firstName, lastName));
+            }
+            connection.close();
+        } catch (SQLException throwables) {
+            System.out.println("an error has been encountered");
+            throwables.printStackTrace();
+        }
+        return studentList;
+    }
+
+    public String getCourseNamesOrGrades(int user_id, String choice){
+        String returnString = null;
+        try {
+            //establishes a connection to the database
+            Connection connection = DriverManager.getConnection(url, username, password);
+            //sql query that checks if the entered username and password is in the database
+            String getGrades = "SELECT * FROM grades WHERE user_id ="+user_id;
+            Statement firstStatement = connection.createStatement();
+            ResultSet results = firstStatement.executeQuery(getGrades);
+            while(results.next()) {
+                if(choice.equals("names")){
+                    String courseNames = results.getString("course_names");
+                    returnString = courseNames;
+                } else if(choice.equals("grades")){
+                    String courseGrades = results.getString("grade_values");
+                    returnString = courseGrades;
+                }
+            }
+            connection.close();
+        } catch (SQLException throwables) {
+            System.out.println("an error has been encountered");
+            throwables.printStackTrace();
+        }
+        return returnString;
+    }
+
+    public boolean addAdviser(String firstName, String lastName, String email){
+        try {
+            //establishes a connection to the database
+            Connection connection = DriverManager.getConnection(url, username, password);
+            String checkEmails = "SELECT email FROM users WHERE email ='"+email+"'";
+            Statement checkStatement1 = connection.createStatement();
+            ResultSet results2 = checkStatement1.executeQuery(checkEmails);
+            if(results2.next()){
+                System.out.println("ERROR");
+                return false;
+            }
+            //sql query that inserts new student into the users table
+            String sql = "INSERT INTO users(first_name, last_name, email, division) VALUES(?,?,?,?)";
+            //prepares the sql query statement
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, firstName);
+            statement.setString(2, lastName);
+            statement.setString(3, email);
+            statement.setString(4, "Adviser");
+            //executes the statement
+            statement.execute();
+            //closes connection
+            connection.close();
+        } catch(SQLException throwables){
+            System.out.println("an error has been encountered");
+            throwables.printStackTrace();
+        }
+        return true;
+    }
+
+    public ObservableList<UserObject> getAllStudents(){
+        ObservableList<UserObject> studentList = FXCollections.observableArrayList();
+        try {
+            //establishes a connection to the database
+            Connection connection = DriverManager.getConnection(url, username, password);
+            //sql query that gets all of the students in the database
+            String getStudentsQuery = "SELECT user_id, first_name, last_name, adviser_id FROM users WHERE division = 'Student'";
+            Statement firstStatement = connection.createStatement();
+            ResultSet results = firstStatement.executeQuery(getStudentsQuery);
+            while(results.next()) {
+                int studentId = results.getInt("user_id");
+                String firstName = results.getString("first_name");
+                String lastName = results.getString("last_name");
+                int adviserId = results.getInt("adviser_id");
+                studentList.add(new UserObject(studentId, firstName, lastName, adviserId));
+            }
+            connection.close();
+        } catch (SQLException throwables) {
+            System.out.println("an error has been encountered");
+            throwables.printStackTrace();
+        }
+        return studentList;
+    }
+
+    public ObservableList<UserObject> getPossibleAdvisers(int adviserId) {
+        ObservableList<UserObject> adviserList = FXCollections.observableArrayList();
+        try {
+            //establishes a connection to the database
+            Connection connection = DriverManager.getConnection(url, username, password);
+            //sql query that selects the meetings where the user is involved
+            String sql = "SELECT * FROM users WHERE division = 'Adviser' && user_id !="+adviserId;
+            //prepares the sql query statement
+            Statement statement = connection.createStatement();
+            //executes the statement and retrieves results
+            ResultSet result = statement.executeQuery(sql);
+            //reads the results
+            if (result == null) {
+                return null;
+            } else {
+                while (result.next()) {
+                    int user_id = result.getInt("user_id");
+                    String first_name = result.getString("first_name");
+                    String last_name = result.getString("last_name");
+                    String email = result.getString("email");
+                    int adviser = result.getInt("adviser_id");
+                    String password = result.getString("pw");
+                    adviserList.add(new UserObject(user_id, first_name, last_name, email, password, "Adviser", adviser));
+                }
+            }
+            connection.close();
+        } catch(SQLException throwables){
+            System.out.println("an error has been encountered");
+            throwables.printStackTrace();
+        }
+        return adviserList;
+    }
+
+    public String getAdviserName(int adviserId) {
+        String adviserName = null;
+        try {
+            //establishes a connection to the database
+            Connection connection = DriverManager.getConnection(url, username, password);
+            //sql query that selects the meetings where the user is involved
+            String sql = "SELECT first_name, last_name FROM users WHERE user_id ="+adviserId;
+            //prepares the sql query statement
+            Statement statement = connection.createStatement();
+            //executes the statement and retrieves results
+            ResultSet result = statement.executeQuery(sql);
+            //reads the results
+            if (result == null) {
+                return null;
+            } else {
+                while (result.next()) {
+                    String first_name = result.getString("first_name");
+                    String last_name = result.getString("last_name");
+                    adviserName = first_name+" "+last_name;
+                    return adviserName;
+                }
+            }
+            connection.close();
+        } catch(SQLException throwables){
+            System.out.println("an error has been encountered");
+            throwables.printStackTrace();
+        }
+        return adviserName;
+    }
+
+    public void changeAdviser(int userId, int newAdviserId){
+        try {
+            //establishes a connection to the database
+            Connection connection = DriverManager.getConnection(url, username, password);
+            //sql query that updates the adviser id of the student in the database
+            String sql = "UPDATE users SET adviser_id = "+newAdviserId+" WHERE user_id = "+userId;
+            String sql1 = "DELETE FROM meetings WHERE from_id = "+userId+" OR to_id = "+userId;
+            String sql2 = "DELETE FROM notifications WHERE from_id = "+userId+" OR to_id = "+userId;
+            String sql3 = "DELETE FROM requests WHERE from_id ="+userId;
+            //prepares the sql query statement
+            Statement statement = connection.createStatement();
+            statement.addBatch(sql);
+            statement.addBatch(sql1);
+            statement.addBatch(sql2);
+            statement.addBatch(sql3);
+            //executes the statement and retrieves results
+            statement.executeBatch();
+            //adds meetings that were set by the new adviser
+            String sql4 = "SELECT DISTINCT sched FROM meetings WHERE from_id IN (SELECT from_id FROM meetings WHERE from_id="+newAdviserId+")";
+            //prepares the sql query statement
+            Statement statement2 = connection.createStatement();
+            //executes the statement and retrieves results
+            ResultSet result2 = statement2.executeQuery(sql4);
+            while(result2.next()){
+                String sched2 = result2.getString("sched");
+                String sql5 = "INSERT INTO meetings(from_id, to_id, sched) VALUES(?,?,?)";
+                //prepares the sql query statement
+                PreparedStatement statement3 = connection.prepareStatement(sql5);
+                statement3.setInt(1, newAdviserId);
+                statement3.setInt(2, userId);
+                statement3.setString(3, sched2);
+                //executes the statement
+                statement3.execute();
+                String sql6 = "INSERT INTO notifications(from_id, to_id, sched, identifier) VALUES(?,?,?,?)";
+                //prepares the sql query statement
+                PreparedStatement statement4 = connection.prepareStatement(sql6);
+                statement4.setInt(1, newAdviserId);
+                statement4.setInt(2, userId);
+                statement4.setString(3, sched2);
+                statement4.setString(4, "meeting");
+                //executes the statement
+                statement4.execute();
+            }
+            connection.close();
+        } catch(SQLException throwables){
+            System.out.println("an error has been encountered");
+            throwables.printStackTrace();
+        }
+    }
+
+    public ObservableList<EventObject> getStudentEvents(int userId, String date){
+        ObservableList<EventObject> eventList = FXCollections.observableArrayList();
+        try {
+            //establishes a connection to the database
+            Connection connection = DriverManager.getConnection(url, username, password);
+            //sql query that gets all of the students in the database
+            String getMeetings = "SELECT * FROM meetings WHERE from_id = "+userId+" OR to_id = "+userId+" AND sched LIKE '"+date+"%'";
+            Statement firstStatement = connection.createStatement();
+            ResultSet results = firstStatement.executeQuery(getMeetings);
+            while(results.next()) {
+                int fromId = results.getInt("from_id");
+                int toId = results.getInt("to_id");
+                String schedule = results.getString("sched");
+                String time = schedule.substring(schedule.length()-5);
+                if(fromId == userId){
+                    eventList.add(new EventObject(time, "Private meeting with adviser"));
+                }else if(toId == userId){
+                    eventList.add(new EventObject(time, "Meeting with adviser"));
+                }
+            }
+            String getEvents = "SELECT * FROM events WHERE user_id ="+userId+" AND sched LIKE '"+date+"%'";
+            Statement statement = connection.createStatement();
+            ResultSet result = statement.executeQuery(getEvents);
+            while(result.next()) {
+                int eventId = result.getInt("event_id");
+                String title = result.getString("event_title");
+                String schedule = result.getString("sched");
+                String time = schedule.substring(schedule.length()-5);
+                eventList.add(new EventObject(eventId, time, title));
+            }
+            connection.close();
+        } catch (SQLException throwables) {
+            System.out.println("an error has been encountered");
+            throwables.printStackTrace();
+        }
+        return eventList;
+    }
+
+    public ObservableList<EventObject> getAdviserEvents(int userId, String date){
+        ObservableList<EventObject> eventList = FXCollections.observableArrayList();
+        int counter = 0;
+        try {
+            //establishes a connection to the database
+            Connection connection = DriverManager.getConnection(url, username, password);
+            //sql query that gets all of the students in the database
+            String getMeetings = "SELECT * FROM meetings WHERE from_id = "+userId+" OR to_id = "+userId+" AND sched LIKE '"+date+"%'";
+            Statement firstStatement = connection.createStatement();
+            ResultSet results = firstStatement.executeQuery(getMeetings);
+            while(results.next()) {
+                int fromId = results.getInt("from_id");
+                int toId = results.getInt("to_id");
+                String schedule = results.getString("sched");
+                String time = schedule.substring(schedule.length()-5);
+                if(fromId == userId && counter == 0){
+                    eventList.add(new EventObject(time, "Meeting with advisees"));
+                    counter = 1;
+                }else if(toId == userId){
+                    MySQLObject sql = new MySQLObject();
+                    String name = sql.getAdviserName(fromId);
+                    eventList.add(new EventObject(time, "Meeting with "+name));
+                }
+            }
+            String getEvents = "SELECT * FROM events WHERE user_id ="+userId+" AND sched LIKE '"+date+"%'";
+            Statement statement = connection.createStatement();
+            ResultSet result = statement.executeQuery(getEvents);
+            while(result.next()) {
+                int eventId = result.getInt("event_id");
+                String title = result.getString("event_title");
+                String schedule = result.getString("sched");
+                String time = schedule.substring(schedule.length()-5);
+                eventList.add(new EventObject(eventId, time, title));
+            }
+            connection.close();
+        } catch (SQLException throwables) {
+            System.out.println("an error has been encountered");
+            throwables.printStackTrace();
+        }
+        return eventList;
+    }
+
+    public int addEvent(int userId, String title, String schedule){
+        int newEventId = 0;
+        try {
+            //establishes a connection to the database
+            Connection connection = DriverManager.getConnection(url, username, password);
+            //sql query that inserts the event in the database
+            String sql = "INSERT INTO events(user_id, sched, event_title) VALUES("+userId+",'"+schedule+"','"+title+"')";
+            //prepares the sql query statement
+            Statement statement = connection.createStatement();
+            //executes the statement and retrieves results
+            statement.execute(sql);
+            String sql1 = "SELECT max(event_id) FROM events";
+            //prepares the sql query statement
+            Statement statement1 = connection.createStatement();
+            //executes the statement and retrieves results
+            ResultSet result = statement1.executeQuery(sql1);
+            while(result.next()){
+                newEventId = result.getInt(1);
+                return newEventId;
+            }
+            connection.close();
+        } catch(SQLException throwables){
+            System.out.println("an error has been encountered");
+            throwables.printStackTrace();
+        }
+        return newEventId;
+    }
+
+    public void removeEvent(int eventId){
+        try {
+            //establishes a connection to the database
+            Connection connection = DriverManager.getConnection(url, username, password);
+            //sql query that checks if the entered username and password is in the database
+            String sql = "DELETE FROM events WHERE event_id ="+eventId;
+            //prepares the sql query statement
+            Statement statement = connection.createStatement();
+            //executes the statement
+            statement.execute(sql);
+            //closes connection
+            connection.close();
+        } catch (SQLException throwables) {
+            System.out.println("an error has been encountered");
+            throwables.printStackTrace();
+        }
+    }
+
+    public void deleteStudent(int userId){
+        try {
+            //establishes a connection to the database
+            Connection connection = DriverManager.getConnection(url, username, password);
+            //sql query that checks if the entered username and password is in the database
+            String sql = "DELETE FROM users WHERE user_id ="+userId;
+            String sql1 = "DELETE FROM meetings WHERE from_id ="+userId+" OR to_id ="+userId;
+            String sql2 = "DELETE FROM requests WHERE from_id ="+userId;
+            String sql3 = "DELETE FROM events WHERE user_id ="+userId;
+            String sql4 = "DELETE FROM notifications WHERE from_id ="+userId+" OR to_id ="+userId;
+            String sql5 = "DELETE FROM grades WHERE user_id ="+userId;
+            //prepares the sql query statement
+            Statement statement = connection.createStatement();
+            statement.addBatch(sql);
+            statement.addBatch(sql1);
+            statement.addBatch(sql2);
+            statement.addBatch(sql3);
+            statement.addBatch(sql4);
+            statement.addBatch(sql5);
+            //executes the statement and retrieves results
+            statement.executeBatch();
+            //closes connection
+            connection.close();
+        } catch (SQLException throwables) {
+            System.out.println("an error has been encountered");
+            throwables.printStackTrace();
+        }
+    }
+
+    public void deleteAdviser(int adviserId, int replacerId){
+        try {
+            //establishes a connection to the database
+            Connection connection = DriverManager.getConnection(url, username, password);
+            String getStudents = "SELECT user_id FROM users WHERE adviser_id ="+adviserId;
+            Statement statement1 = connection.createStatement();
+            //executes the statement and retrieves results
+            ResultSet result = statement1.executeQuery(getStudents);
+            while(result.next()){
+                int userId = result.getInt(1);
+                //sql query that updates the adviser id of the student in the database
+                String sql = "UPDATE users SET adviser_id = "+replacerId+" WHERE user_id = "+userId;
+                //prepares the sql query statement
+                Statement statement = connection.createStatement();
+                //executes the statement and retrieves results
+                statement.execute(sql);
+                //adds meetings that were set by the new adviser
+                String sql4 = "SELECT DISTINCT sched FROM meetings WHERE from_id IN (SELECT from_id FROM meetings WHERE from_id="+replacerId+")";
+                //prepares the sql query statement
+                Statement statement2 = connection.createStatement();
+                //executes the statement and retrieves results
+                ResultSet result2 = statement2.executeQuery(sql4);
+                while(result2.next()){
+                    String sched2 = result2.getString("sched");
+                    String sql5 = "INSERT INTO meetings(from_id, to_id, sched) VALUES(?,?,?)";
+                    //prepares the sql query statement
+                    PreparedStatement statement3 = connection.prepareStatement(sql5);
+                    statement3.setInt(1, replacerId);
+                    statement3.setInt(2, userId);
+                    statement3.setString(3, sched2);
+                    //executes the statement
+                    statement3.execute();
+                    String sql6 = "INSERT INTO notifications(from_id, to_id, sched, identifier) VALUES(?,?,?,?)";
+                    //prepares the sql query statement
+                    PreparedStatement statement4 = connection.prepareStatement(sql6);
+                    statement4.setInt(1, replacerId);
+                    statement4.setInt(2, userId);
+                    statement4.setString(3, sched2);
+                    statement4.setString(4, "meeting");
+                    //executes the statement
+                    statement4.execute();
+                }
+            }
+            //sql query that checks if the entered username and password is in the database
+            String sql00 = "DELETE FROM users WHERE user_id ="+adviserId;
+            String sql01 = "DELETE FROM meetings WHERE from_id ="+adviserId+" OR to_id ="+adviserId;
+            String sql02 = "DELETE FROM requests WHERE to_id ="+adviserId;
+            String sql03 = "DELETE FROM events WHERE user_id ="+adviserId;
+            String sql04 = "DELETE FROM notifications WHERE from_id ="+adviserId+" OR to_id ="+adviserId;
+            //prepares the sql query statement
+            Statement statement01 = connection.createStatement();
+            statement01.addBatch(sql00);
+            statement01.addBatch(sql01);
+            statement01.addBatch(sql02);
+            statement01.addBatch(sql03);
+            statement01.addBatch(sql04);
+            //executes the statement and retrieves results
+            statement01.executeBatch();
+            //closes connection
+            connection.close();
+        } catch (SQLException throwables) {
+            System.out.println("an error has been encountered");
+            throwables.printStackTrace();
+        }
+    }
 }

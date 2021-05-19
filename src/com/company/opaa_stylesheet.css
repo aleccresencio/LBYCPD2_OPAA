@@ -312,29 +312,30 @@
     -fx-background-radius: 20px 20px 0px 0px;
 }
 
-.choice-box {
+.combo-box {
     -fx-mark-color: #46694A;
 }
 
-.choice-box .context-menu {
+.combo-box .context-menu {
     -fx-font-family: "Calibri Light";
     -fx-font-size: 14;
 }
 
-.choice-box .menu-item:focused { -fx-background-color: #6a986d; }
+.combo-box .menu-item:focused { -fx-background-color: #6a986d; }
 
 .date-picker {
-    -fx-background-color: white;
+    -fx-background-color: transparent;
     -fx-border-color: white;
 }
 
 .date-picker > .text-field {
     -fx-background-color: transparent;
     -fx-background-radius: 10 0 0 10;
-    -fx-border-color: transparent;
+    -fx-border-radius: 10 0 0 10;
+    -fx-border-color: #46694A;
     -fx-font-family: "Calibri Light";
     -fx-font-size: 14;
-    -fx-text-fill: white;
+    -fx-text-fill: #46694A;
     -fx-alignment: center;
 }
 

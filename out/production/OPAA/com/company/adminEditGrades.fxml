@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="root" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.AdminEditGradesController">
+   <children>
+      <Label fx:id="studentNameLabel" alignment="CENTER" layoutX="149.0" layoutY="97.0" prefHeight="42.0" prefWidth="735.0" styleClass="dateLabel" text="EDIT GRADES OF STUDENT NAME" />
+      <Button fx:id="addGradeButton" layoutX="263.0" layoutY="341.0" mnemonicParsing="false" onAction="#addGradeButton" text="ADD GRADE" />
+      <Button fx:id="backButton" layoutX="117.0" layoutY="489.0" mnemonicParsing="false" onAction="#backButton" text="BACK" />
+      <ImageView fitHeight="104.0" fitWidth="241.0" layoutX="745.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/opaa_logo.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="106.0" layoutY="220.0" styleClass="textLabel" text="COURSE CODE:" />
+      <Label layoutX="179.0" layoutY="274.0" styleClass="textLabel" text="GRADE:" />
+      <TextField fx:id="courseCodeField" layoutX="263.0" layoutY="219.0" prefHeight="30.0" prefWidth="166.0" styleClass="txtFld" />
+      <TableView fx:id="gradeTable" layoutX="455.0" layoutY="172.0" prefHeight="258.0" prefWidth="438.0">
+        <columns>
+          <TableColumn fx:id="courseColumn" prefWidth="264.0" text="Course Code" />
+          <TableColumn fx:id="gradeColumn" prefWidth="161.60003662109375" text="Grade" />
+        </columns>
+      </TableView>
+      <Button fx:id="removeButton" layoutX="451.0" layoutY="449.0" mnemonicParsing="false" onAction="#removeButton" text="REMOVE" />
+      <Label fx:id="notifLabel" layoutX="466.0" layoutY="537.0" styleClass="textLabel" text="Label" visible="false" />
+      <ComboBox fx:id="gradeDropDown" layoutX="263.0" layoutY="273.0" prefHeight="30.0" prefWidth="74.0" styleClass="txtFld" />
+   </children>
+   <stylesheets>
+      <URL value="@opaa_stylesheet.css" />
+   </stylesheets>
+</AnchorPane>

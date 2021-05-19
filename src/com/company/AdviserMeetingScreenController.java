@@ -22,6 +22,7 @@ public class AdviserMeetingScreenController {
     public void transferCurrentUser(UserObject currentUser) {
         ArrayList<String> meetingsList = new ArrayList<String>();
         this.currentUser = currentUser;
+        meetingsListView.setPlaceholder(new Label("You have no meetings."));
         MySQLObject loginObject = new MySQLObject();
         meetingsList = loginObject.checkMeetings(currentUser.getUser_id(), currentUser.getDivision());
         for(int i = 0; i < meetingsList.size(); i++) {
@@ -36,7 +37,7 @@ public class AdviserMeetingScreenController {
 
     public void calendarButton(ActionEvent actionEvent) throws IOException {
         buttonFunctions loadScreen = new buttonFunctions();
-        loadScreen.calendarButton(calendarButton, currentUser);
+        loadScreen.adviserCalendarButton(calendarButton, currentUser);
     }
 
     public void profileButton(ActionEvent actionEvent) throws IOException {
@@ -70,23 +71,30 @@ public class AdviserMeetingScreenController {
         loadScreen.logoutButton(logoutButton);
     }
 
-    public void gradesButton(ActionEvent actionEvent) {
+    public void gradesButton(ActionEvent actionEvent) throws IOException {
+        buttonFunctions loadScreen = new buttonFunctions();
+        loadScreen.gradesButton(gradesButton, currentUser);
     }
 
     public void removeButton(ActionEvent actionEvent) {
-        String selected = meetingsListView.getSelectionModel().getSelectedItem();
-        int selectedIndex = meetingsListView.getSelectionModel().getSelectedIndex();
-        if(selected.startsWith("You set a")){
-            String meetingSched = selected.substring(selected.length() - 17);
-            meetingSched = meetingSched.substring(0,8)+" "+meetingSched.substring(12);
-            MySQLObject sql = new MySQLObject();
-            sql.removeMeeting(currentUser.getUser_id(), meetingSched);
-            meetingsListView.getItems().remove(selectedIndex);
+        if(meetingsListView.getSelectionModel().getSelectedItem() == null) {
             notifLabel.setVisible(true);
-            notifLabel.setText("Successfully removed meeting!");
+            notifLabel.setText("Select a meeting set by you to remove");
         }else{
-            notifLabel.setVisible(true);
-            notifLabel.setText("Cannot cancel a meeting set by a student");
+            String selected = meetingsListView.getSelectionModel().getSelectedItem();
+            int selectedIndex = meetingsListView.getSelectionModel().getSelectedIndex();
+            if (selected.startsWith("You set a")) {
+                String meetingSched = selected.substring(selected.length() - 17);
+                meetingSched = meetingSched.substring(0, 8) + " " + meetingSched.substring(12);
+                MySQLObject sql = new MySQLObject();
+                sql.removeMeeting(currentUser.getUser_id(), meetingSched);
+                meetingsListView.getItems().remove(selectedIndex);
+                notifLabel.setVisible(true);
+                notifLabel.setText("Successfully removed meeting!");
+            } else {
+                notifLabel.setVisible(true);
+                notifLabel.setText("Cannot cancel a meeting set by a student");
+            }
         }
     }
 

@@ -18,7 +18,7 @@ public class AdminAddGradesController {
     public Button logoutButton, addGradeButton, backButton, removeButton;
     public Label userNameLabel, notifLabel;
     public TextField courseCodeField;
-    public ChoiceBox<String> gradeDropDown;
+    public ComboBox<String> gradeDropDown;
     public TableView<GradesObject> gradeTable;
     public TableColumn<GradesObject, String> courseColumn;
     public TableColumn<GradesObject, String> gradeColumn;
@@ -41,33 +41,42 @@ public class AdminAddGradesController {
         for(int i = 0; i<gradesList.size();i++) {
             gradeDropDown.getItems().add(gradesList.get(i));
         }
+        gradeDropDown.setVisibleRowCount(3);
     }
     public ObservableList<GradesObject> gradesList = FXCollections.observableArrayList();
     public void addGradeButton(ActionEvent actionEvent) {
-        String courseName = courseCodeField.getText().toUpperCase();
-        String grade = gradeDropDown.getSelectionModel().getSelectedItem();
-        if(courseCodeField.getText().isEmpty()){
+        if(gradeDropDown.getSelectionModel().getSelectedItem() == null){
             notifLabel.setVisible(true);
-            notifLabel.setText("Please specify the course name");
+            notifLabel.setText("Please input a grade.");
         }else {
-            boolean checker = true;
-            for (int i = 0; i < gradesList.size(); i++) {
-                if (courseName.equals(gradesList.get(i).getCourse_names())) {
-                    checker = false;
-                }
-            }
-            if (checker == false) {
+            String courseName = courseCodeField.getText().toUpperCase();
+            String grade = gradeDropDown.getSelectionModel().getSelectedItem();
+            if (courseCodeField.getText().isEmpty()) {
                 notifLabel.setVisible(true);
-                notifLabel.setText("There is already a grade for " + courseName);
-            } else if (checker == true) {
-                notifLabel.setVisible(false);
-                MySQLObject sql = new MySQLObject();
-                sql.addGrades(newUserId, courseName, grade);
-                gradesList.add(new GradesObject(courseName, grade));
-                courseColumn.setCellValueFactory(new PropertyValueFactory<>("course_names"));
-                gradeColumn.setCellValueFactory(new PropertyValueFactory<>("course_grades"));
-                gradeTable.setItems(gradesList);
-                courseCodeField.clear();
+                notifLabel.setText("Please specify the course name");
+            } else if(!courseCodeField.getText().matches("[A-Za-z0-9]+") || courseCodeField.getText().length()>99){
+                notifLabel.setVisible(true);
+                notifLabel.setText("Invalid course code.");
+            } else {
+                boolean checker = true;
+                for (int i = 0; i < gradesList.size(); i++) {
+                    if (courseName.equals(gradesList.get(i).getCourse_names())) {
+                        checker = false;
+                    }
+                }
+                if (checker == false) {
+                    notifLabel.setVisible(true);
+                    notifLabel.setText("There is already a grade for " + courseName);
+                } else if (checker == true) {
+                    notifLabel.setVisible(false);
+                    MySQLObject sql = new MySQLObject();
+                    sql.addGrades(newUserId, courseName, grade);
+                    gradesList.add(new GradesObject(courseName, grade));
+                    courseColumn.setCellValueFactory(new PropertyValueFactory<>("course_names"));
+                    gradeColumn.setCellValueFactory(new PropertyValueFactory<>("course_grades"));
+                    gradeTable.setItems(gradesList);
+                    courseCodeField.clear();
+                }
             }
         }
     }
@@ -89,22 +98,27 @@ public class AdminAddGradesController {
     }
 
     public void removeButton(ActionEvent actionEvent) {
-        int selectedIndex = gradeTable.getSelectionModel().getSelectedIndex();
-        gradeTable.getItems().remove(selectedIndex);
-        GradesObject selected = gradeTable.getSelectionModel().getSelectedItem();
-        String courseName = selected.getCourse_names();
-        String courseGrade = selected.getCourse_grades();
-        gradesList.remove(new GradesObject(courseName, courseGrade));
-        ArrayList<String> courseNameList = new ArrayList<String>();
-        ArrayList<String> courseGradeList = new ArrayList<String>();
-        for(int i=0; i<gradesList.size(); i++){
-            courseNameList.add(gradesList.get(i).getCourse_names());
-            courseGradeList.add(gradesList.get(i).getCourse_grades());
+        if (gradeTable.getSelectionModel().getSelectedItem() == null) {
+            notifLabel.setVisible(true);
+            notifLabel.setText("No grade selected.");
+        } else {
+            int selectedIndex = gradeTable.getSelectionModel().getSelectedIndex();
+            gradeTable.getItems().remove(selectedIndex);
+            GradesObject selected = gradeTable.getSelectionModel().getSelectedItem();
+            String courseName = selected.getCourse_names();
+            String courseGrade = selected.getCourse_grades();
+            gradesList.remove(new GradesObject(courseName, courseGrade));
+            ArrayList<String> courseNameList = new ArrayList<String>();
+            ArrayList<String> courseGradeList = new ArrayList<String>();
+            for (int i = 0; i < gradesList.size(); i++) {
+                courseNameList.add(gradesList.get(i).getCourse_names());
+                courseGradeList.add(gradesList.get(i).getCourse_grades());
+            }
+            String newCourseNames = String.join(", ", courseNameList);
+            String newCourseGrades = String.join(", ", courseGradeList);
+            MySQLObject sql = new MySQLObject();
+            //removes the chosen grade from the database
+            sql.removeGrades(newUserId, newCourseNames, newCourseGrades);
         }
-        String newCourseNames = String.join(", ", courseNameList);
-        String newCourseGrades = String.join(", ", courseGradeList);
-        MySQLObject sql = new MySQLObject();
-        //removes the chosen grade from the database
-        sql.removeGrades(newUserId, newCourseNames, newCourseGrades);
     }
 }

@@ -25,6 +25,7 @@ public class StudentHomeScreenController {
         ArrayList<String> notifList = new ArrayList<>();
         MySQLObject sql = new MySQLObject();
         notifList = sql.studentNotifs(currentUser.getUser_id());
+        notifView.setPlaceholder(new Label("You have no notifications."));
         for(int i = 0; i < notifList.size(); i++) {
             notifView.getItems().add(notifList.get(i));
         }
@@ -37,7 +38,7 @@ public class StudentHomeScreenController {
 
     public void calendarButton(ActionEvent actionEvent) throws IOException {
         buttonFunctions loadScreen = new buttonFunctions();
-        loadScreen.calendarButton(calendarButton, currentUser);
+        loadScreen.studentCalendarButton(calendarButton, currentUser);
     }
 
     public void profileButton(ActionEvent actionEvent) throws IOException {

@@ -76,6 +76,10 @@
     -fx-font-size: 24;
 }
 
+.profileButton:hover {
+    -fx-background-color: #6a986d;
+}
+
 .backButton {
     -fx-background-color: white;
     -fx-background-image: url("assets/backButton.png");
@@ -101,6 +105,10 @@
     -fx-background-size: 280 100;
     -fx-background-position: center center;
     -fx-background-radius: 115;
+}
+
+.homeButton:hover{
+    -fx-border-color: #006937;
 }
 
 .calendarButton {

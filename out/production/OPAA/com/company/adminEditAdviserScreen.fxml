@@ -8,21 +8,21 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="root" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.AdminEditAdviserController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="root" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.AdminEditAdviserController">
    <children>
-      <Label fx:id="studentNameLabel" layoutX="211.0" layoutY="135.0" prefHeight="40.0" prefWidth="606.0" styleClass="titleLabel" text="STUDENT NAME" />
-      <Button fx:id="confirmButton" layoutX="436.0" layoutY="416.0" mnemonicParsing="false" onAction="#confirmButton" text="CONFIRM" />
-      <Button fx:id="backButton" layoutX="141.0" layoutY="475.0" mnemonicParsing="false" onAction="#backButton" text="BACK" />
+      <Label fx:id="studentNameLabel" alignment="CENTER" layoutX="176.0" layoutY="135.0" prefHeight="40.0" prefWidth="606.0" styleClass="welcomeTitleLabel" text="STUDENT NAME" />
+      <Button fx:id="confirmButton" layoutX="436.0" layoutY="416.0" mnemonicParsing="false" onAction="#confirmButton" prefHeight="38.0" prefWidth="98.0" styleClass="loginButton" text="CONFIRM" />
+      <Button fx:id="backButton" layoutX="363.0" layoutY="412.0" mnemonicParsing="false" onAction="#backButton" prefHeight="45.0" prefWidth="46.0" styleClass="backButton" />
       <ImageView fitHeight="104.0" fitWidth="241.0" layoutX="745.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@assets/opaa_logo.png" />
          </image>
       </ImageView>
       <Label layoutX="238.0" layoutY="234.0" styleClass="textLabel" text="CURRENT ADVISER:" />
-      <Label fx:id="adviserNameLabel" layoutX="455.0" layoutY="234.0" styleClass="textLabel" text="ADVISER NAME" />
+      <Label fx:id="adviserNameLabel" layoutX="455.0" layoutY="234.0" prefHeight="28.0" prefWidth="254.0" styleClass="textLabel" text="ADVISER NAME" />
       <Label layoutX="171.0" layoutY="298.0" styleClass="textLabel" text="NEW ACADEMIC ADVISER:" />
       <Label fx:id="notifLabel" layoutX="232.0" layoutY="360.0" prefHeight="28.0" prefWidth="495.0" styleClass="textLabel" text="Label" visible="false" />
-      <ComboBox fx:id="adviserDropDown" layoutX="455.0" layoutY="297.0" prefHeight="30.0" prefWidth="250.0" styleClass="txtFld" />
+      <ComboBox fx:id="adviserDropDown" layoutX="455.0" layoutY="297.0" prefHeight="30.0" prefWidth="250.0" styleClass="combo-box" />
    </children>
    <stylesheets>
       <URL value="@opaa_stylesheet.css" />

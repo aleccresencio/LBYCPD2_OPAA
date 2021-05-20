@@ -9,10 +9,10 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="root" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.AdminAddStudentController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="root" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.AdminAddStudentController">
    <children>
       <Label fx:id="userNameLabel" layoutX="353.0" layoutY="97.0" prefHeight="55.0" prefWidth="294.0" styleClass="welcomeTitleLabel" text="ADD STUDENT" />
-      <Button fx:id="addButton" layoutX="439.0" layoutY="454.0" mnemonicParsing="false" onAction="#addButton" prefHeight="40.0" prefWidth="126.0" text="ADD STUDENT" />
+      <Button fx:id="addButton" layoutX="439.0" layoutY="454.0" mnemonicParsing="false" onAction="#addButton" prefHeight="40.0" prefWidth="126.0" styleClass="loginButton" text="ADD STUDENT" />
       <Button fx:id="backButton" layoutX="368.0" layoutY="449.0" mnemonicParsing="false" onAction="#backButton" prefHeight="50.0" prefWidth="47.0" styleClass="backButton" />
       <ImageView fitHeight="104.0" fitWidth="241.0" layoutX="745.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -27,7 +27,7 @@
       <TextField fx:id="lastNameField" layoutX="439.0" layoutY="243.0" prefHeight="30.0" prefWidth="250.0" styleClass="txtFld" />
       <TextField fx:id="emailField" layoutX="439.0" layoutY="289.0" prefHeight="30.0" prefWidth="250.0" styleClass="txtFld" />
       <Label fx:id="notifLabel" layoutX="282.0" layoutY="398.0" prefHeight="28.0" prefWidth="495.0" styleClass="textLabel" text="Label" visible="false" />
-      <ComboBox fx:id="adviserDropDown" layoutX="439.0" layoutY="336.0" prefHeight="30.0" prefWidth="250.0" styleClass="txtFld" />
+      <ComboBox fx:id="adviserDropDown" layoutX="439.0" layoutY="336.0" prefHeight="30.0" prefWidth="250.0" styleClass="combo-box" />
    </children>
    <stylesheets>
       <URL value="@opaa_stylesheet.css" />

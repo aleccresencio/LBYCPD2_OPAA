@@ -25,7 +25,6 @@ public class StudentViewCalendarController {
 
     public void transferCurrentUser(UserObject currentUser) {
         this.currentUser = currentUser;
-        calendarInterface.show();
         hourDropDown.getItems().add("00");
         hourDropDown.getItems().add("01");
         hourDropDown.getItems().add("02");
@@ -54,11 +53,12 @@ public class StudentViewCalendarController {
         }
         hourDropDown.setVisibleRowCount(5);
         minDropDown.setVisibleRowCount(5);
+        eventTable.setPlaceholder(new Label("No date selected."));
     }
     public String formattedDate;
     public  ObservableList<EventObject> eventsList = FXCollections.observableArrayList();
     public void getDate(ActionEvent actionEvent) {
-
+        eventTable.setPlaceholder(new Label("No events."));
         LocalDate myDate = calendarInterface.getValue();
         formattedDate = myDate.format(DateTimeFormatter.ofPattern("MM/dd/yy"));
         MySQLObject sql = new MySQLObject();
@@ -66,7 +66,6 @@ public class StudentViewCalendarController {
         timeColumn.setCellValueFactory(new PropertyValueFactory<>("time"));
         titleColumn.setCellValueFactory(new PropertyValueFactory<>("eventTitle"));
         eventTable.setItems(eventsList);
-        calendarInterface.show();
     }
 
     public void addEventButton(ActionEvent actionEvent){

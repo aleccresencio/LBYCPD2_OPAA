@@ -76,6 +76,10 @@
     -fx-font-size: 24;
 }
 
+.profileButton:hover {
+    -fx-background-color: #6a986d;
+}
+
 .backButton {
     -fx-background-color: white;
     -fx-background-image: url("assets/backButton.png");
@@ -101,6 +105,10 @@
     -fx-background-size: 280 100;
     -fx-background-position: center center;
     -fx-background-radius: 115;
+}
+
+.homeButton:hover{
+    -fx-border-color: #006937;
 }
 
 .calendarButton {
@@ -167,14 +175,13 @@
     -fx-text-fill: #46694A;
 }
 
-.listViewNotifs {
+.list-view {
     -fx-background-color: white;
     -fx-font-family: "Calibri Light";
     -fx-font-size: 18;
     -fx-text-background-color: #46694A;
     -fx-border-color: White;
     -fx-selection-bar: #99e29d;
-    -fx-selection-bar-non-focused: #bbe2bd;
 }
 
 .list-view .virtual-flow .scroll-bar:vertical,
@@ -197,6 +204,23 @@
 }
 .list-view .virtual-flow .scroll-bar:horizontal .thumb {
     -fx-background-color:  #46694A;
+}
+
+.list-view .list-cell {
+    -fx-background-color: rgba(74, 110, 78, 0.1);
+}
+.list-view .list-cell:odd {
+    -fx-background-color: rgba(74, 110, 78, 0.2);
+}
+
+.list-view .list-cell:hover{
+    -fx-background-color: #6a986d;
+    -fx-text-background-color: white;
+}
+
+.list-view .list-cell:selected{
+    -fx-background-color: #8ac78e;
+    -fx-text-background-color: white;
 }
 
 .requestMeetingTitleLabel {
@@ -313,12 +337,41 @@
 }
 
 .combo-box {
+    -fx-background-color: transparent;
+    -fx-border-color: #46694A;
+    -fx-border-radius: 10;
     -fx-mark-color: #46694A;
 }
 
-.combo-box .context-menu {
+.combo-box-popup .list-cell {
+    -fx-background-color: rgba(74, 110, 78, 0.1);
     -fx-font-family: "Calibri Light";
     -fx-font-size: 14;
+    -fx-text-background-color: #46694A;
+}
+
+.combo-box .virtual-flow .scroll-bar:vertical,
+.combo-box .virtual-flow .scroll-bar:vertical .track,
+.combo-box .virtual-flow .scroll-bar:vertical .track-background,
+.combo-box .virtual-flow .scroll-bar:horizontal,
+.combo-box .virtual-flow .scroll-bar:horizontal .track,
+.combo-box .virtual-flow .scroll-bar:horizontal .track-background {
+    -fx-background-color: rgba(74, 110, 78, 0.15);
+}
+
+.combo-box .virtual-flow .scroll-bar .increment-button,
+.combo-box .virtual-flow .scroll-bar .decrement-button {
+    -fx-opacity: 0;
+    -fx-padding: 2;
+}
+
+.combo-box .virtual-flow .scroll-bar:vertical .thumb{
+    -fx-background-color:  #46694A;
+}
+
+.combo-box-popup .list-cell:hover{
+    -fx-background-color: #6a986d;
+    -fx-text-background-color: white;
 }
 
 .combo-box .menu-item:focused { -fx-background-color: #6a986d; }
@@ -334,6 +387,7 @@
     -fx-border-radius: 10 0 0 10;
     -fx-border-color: #46694A;
     -fx-font-family: "Calibri Light";
+    -fx-text-background-color: #46694A;
     -fx-font-size: 14;
     -fx-text-fill: #46694A;
     -fx-alignment: center;
@@ -344,8 +398,8 @@
 }
 
 .date-picker-popup .calendar-grid {
-    -fx-pref-width: 500.0;
-    -fx-pref-height: 230.0;
+    -fx-pref-width: 420.0;
+    -fx-pref-height: 205.0;
     -fx-background-color: rgba(74, 110, 78, 0.15);
     -fx-background-radius: 7px 7px 7px 7px;
     -fx-border-color: transparent;
@@ -353,11 +407,16 @@
 
 .date-picker > .arrow-button {
     -fx-background-color: #006937;
-    -fx-background-radius: 10 10 10 10;
+    -fx-background-radius: 0 7px 7px 0;
+    -fx-background-padding: 0 50px 50px 0;
     -fx-background-size: 60% 60%;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center center;
     -fx-background-image: url("assets/calendar.png");
+}
+
+.date-picker > .arrow-button:hover {
+    -fx-background-color: #6a986d;
 }
 
 .date-picker-popup > .month-year-pane {
@@ -371,7 +430,7 @@
 
 .date-picker-popup > * > .spinner > .button {
     -fx-background-color: #006937;
-    -fx-background-radius: 7px;
+    -fx-background-radius: 5px;
 }
 
 .date-picker-popup > * > .day-name-cell,
@@ -399,4 +458,10 @@
 
 .date-picker-popup > * > .today {
     -fx-background-color: #99e29d;
+}
+
+.deleteAdviserPromptLabel {
+    -fx-font-family: "Calibri Light";
+    -fx-font-size: 22;
+    -fx-text-background-color: #46694A;
 }

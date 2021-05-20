@@ -828,7 +828,7 @@ public class MySQLObject {
             //establishes a connection to the database
             Connection connection = DriverManager.getConnection(url, username, password);
             //sql query that gets all of the students in the database
-            String getMeetings = "SELECT * FROM meetings WHERE from_id = "+userId+" OR to_id = "+userId+" AND sched LIKE '"+date+"%'";
+            String getMeetings = "SELECT * FROM meetings WHERE (from_id = "+userId+" OR to_id = "+userId+") AND sched LIKE '"+date+"%'";
             Statement firstStatement = connection.createStatement();
             ResultSet results = firstStatement.executeQuery(getMeetings);
             while(results.next()) {
@@ -867,7 +867,7 @@ public class MySQLObject {
             //establishes a connection to the database
             Connection connection = DriverManager.getConnection(url, username, password);
             //sql query that gets all of the students in the database
-            String getMeetings = "SELECT * FROM meetings WHERE from_id = "+userId+" OR to_id = "+userId+" AND sched LIKE '"+date+"%'";
+            String getMeetings = "SELECT * FROM meetings WHERE (from_id = "+userId+" OR to_id = "+userId+") AND sched LIKE '"+date+"%'";
             Statement firstStatement = connection.createStatement();
             ResultSet results = firstStatement.executeQuery(getMeetings);
             while(results.next()) {

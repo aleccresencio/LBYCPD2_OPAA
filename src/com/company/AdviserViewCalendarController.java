@@ -24,7 +24,6 @@ public class AdviserViewCalendarController {
 
     public void transferCurrentUser(UserObject currentUser) {
         this.currentUser = currentUser;
-        calendarInterface.show();
         hourDropDown.getItems().add("00");
         hourDropDown.getItems().add("01");
         hourDropDown.getItems().add("02");
@@ -53,10 +52,12 @@ public class AdviserViewCalendarController {
         }
         hourDropDown.setVisibleRowCount(5);
         minDropDown.setVisibleRowCount(5);
+        eventTable.setPlaceholder(new Label("No date selected."));
     }
     public String formattedDate;
     public  ObservableList<EventObject> eventsList = FXCollections.observableArrayList();
     public void getDate(ActionEvent actionEvent) {
+        eventTable.setPlaceholder(new Label("No events."));
         LocalDate myDate = calendarInterface.getValue();
         formattedDate = myDate.format(DateTimeFormatter.ofPattern("MM/dd/yy"));
         MySQLObject sql = new MySQLObject();
@@ -64,7 +65,6 @@ public class AdviserViewCalendarController {
         timeColumn.setCellValueFactory(new PropertyValueFactory<>("time"));
         titleColumn.setCellValueFactory(new PropertyValueFactory<>("eventTitle"));
         eventTable.setItems(eventsList);
-        calendarInterface.show();
     }
 
     public void addEventButton(ActionEvent actionEvent){
@@ -113,7 +113,7 @@ public class AdviserViewCalendarController {
 
     public void meetingsButton(ActionEvent actionEvent) throws IOException {
         buttonFunctions loadScreen = new buttonFunctions();
-        loadScreen.studentMeetingButton(meetingsButton, currentUser);
+        loadScreen.adviserMeetingsButton(meetingsButton, currentUser);
     }
 
     public void calendarButton(ActionEvent actionEvent) throws IOException {
@@ -128,7 +128,7 @@ public class AdviserViewCalendarController {
 
     public void homeButton(ActionEvent actionEvent) throws IOException {
         buttonFunctions loadScreen = new buttonFunctions();
-        loadScreen.studentHomeButton(homeButton, currentUser);
+        loadScreen.adviserHomeButton(homeButton, currentUser);
     }
 
     public void gradesButton(ActionEvent actionEvent) throws IOException {

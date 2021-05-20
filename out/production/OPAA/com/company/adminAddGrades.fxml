@@ -11,29 +11,29 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="root" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.AdminAddGradesController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="root" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.AdminAddGradesController">
    <children>
-      <Label fx:id="userNameLabel" layoutX="249.0" layoutY="97.0" prefHeight="42.0" prefWidth="501.0" styleClass="dateLabel" text="INPUT GRADES OF NEW STUDENT" />
-      <Button fx:id="addGradeButton" layoutX="265.0" layoutY="301.0" mnemonicParsing="false" onAction="#addGradeButton" prefHeight="30.0" prefWidth="107.0" styleClass="loginButton" text="ADD GRADE" />
-      <Button fx:id="backButton" layoutX="201.0" layoutY="359.0" mnemonicParsing="false" onAction="#backButton" prefHeight="30.0" prefWidth="175.0" styleClass="loginButton" text="CONFIRM GRADES" />
+      <Label fx:id="userNameLabel" layoutX="169.0" layoutY="118.0" prefHeight="55.0" prefWidth="663.0" styleClass="welcomeTitleLabel" text="INPUT GRADES OF NEW STUDENT" />
+      <Button fx:id="addGradeButton" layoutX="266.0" layoutY="322.0" mnemonicParsing="false" onAction="#addGradeButton" prefHeight="30.0" prefWidth="107.0" styleClass="loginButton" text="ADD GRADE" />
+      <Button fx:id="backButton" layoutX="202.0" layoutY="380.0" mnemonicParsing="false" onAction="#backButton" prefHeight="30.0" prefWidth="175.0" styleClass="loginButton" text="CONFIRM GRADES" />
       <ImageView fitHeight="104.0" fitWidth="241.0" layoutX="745.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@assets/opaa_logo.png" />
          </image>
       </ImageView>
-      <Label layoutX="101.0" layoutY="194.0" styleClass="textLabel" text="COURSE CODE:" />
-      <Label layoutX="174.0" layoutY="239.0" styleClass="textLabel" text="GRADE:" />
-      <TextField fx:id="courseCodeField" layoutX="265.0" layoutY="193.0" prefHeight="30.0" prefWidth="146.0" styleClass="txtFld" />
-      <Label fx:id="notifLabel" layoutX="142.0" layoutY="516.0" prefHeight="28.0" prefWidth="618.0" styleClass="textLabel" text="Label" visible="false" />
-      <TableView fx:id="gradeTable" layoutX="439.0" layoutY="188.0" prefHeight="254.0" prefWidth="459.0">
+      <Label layoutX="102.0" layoutY="215.0" styleClass="textLabel" text="COURSE CODE:" />
+      <Label layoutX="175.0" layoutY="260.0" styleClass="textLabel" text="GRADE:" />
+      <TextField fx:id="courseCodeField" layoutX="266.0" layoutY="214.0" prefHeight="30.0" prefWidth="146.0" styleClass="txtFld" />
+      <Label fx:id="notifLabel" layoutX="143.0" layoutY="537.0" prefHeight="28.0" prefWidth="618.0" styleClass="textLabel" text="Label" visible="false" />
+      <TableView fx:id="gradeTable" layoutX="440.0" layoutY="209.0" prefHeight="254.0" prefWidth="459.0">
         <columns>
           <TableColumn fx:id="courseColumn" prefWidth="250.0" text="Course Code" />
           <TableColumn fx:id="gradeColumn" prefWidth="200.0" text="Grade" />
         </columns>
       </TableView>
-      <Button fx:id="removeButton" layoutX="437.0" layoutY="458.0" mnemonicParsing="false" onAction="#removeButton" prefHeight="30.0" prefWidth="90.0" styleClass="loginButton" text="REMOVE" />
-      <Label fx:id="notifLabel" layoutX="100.0" layoutY="460.0" prefHeight="28.0" prefWidth="308.0" styleClass="textLabel" text="Label" visible="false" />
-      <ComboBox fx:id="gradeDropDown" layoutX="265.0" layoutY="238.0" prefHeight="30.0" prefWidth="74.0" styleClass="txtFld" />
+      <Button fx:id="removeButton" layoutX="438.0" layoutY="479.0" mnemonicParsing="false" onAction="#removeButton" prefHeight="30.0" prefWidth="90.0" styleClass="loginButton" text="REMOVE" />
+      <Label fx:id="notifLabel" layoutX="101.0" layoutY="481.0" prefHeight="28.0" prefWidth="308.0" styleClass="textLabel" text="Label" visible="false" />
+      <ComboBox fx:id="gradeDropDown" layoutX="266.0" layoutY="259.0" prefHeight="30.0" prefWidth="74.0" styleClass="combo-box" />
    </children>
    <stylesheets>
       <URL value="@opaa_stylesheet.css" />

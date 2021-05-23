@@ -25,7 +25,7 @@
           <TableColumn fx:id="titleColumn" prefWidth="339.20001220703125" text="TITLE" />
         </columns>
       </TableView>
-      <DatePicker fx:id="calendarInterface" layoutX="207.0" layoutY="274.0" onAction="#getDate" prefHeight="30.0" prefWidth="226.0" />
+      <DatePicker fx:id="calendarInterface" layoutX="64.0" layoutY="275.0" onAction="#getDate" prefHeight="30.0" prefWidth="226.0" />
       <Label layoutX="64.0" layoutY="186.0" styleClass="welcomeTitleLabel" text="CALENDAR" />
       <Button fx:id="addEventButton" layoutX="207.0" layoutY="428.0" mnemonicParsing="false" onAction="#addEventButton" styleClass="loginButton" text="ADD EVENT" />
       <ComboBox fx:id="hourDropDown" layoutX="207.0" layoutY="375.0" prefHeight="28.0" prefWidth="72.0" styleClass="txtFld" />

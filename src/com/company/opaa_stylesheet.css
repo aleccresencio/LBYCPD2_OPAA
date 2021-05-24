@@ -24,6 +24,12 @@
     -fx-text-fill: #46694A;
 }
 
+.notifLabel{
+    -fx-font-family: "Calibri Light";
+    -fx-font-size: 18;
+    -fx-text-fill: #46694A;
+}
+
 .headerLabel{
     -fx-font-family: "Calibri Light";
     -fx-font-size: 18;

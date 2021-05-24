@@ -55,6 +55,11 @@ public class ChangePasswordController {
             errorLabel.setText("Password entered does not match.");
         }
 
+        else if (oldPassword.equals(newPassword)) {
+            errorLabel.setVisible(true);
+            errorLabel.setText("Same Password Inputted. No changes made.");
+        }
+
         else {
             MySQLObject password = new MySQLObject();
             password.updatePassword(newPassword, currentUser.getUser_id());

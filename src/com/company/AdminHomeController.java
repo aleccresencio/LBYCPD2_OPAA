@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public class AdminHomeController {
     public UserObject currentUser;
-    public Button logoutButton, addStudentButton, editStudentButton, addAdviserButton, deleteAdviserButton;
+    public Button logoutButton, addStudentButton, editStudentButton, addAdviserButton, deleteAdviserButton, changePwButton;
     public Label userNameLabel;
     public void transferCurrentUser(UserObject currentUser) {
         this.currentUser = currentUser;
@@ -71,6 +71,22 @@ public class AdminHomeController {
         Parent root = loader.load();
         //transfers the current user to other controller
         AdminEditStudentController scene2Controller = loader.getController();
+        scene2Controller.transferCurrentUser(currentUser);
+        //Show new scene in new window
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root,1000,600));
+        stage.setTitle("OPAA");
+        stage.show();
+    }
+
+    public void changePwButton(ActionEvent actionEvent) throws IOException {
+        Stage stage1 = (Stage) addAdviserButton.getScene().getWindow();
+        stage1.close();
+        //loads new stage
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("changePassword.fxml"));
+        Parent root = loader.load();
+        //transfers the current user to other controller
+        ChangePasswordController scene2Controller = loader.getController();
         scene2Controller.transferCurrentUser(currentUser);
         //Show new scene in new window
         Stage stage = new Stage();

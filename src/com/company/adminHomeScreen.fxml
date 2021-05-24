@@ -7,12 +7,12 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="root" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.AdminHomeController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="root" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.AdminHomeController">
    <children>
       <Label fx:id="userNameLabel" layoutX="331.0" layoutY="111.0" prefHeight="55.0" prefWidth="342.0" styleClass="welcomeTitleLabel" text="ADMINISTRATOR" />
       <Button fx:id="addStudentButton" layoutX="211.0" layoutY="223.0" mnemonicParsing="false" onAction="#addStudentButton" prefHeight="55.0" prefWidth="206.0" styleClass="loginButton" text="ADD STUDENT" />
       <Button fx:id="addAdviserButton" layoutX="582.0" layoutY="223.0" mnemonicParsing="false" onAction="#addAdviserButton" prefHeight="55.0" prefWidth="206.0" styleClass="loginButton" text="ADD ADVISER" />
-      <Button fx:id="logoutButton" layoutX="446.0" layoutY="405.0" mnemonicParsing="false" onAction="#logoutButton" prefHeight="55.0" prefWidth="112.0" styleClass="loginButton" text="LOGOUT" />
+      <Button fx:id="logoutButton" layoutX="211.0" layoutY="380.0" mnemonicParsing="false" onAction="#logoutButton" prefHeight="55.0" prefWidth="206.0" styleClass="loginButton" text="LOGOUT" />
       <Button fx:id="editStudentButton" layoutX="211.0" layoutY="299.0" mnemonicParsing="false" onAction="#editStudentButton" prefHeight="55.0" prefWidth="205.0" styleClass="loginButton" text="EDIT / DELETE STUDENT" />
       <Button fx:id="deleteAdviserButton" layoutX="582.0" layoutY="299.0" mnemonicParsing="false" onAction="#deleteAdviserButton" prefHeight="55.0" prefWidth="206.0" styleClass="loginButton" text="DELETE ADVISER" />
       <ImageView fitHeight="104.0" fitWidth="241.0" layoutX="745.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
@@ -20,6 +20,7 @@
             <Image url="@assets/opaa_logo.png" />
          </image>
       </ImageView>
+      <Button fx:id="changePwButton" layoutX="582.0" layoutY="380.0" mnemonicParsing="false" onAction="#changePwButton" prefHeight="55.0" prefWidth="206.0" styleClass="loginButton" text="CHANGE PASSWORD" />
    </children>
    <stylesheets>
       <URL value="@opaa_stylesheet.css" />

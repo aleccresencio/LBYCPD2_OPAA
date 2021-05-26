@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="mainMenuRoot" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.AdviserMeetingScreenController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="mainMenuRoot" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.AdviserMeetingScreenController">
    <children>
       <Label layoutX="78.0" layoutY="173.0" prefHeight="55.0" prefWidth="211.0" styleClass="welcomeTitleLabel" text="MEETINGS">
          <font>
@@ -16,7 +16,7 @@
       <ListView fx:id="meetingsListView" layoutX="88.0" layoutY="240.0" prefHeight="234.0" prefWidth="794.0" styleClass="listViewNotifs" />
       <Button fx:id="setMeetingButton" layoutX="91.0" layoutY="489.0" mnemonicParsing="false" onAction="#setMeeting" prefHeight="55.0" prefWidth="53.0" styleClass="addButton" />
       <Button fx:id="removeButton" layoutX="311.0" layoutY="497.0" mnemonicParsing="false" onAction="#removeButton" prefHeight="40.0" prefWidth="110.0" styleClass="loginButton" text="REMOVE" />
-      <Label fx:id="notifLabel" layoutX="480.0" layoutY="520.0" prefHeight="28.0" prefWidth="280.0" styleClass="headerLabel" text="Label" visible="false" />
+      <Label fx:id="notifLabel" layoutX="444.0" layoutY="503.0" prefHeight="28.0" prefWidth="435.0" styleClass="headerLabel" text="Label" visible="false" />
       <Button fx:id="viewRequestsButton" layoutX="162.0" layoutY="497.0" mnemonicParsing="false" onAction="#viewRequestsButton" prefHeight="40.0" prefWidth="135.0" styleClass="loginButton" text="VIEW REQUESTS" />
       <Button fx:id="meetingsButton" layoutX="618.0" layoutY="42.0" mnemonicParsing="false" onAction="#meetingsButton" prefHeight="90.0" prefWidth="180.0" styleClass="meetingsButton" text="MEETINGS" />
       <Button fx:id="calendarButton" layoutX="434.0" layoutY="42.0" mnemonicParsing="false" onAction="#calendarButton" prefHeight="90.0" prefWidth="180.0" styleClass="calendarButton" text="CALENDAR" />

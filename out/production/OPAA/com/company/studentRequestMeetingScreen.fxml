@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="mainMenuRoot" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.StudentRequestMeetingScreenController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="mainMenuRoot" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.StudentRequestMeetingScreenController">
    <children>
       <Pane layoutX="55.0" layoutY="170.0" prefHeight="186.0" prefWidth="766.0" styleClass="requestMeetingContent">
          <children>
@@ -38,7 +38,7 @@
          </children>
       </Pane>
       <Button fx:id="confirmButton" layoutX="55.0" layoutY="400.0" mnemonicParsing="false" onAction="#confirmButton" prefHeight="40.0" prefWidth="116.0" styleClass="loginButton" text="CONFIRM" />
-      <Label fx:id="notifLabel" layoutX="241.0" layoutY="400.0" prefHeight="42.0" prefWidth="581.0" styleClass="textLabel" text="Label" visible="false" />
+      <Label fx:id="notifLabel" layoutX="181.0" layoutY="400.0" prefHeight="42.0" prefWidth="682.0" styleClass="notifLabel" text="Label" visible="false" />
       <Button fx:id="meetingsButton" layoutX="519.0" layoutY="41.0" mnemonicParsing="false" onAction="#meetingsButton" prefHeight="90.0" prefWidth="220.0" styleClass="meetingsButton" text="MEETINGS" />
       <Button fx:id="calendarButton" layoutX="745.0" layoutY="41.0" mnemonicParsing="false" onAction="#calendarButton" prefHeight="90.0" prefWidth="220.0" styleClass="calendarButton" text="CALENDAR" />
       <Button fx:id="profileButton" layoutX="292.0" layoutY="41.0" mnemonicParsing="false" onAction="#profileButton" prefHeight="90.0" prefWidth="220.0" styleClass="profileButton" text="PROFILE" />

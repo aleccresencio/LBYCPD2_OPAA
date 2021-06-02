@@ -39,6 +39,11 @@ optimized interaction between the students of De La Salle University and their r
 5.  Edit VM options (follow tutorial on how to set up VM options for javaFX)
 6.  Run the program
 
+# Sample Accounts in Database (Email, Password)
+- Student: (amgad_cadelina@dlsu.edu.ph, password), (alec_cresencio@dlsu.edu.ph, password), (issey_dee@dlsu.edu.ph, password)
+- Academic Adviser: (dino.ligutan@dlsu.edu.ph, password)
+- Admin: (admin, admin)
+
 # Revision Logs
 ### 04/03/21 
 - First push of the code in the repository, with working login system.

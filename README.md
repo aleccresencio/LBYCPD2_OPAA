@@ -23,6 +23,7 @@ optimized interaction between the students of De La Salle University and their r
 
 ### JAR File 
 - JDBC Driver
+- JavaFX
 
 ### GUI Implementation
 - JavaFX
@@ -32,9 +33,11 @@ optimized interaction between the students of De La Salle University and their r
 
 # Environment Setup
 1.  Install Java on device
-2.  Install MySQL, JavaFX, and JDBC library and add it to project dependencies.
+2.  Install MySQL on device
 3.  Clone the repository
-4.  Run the program
+4.  Add the lib folder which is located in the "javafx-sdk-11.0.2" folder to project dependencies 
+5.  Edit VM options (follow tutorial on how to set up VM options for javaFX)
+6.  Run the program
 
 # Revision Logs
 ### 04/03/21 

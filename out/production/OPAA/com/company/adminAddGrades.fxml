@@ -11,7 +11,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="root" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.AdminAddGradesController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="root" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.AdminAddGradesController">
    <children>
       <Label fx:id="userNameLabel" layoutX="169.0" layoutY="118.0" prefHeight="55.0" prefWidth="663.0" styleClass="welcomeTitleLabel" text="INPUT GRADES OF NEW STUDENT" />
       <Button fx:id="addGradeButton" layoutX="266.0" layoutY="322.0" mnemonicParsing="false" onAction="#addGradeButton" prefHeight="30.0" prefWidth="107.0" styleClass="loginButton" text="ADD GRADE" />
@@ -32,7 +32,7 @@
         </columns>
       </TableView>
       <Button fx:id="removeButton" layoutX="438.0" layoutY="479.0" mnemonicParsing="false" onAction="#removeButton" prefHeight="30.0" prefWidth="90.0" styleClass="loginButton" text="REMOVE" />
-      <Label fx:id="notifLabel" layoutX="101.0" layoutY="481.0" prefHeight="28.0" prefWidth="308.0" styleClass="textLabel" text="Label" visible="false" />
+      <Label fx:id="notifLabel" layoutX="32.0" layoutY="481.0" prefHeight="28.0" prefWidth="377.0" styleClass="textLabel" text="Label" visible="false" />
       <ComboBox fx:id="gradeDropDown" layoutX="266.0" layoutY="259.0" prefHeight="30.0" prefWidth="74.0" styleClass="combo-box" />
    </children>
    <stylesheets>

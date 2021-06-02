@@ -1,0 +1,666 @@
+@startuml
+
+title __COMPANY's Class Diagram__\n
+
+  namespace com.company {
+    class com.company.AdminAddAdviserController {
+        + addButton : Button
+        + backButton : Button
+        + emailField : TextField
+        + firstNameField : TextField
+        + lastNameField : TextField
+        + logoutButton : Button
+        + notifLabel : Label
+        + userNameLabel : Label
+        + addButton()
+        + backButton()
+        + transferCurrentUser()
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.AdminAddGradesController {
+        + addGradeButton : Button
+        + backButton : Button
+        + courseCodeField : TextField
+        + courseColumn : TableColumn<GradesObject, String>
+        + gradeColumn : TableColumn<GradesObject, String>
+        + gradeDropDown : ComboBox<String>
+        + gradeTable : TableView<GradesObject>
+        + gradesList : ObservableList<GradesObject>
+        + logoutButton : Button
+        + newUserId : int
+        + notifLabel : Label
+        + removeButton : Button
+        + userNameLabel : Label
+        + addGradeButton()
+        + backButton()
+        + removeButton()
+        + transferCurrentUser()
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.AdminAddStudentController {
+        + addButton : Button
+        + adviserDropDown : ComboBox<String>
+        + backButton : Button
+        + emailField : TextField
+        + firstNameField : TextField
+        + lastNameField : TextField
+        + logoutButton : Button
+        + notifLabel : Label
+        + userNameLabel : Label
+        ~ adviserList : ObservableList<UserObject>
+        + addButton()
+        + backButton()
+        + transferCurrentUser()
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.AdminDeleteAdviserController {
+        + adviserList : ObservableList<UserObject>
+        + adviserListView : ListView<String>
+        + backButton : Button
+        + deleteAdviserButton : Button
+        + editAdviserButton : Button
+        + editGradesButton : Button
+        + notifLabel : Label
+        + replaceDropDown : ComboBox<String>
+        + replacementAdvisers : ObservableList<UserObject>
+        + userNameLabel : Label
+        + backButton()
+        + deleteAdviserButton()
+        + transferCurrentUser()
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.AdminEditAdviserController {
+        + addButton : Button
+        + adviserDropDown : ComboBox<String>
+        + adviserNameLabel : Label
+        + adviser_id : int
+        + backButton : Button
+        + confirmButton : Button
+        + emailField : TextField
+        + firstName : String
+        + firstNameField : TextField
+        + lastName : String
+        + lastNameField : TextField
+        + logoutButton : Button
+        + notifLabel : Label
+        + studentNameLabel : Label
+        + user_id : int
+        ~ adviserList : ObservableList<UserObject>
+        + backButton()
+        + confirmButton()
+        + transferCurrentUser()
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.AdminEditGradesController {
+        + addGradeButton : Button
+        + backButton : Button
+        + courseCodeField : TextField
+        + courseColumn : TableColumn<GradesObject, String>
+        + gradeColumn : TableColumn<GradesObject, String>
+        + gradeDropDown : ComboBox<String>
+        + gradeTable : TableView<GradesObject>
+        + gradesList : ObservableList<GradesObject>
+        + logoutButton : Button
+        + notifLabel : Label
+        + removeButton : Button
+        + studentNameLabel : Label
+        + userId : int
+        + addGradeButton()
+        + backButton()
+        + removeButton()
+        + transferCurrentUser()
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.AdminEditStudentController {
+        + backButton : Button
+        + deleteStudentButton : Button
+        + editAdviserButton : Button
+        + editGradesButton : Button
+        + notifLabel : Label
+        + studentList : ObservableList<UserObject>
+        + studentsListView : ListView<String>
+        + userNameLabel : Label
+        + backButton()
+        + deleteStudentButton()
+        + editAdviserButton()
+        + editGradesButton()
+        + transferCurrentUser()
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.AdminHomeController {
+        + addAdviserButton : Button
+        + addStudentButton : Button
+        + changePwButton : Button
+        + deleteAdviserButton : Button
+        + editStudentButton : Button
+        + logoutButton : Button
+        + userNameLabel : Label
+        + addAdviserButton()
+        + addStudentButton()
+        + changePwButton()
+        + deleteAdviserButton()
+        + editStudentButton()
+        + logoutButton()
+        + transferCurrentUser()
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.AdviserHomeScreenController {
+        + calendarButton : Button
+        + gradesButton : Button
+        + homeButton : Button
+        + logoutButton : Button
+        + meetingsButton : Button
+        + notifView : ListView<String>
+        + profileButton : Button
+        + userNameLabel : Label
+        + calendarButton()
+        + gradesButton()
+        + homeButton()
+        + logoutButton()
+        + meetingsButton()
+        + profileButton()
+        + transferCurrentUser()
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.AdviserMeetingScreenController {
+        + calendarButton : Button
+        + gradesButton : Button
+        + homeButton : Button
+        + logoutButton : Button
+        + meetingsButton : Button
+        + meetingsListView : ListView<String>
+        + notifLabel : Label
+        + profileButton : Button
+        + removeButton : Button
+        + setMeetingButton : Button
+        + userNameLabel : Label
+        + viewRequestsButton : Button
+        + calendarButton()
+        + gradesButton()
+        + homeButton()
+        + logoutButton()
+        + meetingsButton()
+        + profileButton()
+        + removeButton()
+        + setMeeting()
+        + transferCurrentUser()
+        + viewRequestsButton()
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.AdviserSetMeetingScreenController {
+        + calendarButton : Button
+        + confirmButton : Button
+        + datePicker : DatePicker
+        + gradesButton : Button
+        + homeButton : Button
+        + hourDropDown : ComboBox<String>
+        + logoutButton : Button
+        + meetingsButton : Button
+        + minDropDown : ComboBox<String>
+        + notifLabel : Label
+        + profileButton : Button
+        + userNameLabel : Label
+        ~ meetingDate : String
+        + calendarButton()
+        + confirmButton()
+        + getDate()
+        + gradesButton()
+        + homeButton()
+        + logoutButton()
+        + meetingsButton()
+        + profileButton()
+        + transferCurrentUser()
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.AdviserViewCalendarController {
+        + calendarButton : Button
+        + calendarInterface : DatePicker
+        + eventTable : TableView<EventObject>
+        + eventsList : ObservableList<EventObject>
+        + formattedDate : String
+        + gradesButton : Button
+        + homeButton : Button
+        + hourDropDown : ComboBox<String>
+        + logoutButton : Button
+        + meetingsButton : Button
+        + minDropDown : ComboBox<String>
+        + notifLabel : Label
+        + profileButton : Button
+        + timeColumn : TableColumn<EventObject, String>
+        + titleColumn : TableColumn<EventObject, String>
+        + titleField : TextField
+        + addEventButton()
+        + calendarButton()
+        + getDate()
+        + gradesButton()
+        + homeButton()
+        + logoutButton()
+        + meetingsButton()
+        + profileButton()
+        + removeButton()
+        + transferCurrentUser()
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.AdviserViewGradesController {
+        + calendarButton : Button
+        + courseColumn : TableColumn<GradesObject, String>
+        + gradeColumn : TableColumn<GradesObject, String>
+        + gradeTable : TableView<GradesObject>
+        + gradesButton : Button
+        + homeButton : Button
+        + logoutButton : Button
+        + meetingsButton : Button
+        + notifLabel : Label
+        + profileButton : Button
+        + studentList : ObservableList<UserObject>
+        + studentsListView : ListView<String>
+        + userNameLabel : Label
+        + calendarButton()
+        + gradesButton()
+        + homeButton()
+        + logoutButton()
+        + meetingsButton()
+        + profileButton()
+        + transferCurrentUser()
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.AdviserViewRequestsController {
+        + acceptButton : Button
+        + calendarButton : Button
+        + date : TableColumn<RequestObject, String>
+        + declineButton : Button
+        + firstName : TableColumn<RequestObject, String>
+        + gradesButton : Button
+        + homeButton : Button
+        + lastName : TableColumn<RequestObject, String>
+        + logoutButton : Button
+        + meetingsButton : Button
+        + notifLabel : Label
+        + profileButton : Button
+        + requestId : TableColumn<RequestObject, Integer>
+        + requestTable : TableView<RequestObject>
+        + time : TableColumn<RequestObject, String>
+        + userNameLabel : Label
+        + acceptButton()
+        + calendarButton()
+        + declineButton()
+        + gradesButton()
+        + homeButton()
+        + logoutButton()
+        + meetingsButton()
+        + profileButton()
+        + transferCurrentUser()
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.ChangePasswordController {
+        + backButton : Button
+        + confirmPasswordFld : PasswordField
+        + errorLabel : Label
+        + newPasswordFld : PasswordField
+        + oldPasswordFld : PasswordField
+        + updatePasswordButton : Button
+        + usernameLabel : Label
+        + goBackButton()
+        + handleUpdatePassword()
+        + transferCurrentUser()
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.Controller {
+        + incorrectLabel : Label
+        + loginButton : Button
+        + pwField : PasswordField
+        + usernameField : TextField
+        + loginButton()
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.EditProfileController {
+        + backButton : Button
+        + changePasswordButton : Button
+        + dpButton : Button
+        + userRole : Label
+        + usernameLabel : Label
+        + changeDpButton()
+        + goBackButton()
+        + passwordButton()
+        + transferCurrentUser()
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.EventObject {
+        - eventTitle : String
+        - event_id : int
+        - time : String
+        + getEventTitle()
+        + getEvent_id()
+        + getTime()
+        + setEventTitle()
+        + setTime()
+        ~ EventObject()
+        ~ EventObject()
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.GradesObject {
+        - course_grades : String
+        - course_names : String
+        + getCourse_grades()
+        + getCourse_names()
+        + setCourse_grades()
+        + setCourse_names()
+        ~ GradesObject()
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.Main {
+        {static} + main()
+        + start()
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.MySQLObject {
+        + password : String
+        + url : String
+        + username : String
+        ~ newUserId : int
+        + acceptRequest()
+        + addAdviser()
+        + addEvent()
+        + addGrades()
+        + addStudent()
+        + changeAdviser()
+        + checkLogin()
+        + checkMeetings()
+        + checkRequests()
+        + declineRequest()
+        + deleteAdviser()
+        + deleteStudent()
+        + getAdviserEvents()
+        + getAdviserName()
+        + getAdvisers()
+        + getAllStudents()
+        + getCourseNamesOrGrades()
+        + getPossibleAdvisers()
+        + getStudentEvents()
+        + getStudents()
+        + removeEvent()
+        + removeGrades()
+        + removeMeeting()
+        + removeMeetingRequest()
+        + returnLastId()
+        + sendRequest()
+        + setMeeting()
+        + studentNotifs()
+        + updatePassword()
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.RequestObject {
+        - date : String
+        - firstName : String
+        - fromId : int
+        - lastName : String
+        - requestId : int
+        - time : String
+        - toId : int
+        + RequestObject()
+        + getDate()
+        + getFirstName()
+        + getFromId()
+        + getLastName()
+        + getRequestId()
+        + getTime()
+        + getToId()
+        + setDate()
+        + setFirstName()
+        + setFromId()
+        + setLastName()
+        + setRequestId()
+        + setTime()
+        + setToId()
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.StudentHomeScreenController {
+        + calendarButton : Button
+        + homeButton : Button
+        + logoutButton : Button
+        + meetingsButton : Button
+        + notifView : ListView<String>
+        + profileButton : Button
+        + userNameLabel : Label
+        + calendarButton()
+        + homeButton()
+        + logoutButton()
+        + meetingsButton()
+        + profileButton()
+        + transferCurrentUser()
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.StudentMeetingsScreenController {
+        + calendarButton : Button
+        + homeButton : Button
+        + logoutButton : Button
+        + meetingsButton : Button
+        + meetingsListView : ListView<String>
+        + notifLabel : Label
+        + profileButton : Button
+        + removeButton : Button
+        + requestMeetingButton : Button
+        + userNameLabel : Label
+        + calendarButton()
+        + homeButton()
+        + logoutButton()
+        + meetingsButton()
+        + profileButton()
+        + removeButton()
+        + requestMeeting()
+        + transferCurrentUser()
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.StudentRequestMeetingScreenController {
+        + calendarButton : Button
+        + confirmButton : Button
+        + datePicker : DatePicker
+        + dayField : TextField
+        + homeButton : Button
+        + hourDropDown : ComboBox<String>
+        + hourField : TextField
+        + logoutButton : Button
+        + meetingsButton : Button
+        + minDropDown : ComboBox<String>
+        + minuteField : TextField
+        + monthField : TextField
+        + notifLabel : Label
+        + profileButton : Button
+        + userNameLabel : Label
+        + yearField : TextField
+        ~ meetingDate : String
+        + calendarButton()
+        + confirmButton()
+        + getDate()
+        + homeButton()
+        + logoutButton()
+        + meetingsButton()
+        + profileButton()
+        + transferCurrentUser()
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.StudentViewCalendarController {
+        + calendarButton : Button
+        + calendarInterface : DatePicker
+        + eventTable : TableView<EventObject>
+        + eventsList : ObservableList<EventObject>
+        + formattedDate : String
+        + homeButton : Button
+        + hourDropDown : ComboBox<String>
+        + logoutButton : Button
+        + meetingsButton : Button
+        + minDropDown : ComboBox<String>
+        + notifLabel : Label
+        + profileButton : Button
+        + timeColumn : TableColumn<EventObject, String>
+        + titleColumn : TableColumn<EventObject, String>
+        + titleField : TextField
+        + addEventButton()
+        + calendarButton()
+        + getDate()
+        + homeButton()
+        + logoutButton()
+        + meetingsButton()
+        + profileButton()
+        + removeButton()
+        + transferCurrentUser()
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.UserObject {
+        - adviser : int
+        - division : String
+        - email : String
+        - firstName : String
+        - lastName : String
+        - password : String
+        - user_id : int
+        + UserObject()
+        + UserObject()
+        + UserObject()
+        + getAdviser()
+        + getDivision()
+        + getEmail()
+        + getFirstName()
+        + getLastName()
+        + getPassword()
+        + getUser_id()
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.buttonFunctions {
+        + adviserCalendarButton()
+        + adviserHomeButton()
+        + adviserMeetingsButton()
+        + changePasswordButton()
+        + gradesButton()
+        + logoutButton()
+        + profileButton()
+        + studentCalendarButton()
+        + studentHomeButton()
+        + studentMeetingButton()
+    }
+  }
+  
+
+  com.company.AdminAddAdviserController o-- com.company.UserObject : currentUser
+  com.company.AdminAddGradesController o-- com.company.UserObject : currentUser
+  com.company.AdminAddStudentController o-- com.company.UserObject : currentUser
+  com.company.AdminDeleteAdviserController o-- com.company.UserObject : currentUser
+  com.company.AdminEditAdviserController o-- com.company.UserObject : currentUser
+  com.company.AdminEditGradesController o-- com.company.UserObject : currentUser
+  com.company.AdminEditStudentController o-- com.company.UserObject : currentUser
+  com.company.AdminHomeController o-- com.company.UserObject : currentUser
+  com.company.AdviserHomeScreenController o-- com.company.UserObject : currentUser
+  com.company.AdviserMeetingScreenController o-- com.company.UserObject : currentUser
+  com.company.AdviserMeetingScreenController o-- com.company.buttonFunctions : loadScreen
+  com.company.AdviserSetMeetingScreenController o-- com.company.UserObject : currentUser
+  com.company.AdviserSetMeetingScreenController o-- com.company.buttonFunctions : loadScreen
+  com.company.AdviserViewCalendarController o-- com.company.UserObject : currentUser
+  com.company.AdviserViewCalendarController o-- com.company.buttonFunctions : loadScreen
+  com.company.AdviserViewGradesController o-- com.company.UserObject : currentUser
+  com.company.AdviserViewGradesController o-- com.company.buttonFunctions : loadScreen
+  com.company.AdviserViewRequestsController o-- com.company.UserObject : currentUser
+  com.company.AdviserViewRequestsController o-- com.company.buttonFunctions : loadScreen
+  com.company.ChangePasswordController o-- com.company.UserObject : currentUser
+  com.company.Controller o-- com.company.UserObject : currentUser
+  com.company.EditProfileController o-- com.company.UserObject : currentUser
+  com.company.EditProfileController o-- com.company.buttonFunctions : loadScreen
+  com.company.Main -up-|> javafx.application.Application
+  com.company.StudentHomeScreenController o-- com.company.UserObject : currentUser
+  com.company.StudentHomeScreenController o-- com.company.buttonFunctions : loadScreen
+  com.company.StudentMeetingsScreenController o-- com.company.UserObject : currentUser
+  com.company.StudentMeetingsScreenController o-- com.company.buttonFunctions : loadScreen
+  com.company.StudentRequestMeetingScreenController o-- com.company.UserObject : currentUser
+  com.company.StudentRequestMeetingScreenController o-- com.company.buttonFunctions : loadScreen
+  com.company.StudentViewCalendarController o-- com.company.UserObject : currentUser
+  com.company.StudentViewCalendarController o-- com.company.buttonFunctions : loadScreen
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

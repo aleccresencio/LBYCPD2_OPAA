@@ -1,0 +1,214 @@
+@startuml
+
+title __OPAA's Class Diagram__\n
+
+  namespace com.company {
+    class com.company.AdminAddAdviserController {
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.AdminAddGradesController {
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.AdminAddStudentController {
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.AdminDeleteAdviserController {
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.AdminEditAdviserController {
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.AdminEditGradesController {
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.AdminEditStudentController {
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.AdminHomeController {
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.AdviserHomeScreenController {
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.AdviserMeetingScreenController {
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.AdviserSetMeetingScreenController {
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.AdviserViewCalendarController {
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.AdviserViewGradesController {
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.AdviserViewRequestsController {
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.ChangePasswordController {
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.Controller {
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.EditProfileController {
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.EventObject {
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.GradesObject {
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.Main {
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.MySQLObject {
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.RequestObject {
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.StudentHomeScreenController {
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.StudentMeetingsScreenController {
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.StudentRequestMeetingScreenController {
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.StudentViewCalendarController {
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.UserObject {
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.buttonFunctions {
+    }
+  }
+  
+
+  com.company.AdminAddAdviserController o-- com.company.UserObject : currentUser
+  com.company.AdminAddGradesController o-- com.company.UserObject : currentUser
+  com.company.AdminAddStudentController o-- com.company.UserObject : currentUser
+  com.company.AdminDeleteAdviserController o-- com.company.UserObject : currentUser
+  com.company.AdminEditAdviserController o-- com.company.UserObject : currentUser
+  com.company.AdminEditGradesController o-- com.company.UserObject : currentUser
+  com.company.AdminEditStudentController o-- com.company.UserObject : currentUser
+  com.company.AdminHomeController o-- com.company.UserObject : currentUser
+  com.company.AdviserHomeScreenController o-- com.company.UserObject : currentUser
+  com.company.AdviserMeetingScreenController o-- com.company.UserObject : currentUser
+  com.company.AdviserMeetingScreenController o-- com.company.buttonFunctions : loadScreen
+  com.company.AdviserSetMeetingScreenController o-- com.company.UserObject : currentUser
+  com.company.AdviserSetMeetingScreenController o-- com.company.buttonFunctions : loadScreen
+  com.company.AdviserViewCalendarController o-- com.company.UserObject : currentUser
+  com.company.AdviserViewCalendarController o-- com.company.buttonFunctions : loadScreen
+  com.company.AdviserViewGradesController o-- com.company.UserObject : currentUser
+  com.company.AdviserViewGradesController o-- com.company.buttonFunctions : loadScreen
+  com.company.AdviserViewRequestsController o-- com.company.UserObject : currentUser
+  com.company.AdviserViewRequestsController o-- com.company.buttonFunctions : loadScreen
+  com.company.ChangePasswordController o-- com.company.UserObject : currentUser
+  com.company.Controller o-- com.company.UserObject : currentUser
+  com.company.EditProfileController o-- com.company.UserObject : currentUser
+  com.company.EditProfileController o-- com.company.buttonFunctions : loadScreen
+  com.company.Main -up-|> javafx.application.Application
+  com.company.StudentHomeScreenController o-- com.company.UserObject : currentUser
+  com.company.StudentHomeScreenController o-- com.company.buttonFunctions : loadScreen
+  com.company.StudentMeetingsScreenController o-- com.company.UserObject : currentUser
+  com.company.StudentMeetingsScreenController o-- com.company.buttonFunctions : loadScreen
+  com.company.StudentRequestMeetingScreenController o-- com.company.UserObject : currentUser
+  com.company.StudentRequestMeetingScreenController o-- com.company.buttonFunctions : loadScreen
+  com.company.StudentViewCalendarController o-- com.company.UserObject : currentUser
+  com.company.StudentViewCalendarController o-- com.company.buttonFunctions : loadScreen
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

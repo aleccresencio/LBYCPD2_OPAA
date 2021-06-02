@@ -65,7 +65,30 @@ optimized interaction between the students of De La Salle University and their r
 - Started working on the view requests feature.
 
 ### 04/21/21
-- Finished the view requests feature
+- Finished the view requests feature for the advisers accounts
+
+### 04/28/21
+- Finished the change password feature for all accounts
+
+### 05/05/21
+- Finished the view calendar feature for the students and advisers accounts
+
+### 05/12/21
+- Finished the add event feature
+- Implemented the view notifications feature
+
+### 05/19/21
+- Added the reassign students feature for the admin account
+- Finished the add students and adviser feature for the admin account
+- Implemented the assign students added to an adviser feature in adding student
+
+### 05/20/21
+- Added the delete students and adviser feature for the admin account
+- Implemented the reassign students under deleted Adviser feature
+
+### 05/21/21
+- Implemented the edit grades feature for the admin account
+- Implemented the editing of the  current academic adviser of a student
 
 # Information about contributors
 
